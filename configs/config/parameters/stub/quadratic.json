@@ -1,0 +1,20 @@
+// Definition of parameters for a quadratic function
+
+[
+  {
+    "min": -1,
+    "max": 1
+  },
+  {
+    "min": -1,
+    "max": 1
+  },
+  {
+    "min": -1,
+    "max": 1
+  },
+  {
+    "min": -1,
+    "max": 1
+  }
+]

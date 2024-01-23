@@ -1,0 +1,8 @@
+// Definitions of all parameters used in CACC by Swaroop
+[
+  {
+    "min": 0,
+    "max": 1,
+    "config": "*.node[*].scenario.ploegKp"
+  }
+]
