@@ -1,21 +1,13 @@
 from flask import Flask, request, jsonify
 import time , json
 import itertools
+import sqlite3
+from enum import Enum
+
 
 
 app = Flask(__name__)
-enVar_steps = {
-        "leaderspeed": {
-            "min": 10,
-            "max": 200,
-            "step": 10
-        },
-        "frameErrorRate": {
-            "min": 0.0,
-            "max": 1.0,
-            "step": 0.1
-        }
-    }
+
 
 
 @app.route('/hello')
@@ -27,7 +19,7 @@ def hello():
 @app.route('/getEnVar')
 def getEnVar():
     try: 
-        db = Database("data.db")
+        db = Database(database_path)
         db.connect()
         enVar = utils.find_new_combination(enVar_steps, db.done_Sims)
     except Exception as e:
@@ -63,9 +55,26 @@ def ping():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    with open('config.json', 'r') as f:
+        config = json.load(f)
+
+    enVar_steps = config['enVar_steps']
+    database_path = config['database_path']
+
+
+class ControllerType(Enum):
+    CACC = "CACC"
+
+    @staticmethod
+    def from_string(s):
+        for member in ControllerType:
+            if member.value == s:
+                return member
+        raise ValueError(f"No ControllerType member with value '{s}' found")
+
 
 class utils:
-    def find_new_combination(input_json, checkdatabase):
+    def find_new_combination(Controller: ControllerType, input_json, checkdatabase):
         # Kinda Override range() to use float
         def float_range(start, stop, step):
             while start <= stop:
@@ -82,7 +91,7 @@ class utils:
         all_combinations = itertools.product(leaderspeed_values, errorrate_values)
 
         # Get already used combinations
-        used_combinations = checkdatabase(ControllerType.from_string(input_json["Controller"]))
+        used_combinations = checkdatabase(Controller)
 
         # Find a new combination
         for combination in all_combinations:
@@ -91,18 +100,6 @@ class utils:
 
         return None # In case all combinations are used
     
-import sqlite3
-from enum import Enum
-
-class ControllerType(Enum):
-    CACC = "CACC"
-
-    @staticmethod
-    def from_string(s):
-        for member in ControllerType:
-            if member.value == s:
-                return member
-        raise ValueError(f"No ControllerType member with value '{s}' found")
 
 
 class Database:

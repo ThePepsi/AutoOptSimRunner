@@ -28,7 +28,6 @@ class FlaskAppTestCase(unittest.TestCase):
             return json_tuple in value_pairs
         
         json = {
-            "Controller": "CACC",
             "leaderspeed": {
                 "min": 10,
                 "max": 50,
@@ -51,7 +50,7 @@ class FlaskAppTestCase(unittest.TestCase):
         missing_values = [(10, 0.0), (10, 0.5), (30, 0.5), (20, 0.0), (40, 0.75)]
 
         # Generate all Combinations, and give missing 
-        open_values = utils.find_new_combination(json, all_db_combos)
+        open_values = utils.find_new_combination(ControllerType.CACC, json, all_db_combos)
 
         # Check if the generated (open) Values is as expected
         self.assertTrue(check_value_in_list(missing_values, open_values) )
@@ -143,6 +142,16 @@ class FlaskAppTestCase(unittest.TestCase):
 
         test_db.disconnect()
         self.rm_db("test.db")
+    def test_enVar_route(self):
+        
+        # Send a GET request to the /hello route
+        response = self.client.get('/getEnVar')
+
+        # Check if the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Check if the response data is as expected
+        self.assertEqual(response.json, {"message": "Hello, world!"})
 
 
 

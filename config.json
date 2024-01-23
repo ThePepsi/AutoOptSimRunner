@@ -1,0 +1,15 @@
+{
+    "enVar_steps":{
+        "leaderspeed": {
+            "min": 10,
+            "max": 200,
+            "step": 10
+        },
+        "frameErrorRate": {
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.1
+        }
+    },
+    "database_path": "data.db"
+}
