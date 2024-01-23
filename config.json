@@ -1,5 +1,8 @@
 {
     "enVar_steps":{
+        "controller":[
+            "CACC"
+        ],
         "leaderspeed": {
             "min": 10,
             "max": 200,

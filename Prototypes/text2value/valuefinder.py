@@ -44,8 +44,8 @@ def extract_scenario_data(text):
 
 
 # Usage
-file_path = 'C:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\text2value\\out.txt'
+file_path = 'C:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\Prototypes\\text2value\\out.txt'
 last_block = read_last_block(file_path)
 block_with_text = find_block_with_text(last_block,"1. Result")
 scenario_data = extract_scenario_data(block_with_text)
-print(scenario_data)
+print(block_with_text)
