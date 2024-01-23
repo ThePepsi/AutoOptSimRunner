@@ -17,20 +17,29 @@ enVar_steps = {
         }
     }
 
+
+@app.route('/hello')
+def hello():
+    #only here for testing reasons
+    return jsonify({"message": "Hello, world!"})
+
+
 @app.route('/getEnVar')
 def getEnVar():
     try: 
-        db = Database()
+        db = Database("data.db")
         db.connect()
-        utils.find_new_combination(enVar_steps, db.open_Sims)
+        enVar = utils.find_new_combination(enVar_steps, db.done_Sims)
     except Exception as e:
             print(e)
             return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
     finally:
         db.disconnect()
+        return enVar
     
 @app.route('/data', methods=['POST'])
 def receive_data():
+    print("Data received:", data)
     try:
         msg_data = json.loads(request.json)
         data = msg_data.pop("data", None)
@@ -43,10 +52,6 @@ def receive_data():
         return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
     finally:
         db.disconnect()
-
-    
-    print("Data received:", data)
-    raise NotImplementedError
     return jsonify({"status": "success", "message": "Data received"}), 200
 
 @app.route('/ping')
@@ -61,22 +66,28 @@ if __name__ == '__main__':
 
 class utils:
     def find_new_combination(input_json, checkdatabase):
+        # Kinda Override range() to use float
+        def float_range(start, stop, step):
+            while start <= stop:
+                yield round(start, 10)  # Round to prevent floating-point arithmetic issues
+                start += step
+
         # Generate all possible combinations
         def generate_combinations(range_info):
-            return [i for i in range(range_info["min"], range_info["max"] + 1, int((range_info["max"] - range_info["min"]) / range_info["step"]))]
+            return [i for i in float_range(range_info["min"], range_info["max"] + 1, int((range_info["max"] - range_info["min"]) / range_info["step"]))]
 
         leaderspeed_values = generate_combinations(input_json["leaderspeed"])
-        errorrate_values = generate_combinations(input_json["errorrate"])
+        errorrate_values = generate_combinations(input_json["frameErrorRate"])
 
         all_combinations = itertools.product(leaderspeed_values, errorrate_values)
 
         # Get already used combinations
-        used_combinations = checkdatabase()
+        used_combinations = checkdatabase(ControllerType.from_string(input_json["Controller"]))
 
         # Find a new combination
         for combination in all_combinations:
             if combination not in used_combinations:
-                return {"leaderspeed": combination[0], "errorrate": combination[1]}
+                return {"leaderspeed": combination[0], "frameErrorRate": combination[1]}
 
         return None # In case all combinations are used
     
@@ -154,24 +165,22 @@ class Database:
         self.conn.commit()
         return
     
-    def open_Sims(self):
-        raise NotImplementedError
-
-    def entry_exists(self, params):
+    def done_Sims(self,  controller: ControllerType):
         #ToDo: !!! Add third variable 
-        """
-        Check if there's an entry with the same leaderspeed and frameErrorRate.
-        'params' is a dictionary with keys 'leaderspeed' and 'frameErrorRate'.
-        Returns True if exists, False otherwise.
-        """
+        # Connect to the database
         cur = self.conn.cursor()
+
+        # SQL query to fetch distinct pairs of leaderspeed and frameErrorRate
+        query = """
+            SELECT DISTINCT leaderspeed, frameErrorRate 
+            FROM RunSim 
+            WHERE Controller = ?
+            """
         try:
-            query = "SELECT COUNT(*) FROM RunSim WHERE leaderspeed = :leaderspeed AND frameErrorRate = :frameErrorRate"
-            cur.execute(query, params)
-            count = cur.fetchone()[0]
-            return count > 0
+            cur.execute(query, (controller.value,))
+            combinations = cur.fetchall()
+            return combinations
         except sqlite3.Error as e:
-            print(f"An error occurred: {e}")
-            return False
-        
-       
+            print(f"Database error: {e}")
+        finally:
+            cur.close()
