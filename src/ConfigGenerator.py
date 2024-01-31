@@ -41,6 +41,21 @@ class ConfigGenerator:
     def copy_file_to_folder(self, source, destination):
         shutil.copy2(source, destination)
 
-    def revert_changes_in_folder(self, folder_path, backup_folder_path):
-        for filename in os.listdir(backup_folder_path):
-            shutil.copy2(os.path.join(backup_folder_path, filename), os.path.join(folder_path, filename))
+    def rename_file(self, current_path, new_name):
+        """
+        Renames a file from current_path to new_name in the same directory.
+
+        Parameters:
+        current_path (str): The current path (including file name) of the file.
+        new_name (str): The new name of the file.
+        """
+        if not os.path.isfile(current_path):
+            raise FileNotFoundError(f"The file {current_path} does not exist.")
+
+        directory = os.path.dirname(current_path)
+        new_path = os.path.join(directory, new_name)
+
+        if os.path.exists(new_path):
+            raise FileExistsError(f"The file {new_name} already exists in {directory}.")
+
+        os.rename(current_path, new_path)

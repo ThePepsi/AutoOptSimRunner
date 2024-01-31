@@ -1,5 +1,4 @@
-import unittest, json, os
-from configparser import ConfigParser
+import unittest, json, os, shutil
 from src.ConfigGenerator import ConfigGenerator
 
 class ConfigGen_ini_TestCase(unittest.TestCase):
@@ -111,3 +110,52 @@ class ConfigGen_json_TestCase(unittest.TestCase):
                 }
             }
         self.assertEqual(expected, data)
+
+class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
+    def setUp(self):
+        self.handler = ConfigGenerator()
+        # Setup a temporary directory and file for testing
+        self.test_dir = "test_dir"
+        self.test_file = "test_file.txt"
+        self.dest_dir = "dest_dir"
+        os.mkdir(self.test_dir)
+        os.mkdir(self.dest_dir)
+        with open(os.path.join(self.test_dir, self.test_file), 'w') as f:
+            f.write("Test content")
+
+    def test_copy_file_to_folder(self):
+        
+        source = os.path.join(self.test_dir, self.test_file)
+        destination = self.dest_dir
+
+        # Call the method
+        self.handler.copy_file_to_folder(source, destination)
+
+        # Check if the file exists in the new location
+        self.assertTrue(os.path.isfile(os.path.join(destination, self.test_file)))
+        
+    def test_rename_file_success(self):
+        current_path = os.path.join(self.test_dir, self.test_file)
+        new_name = "renamed_file.txt"
+        self.handler.rename_file(current_path, new_name)
+        self.assertTrue(os.path.isfile(os.path.join(self.test_dir, new_name)))
+
+    def test_rename_file_nonexistent(self):
+        with self.assertRaises(FileNotFoundError):
+            self.handler.rename_file("nonexistent_file.txt", "new_name.txt")
+
+    def test_rename_file_conflict(self):
+        # Create another file to cause a name conflict
+        conflict_file = "conflict_file.txt"
+        with open(os.path.join(self.test_dir, conflict_file), 'w') as f:
+            f.write("Some content")
+
+        with self.assertRaises(FileExistsError):
+            self.handler.rename_file(os.path.join(self.test_dir, self.test_file), conflict_file)
+
+    def tearDown(self):
+        # Clean up: Remove the directories and files created for the test
+        shutil.rmtree(self.test_dir)
+        shutil.rmtree(self.dest_dir)
+
+
