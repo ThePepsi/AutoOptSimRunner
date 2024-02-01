@@ -52,6 +52,12 @@ class Client:
 def pong():
     print("pong")
     threading.Timer(3, pong).start()
+    try:
+        server_ip = f"http://{config['server_ip']}:5000"
+        response = requests.get(f'{server_ip}/ping')
+        print(json.loads(response.text))
+    except Exception as e:
+        print(e)
 
 
 if __name__ == '__main__':
