@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import time , json
 import itertools
 import sqlite3
+import socket
 
 from src.ControllerType import ControllerType 
 from src.Database import Database
@@ -55,9 +56,23 @@ def ping():
     client_ip = request.remote_addr
     print(f'PING: {client_ip}, Timestamp: {timestamp}')
 
+def get_ip_address():
+    try:
+        # Create a socket object
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # Connect to a server
+        s.connect(("8.8.8.8", 80))
+        # Get the IP address
+        ip_address = s.getsockname()[0]
+        s.close()
+        return ip_address
+    except Exception as e:
+        return f"Error occurred: {e}"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+    print("IP: " + get_ip_address())
 
     # Default configuration file
     default_config_path = 'config.json'
