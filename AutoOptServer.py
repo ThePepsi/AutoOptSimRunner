@@ -71,11 +71,13 @@ def get_ip_address():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
     print("IP: " + get_ip_address())
-
     # Default configuration file
     default_config_path = 'config.json'
 
     # Load default configuration
-    app.config.from_json(default_config_path)
+    with open(default_config_path, 'r') as config_file:
+        app.config.update(json.load(config_file))
+    app.run(debug=True)
+
+
