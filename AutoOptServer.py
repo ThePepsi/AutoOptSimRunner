@@ -55,6 +55,7 @@ def ping():
     timestamp = time.time()
     client_ip = request.remote_addr
     print(f'PING: {client_ip}, Timestamp: {timestamp}')
+    return jsonify({"status": "success", "message": "Data received"}), 200
 
 def get_ip_address():
     try:
@@ -78,6 +79,6 @@ if __name__ == '__main__':
     # Load default configuration
     with open(default_config_path, 'r') as config_file:
         app.config.update(json.load(config_file))
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 

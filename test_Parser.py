@@ -1,4 +1,4 @@
-import unittest, json
+import unittest, json, os
 from src.TextParser import TextParser
 
 class Parser_TestCase(unittest.TestCase):
@@ -6,7 +6,7 @@ class Parser_TestCase(unittest.TestCase):
 
     def setUp(self):
         self.parser = TextParser()
-        self.testPath = "src\\out.txt"
+        self.testPath = os.path.join("src", "out.txt")
 
 
     # def test_parse_lastBlock(self):

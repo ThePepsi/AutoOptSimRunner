@@ -1,4 +1,4 @@
-import threading
+import threading, os
 import requests
 import json
 import subprocess
@@ -19,9 +19,9 @@ class Client:
 
     def create_Config(enVar):
         try:
-            ConfigGenerator.copy_file_to_folder("configs\\omnetpp.ini","\\")
+            ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"),"")
             ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
-            ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
+            ConfigGenerator.delete_file(os.path.join(config['ini_path'], "omnetpp.ini"))
             ConfigGenerator.copy_file_to_folder("omnetpp.ini",config['ini_path'])
         except Exception as e:
             print(e)
