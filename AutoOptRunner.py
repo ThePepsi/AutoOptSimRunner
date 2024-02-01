@@ -59,7 +59,9 @@ if __name__ == '__main__':
 
     # Default configuration file
     default_config_path = 'config.json'
-    config = json.load(default_config_path)
+    with open(default_config_path, 'r') as config_file:
+        config = json.load(default_config_path)
+    
 
     while True:
         user_input = input()
