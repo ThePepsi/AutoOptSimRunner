@@ -3,7 +3,7 @@
         "controller":[
             "CACC"
         ],
-        "leaderspeed": {
+        "leaderSpeed": {
             "min": 10,
             "max": 200,
             "step": 10

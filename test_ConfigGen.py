@@ -12,7 +12,7 @@ class ConfigGen_ini_TestCase(unittest.TestCase):
                 "*.**.nic.mac1609_4.frameErrorRate = $frameErrorRate$")
             
     def test_keys_in_tokens(self):
-        keydict = "{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderspeed': 10}"
+        keydict = {'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10}
         
         replacment = ConfigGenerator.keys_in_tokens(keydict)
 
@@ -187,10 +187,3 @@ class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
         # Clean up - remove the file if it still exists
         if os.path.exists(self.temp_file):
             os.remove(self.temp_file)
-
-
-        
-
-
-
-

@@ -11,7 +11,7 @@ def check(value_pair):
 def generate_value_pair(steps):
     # Test the function
     steps = {
-        "leaderspeed": {
+        "leaderSpeed": {
             "min": 10,
             "max": 200,
             "step": 10
@@ -28,7 +28,7 @@ def generate_value_pair(steps):
             yield round(start, 10)  # Round to prevent floating-point arithmetic issues
             start += step
 
-    params1 = steps["leaderspeed"]
+    params1 = steps["leaderSpeed"]
     params2 = steps["frameErrorRate"]
 
     min1, max1, step1 = params1["min"], params1["max"], params1["step"]

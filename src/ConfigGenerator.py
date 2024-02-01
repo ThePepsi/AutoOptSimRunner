@@ -8,13 +8,17 @@ class ConfigGenerator:
         pass
     
     @staticmethod
-    def keys_in_tokens(values):
-        allowed_keys = ["leaderspeed", "frameErrorRate"]
-        replacement = {}
-        for key, value in values:
-            if allowed_keys.__contains__(key):
-                replacement.append(f"${key}$",value)
-        return replacement
+    def keys_in_tokens(original_data):
+        allowed_keys = ["leaderSpeed", "frameErrorRate"]
+        replacements = {}
+        for key in allowed_keys:
+            if key in original_data:
+                # Surround the key with $
+                formatted_key = '$' + ''.join(key.split('_')) + '$'
+                # Add the key-value pair to the replacements dictionary
+                replacements[formatted_key] = str(original_data[key])
+        return replacements
+
 
     @staticmethod
     def replace_tokens_in_ini(file_path, replacement):

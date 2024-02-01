@@ -17,7 +17,7 @@ class Server_TestCase(unittest.TestCase):
                 "controller": [
                     "CACC"
                 ],
-                "leaderspeed": {
+                "leaderSpeed": {
                     "min": 10,
                     "max": 50,
                     "step": 10
@@ -48,7 +48,7 @@ class Server_TestCase(unittest.TestCase):
             CREATE TABLE RunSim (
                 id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 Controller TEXT,
-                leaderspeed NUMERIC,
+                leaderSpeed NUMERIC,
                 frameErrorRate NUMERIC,
                 data INTEGER
             );
@@ -102,7 +102,7 @@ class Server_TestCase(unittest.TestCase):
     def test_utils_find_combo(self):
         def check_value_in_list(value_pairs, json_data):
             # Convert JSON values to a tuple
-            json_tuple = (json_data["controller"] ,json_data['leaderspeed'], json_data['frameErrorRate'])
+            json_tuple = (json_data["controller"] ,json_data['leaderSpeed'], json_data['frameErrorRate'])
 
             # Check if the tuple is in the list of value pairs
             return json_tuple in value_pairs
@@ -111,7 +111,7 @@ class Server_TestCase(unittest.TestCase):
             "controller": [
                 "CACC"
                 ],
-            "leaderspeed": {
+            "leaderSpeed": {
                 "min": 10,
                 "max": 50,
                 "step": 10
@@ -156,7 +156,7 @@ class Server_TestCase(unittest.TestCase):
         for x in range(10,20,10):
             test_db.add_sim_run(ControllerType.CACC, 
                 {
-                    "leaderspeed" : x,
+                    "leaderSpeed" : x,
                     "frameErrorRate" : 0.1
                 }, 
                 {   
@@ -178,7 +178,7 @@ class Server_TestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Check if the response data is as expected
-        self.assertEqual(response.json, {'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderspeed': 10})
+        self.assertEqual(response.json, {'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10})
 
 if __name__ == '__main__':
     unittest.main()

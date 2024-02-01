@@ -13,11 +13,11 @@ class utils:
         def generate_combinations(range_info):
             return [i for i in float_range(range_info["min"], range_info["max"] + 1, int((range_info["max"] - range_info["min"]) / range_info["step"]))]
 
-        leaderspeed_values = generate_combinations(input_enVar_json["leaderspeed"])
+        leaderSpeed_values = generate_combinations(input_enVar_json["leaderSpeed"])
         errorrate_values = generate_combinations(input_enVar_json["frameErrorRate"])
         controller_values = input_enVar_json["controller"]
 
-        all_combinations = itertools.product(leaderspeed_values, errorrate_values, controller_values)
+        all_combinations = itertools.product(leaderSpeed_values, errorrate_values, controller_values)
 
         # Get already used combinations
         used_combinations = checkdatabase()
@@ -25,7 +25,7 @@ class utils:
         # Find a new combination
         for combination in all_combinations:
             if combination not in used_combinations:
-                return {"controller": combination [2], "leaderspeed": combination[0], "frameErrorRate": combination[1]}
+                return {"controller": combination [2], "leaderSpeed": combination[0], "frameErrorRate": combination[1]}
 
         return None # In case all combinations are used
     

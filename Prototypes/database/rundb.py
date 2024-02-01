@@ -67,13 +67,13 @@ class Database:
     def entry_exists(self, params):
         #ToDo: !!! Add third variable 
         """
-        Check if there's an entry with the same leaderspeed and frameErrorRate.
-        'params' is a dictionary with keys 'leaderspeed' and 'frameErrorRate'.
+        Check if there's an entry with the same leaderSpeed and frameErrorRate.
+        'params' is a dictionary with keys 'leaderSpeed' and 'frameErrorRate'.
         Returns True if exists, False otherwise.
         """
         cur = self.conn.cursor()
         try:
-            query = "SELECT COUNT(*) FROM RunSim WHERE leaderspeed = :leaderspeed AND frameErrorRate = :frameErrorRate"
+            query = "SELECT COUNT(*) FROM RunSim WHERE leaderSpeed = :leaderSpeed AND frameErrorRate = :frameErrorRate"
             cur.execute(query, params)
             count = cur.fetchone()[0]
             return count > 0
@@ -89,11 +89,11 @@ db.connect()
 x = db.is_connected()
 print(x)
 # db.add_sim_run(ControllerType.CACC, {
-#     "leaderspeed" : 100,
+#     "leaderSpeed" : 100,
 #     "frameErrorRate" : 0.1
 # }, {'caccC1': '1', 'caccOmegaN': '10Hz', 'caccXi': '5'})
 x = db.entry_exists({
-    "leaderspeed" : 100,
+    "leaderSpeed" : 100,
     "frameErrorRate" : 0.2
 })
 print(x)

@@ -67,9 +67,9 @@ class Database:
         # Connect to the database
         cur = self.conn.cursor()
 
-        # SQL query to fetch distinct pairs of leaderspeed and frameErrorRate
+        # SQL query to fetch distinct pairs of leaderSpeed and frameErrorRate
         query = """
-            SELECT DISTINCT Controller, leaderspeed, frameErrorRate 
+            SELECT DISTINCT Controller, leaderSpeed, frameErrorRate 
             FROM RunSim 
             """
         try:
