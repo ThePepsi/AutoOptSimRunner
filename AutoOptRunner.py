@@ -3,6 +3,7 @@ import requests
 import json
 import subprocess
 from src.TextParser import TextParser
+from src.ConfigGenerator import ConfigGenerator
 
 server_ip = "http://127.0.0.1:5000"
 output_filepath = "output.txt"
@@ -16,8 +17,16 @@ class Client:
         except Exception as e:
             print(e)
 
-    def create_Config():
-        raise NotImplementedError
+    def create_Config(enVar):
+        try:
+            ConfigGenerator.copy_file_to_folder("configs\\omnetpp.ini","\\")
+            ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
+            ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
+            ConfigGenerator.copy_file_to_folder("omnetpp.ini",config['ini_path'])
+        except Exception as e:
+            print(e)
+            raise Exception     
+        
 
     def run_Sim():
         try:
@@ -47,6 +56,10 @@ def pong():
 
 if __name__ == '__main__':
     pong()
+
+    # Default configuration file
+    default_config_path = 'config.json'
+    config = json.load(default_config_path)
 
     while(True):
         # get Variables

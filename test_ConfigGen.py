@@ -7,27 +7,26 @@ class ConfigGen_ini_TestCase(unittest.TestCase):
         self.temp_ini_file = 'temp_test.ini'
         with open(self.temp_ini_file, 'w') as file:
             file.write(
-                       "#average leader speed\n"
-                       "*.node[*].scenario.leaderSpeed = ${leaderSpeed = $leaderSpeed$}kmph\n"
-                       "*.**.nic.mac1609_4.frameErrorRate = $frameErrorRate$")
+                "#average leader speed\n"
+                "*.node[*].scenario.leaderSpeed = ${leaderSpeed = $leaderSpeed$}kmph\n"
+                "*.**.nic.mac1609_4.frameErrorRate = $frameErrorRate$")
 
     def test_replace_tokens_in_ini(self):
         replacements = {
             '$leaderSpeed$': '100',
-            '$frameErrorRate$' : '0.2'
-            }
-        print(self.temp_ini_file)
+            '$frameErrorRate$': '0.2'
+        }
+
         ConfigGenerator.replace_tokens_in_ini(
-            src_path = self.temp_ini_file,
-            dest_file_path = "temp_edited_test.ini", 
-            replacement = replacements
-            )
+            file_path=self.temp_ini_file, 
+            replacement=replacements
+        )
         
         expected = '''#average leader speed
 *.node[*].scenario.leaderSpeed = ${leaderSpeed = 100}kmph
 *.**.nic.mac1609_4.frameErrorRate = 0.2'''
 
-        with open('temp_edited_test.ini', 'r') as file:
+        with open(self.temp_ini_file, 'r') as file:
             file_content = file.read()
 
         # Verifying the replacement
@@ -36,8 +35,7 @@ class ConfigGen_ini_TestCase(unittest.TestCase):
     def tearDown(self):
         # Clean up - remove the temporary file
         os.remove(self.temp_ini_file)
-        os.remove("temp_edited_test.ini")
-        pass
+
 
 
 class ConfigGen_json_TestCase(unittest.TestCase):
@@ -123,8 +121,12 @@ class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
         with open(os.path.join(self.test_dir, self.test_file), 'w') as f:
             f.write("Test content")
 
+        # Create a temporary file for testing deleting
+        self.temp_file = "temp_test_file.txt"
+        with open(self.temp_file, 'w') as file:
+            file.write("Test content")
+
     def test_copy_file_to_folder(self):
-        
         source = os.path.join(self.test_dir, self.test_file)
         destination = self.dest_dir
 
@@ -153,9 +155,28 @@ class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             self.handler.rename_file(os.path.join(self.test_dir, self.test_file), conflict_file)
 
+    def test_delete_file(self):
+        # Test file deletion
+        self.handler.delete_file(self.temp_file)
+        
+        # Check if file has been deleted
+        self.assertFalse(os.path.exists(self.temp_file))
+
+    def test_delete_nonexistent_file(self):
+        # Test deletion of a file that doesn't exist
+        with self.assertRaises(FileNotFoundError):
+            self.handler.delete_file("nonexistent_file.txt")
+
     def tearDown(self):
         # Clean up: Remove the directories and files created for the test
         shutil.rmtree(self.test_dir)
         shutil.rmtree(self.dest_dir)
+        # Clean up - remove the file if it still exists
+        if os.path.exists(self.temp_file):
+            os.remove(self.temp_file)
+
+        
+
+
 
 
