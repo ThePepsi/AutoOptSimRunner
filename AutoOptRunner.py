@@ -6,13 +6,15 @@ from src.TextParser import TextParser
 from src.ConfigGenerator import ConfigGenerator
 
 output_filepath = "output.txt"
+config = ""
 
 class Client:
         
     def get_Variables():
         try:
             server_ip = f"http://{config['server_ip']}:5000"
-            response = requests.get(f'{server_ip}/getEnVar')
+            response = requests.get(f'{server_ip}/getEnVar')#
+            print(json.loads(response.text))
             return json.loads(response.text)
         except Exception as e:
             print(e)
@@ -20,8 +22,12 @@ class Client:
     def create_Config(enVar):
         try:
             ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"),"")
+            print("1")
             ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
             ConfigGenerator.delete_file(os.path.join(config['ini_path'], "omnetpp.ini"))
+            print("2")
+            ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
+            print("3")
             ConfigGenerator.copy_file_to_folder("omnetpp.ini",config['ini_path'])
         except Exception as e:
             print(e)
@@ -51,7 +57,7 @@ class Client:
 
 def pong():
     print("pong")
-    threading.Timer(3, pong).start()
+    threading.Timer(30, pong).start()
     try:
         server_ip = f"http://{config['server_ip']}:5000"
         response = requests.get(f'{server_ip}/ping')
@@ -61,13 +67,13 @@ def pong():
 
 
 if __name__ == '__main__':
-    pong()
 
     # Default configuration file
     default_config_path = 'config.json'
     with open(default_config_path, 'r') as config_file:
-        config = json.load(default_config_path)
-    
+        config = json.load(config_file)  
+
+    pong()
 
     while True:
         user_input = input()
@@ -85,3 +91,4 @@ if __name__ == '__main__':
         # report Data
         Client.report_Data(data, enVar)
         # TODO cleanUp
+
