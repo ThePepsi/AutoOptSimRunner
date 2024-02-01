@@ -21,7 +21,7 @@ class Client:
 
     def create_Config(enVar):
         try:
-            ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"),"")
+            ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"), os.path.dirname(os.path.abspath(__file__)))
             print("1")
             ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
             ConfigGenerator.delete_file(os.path.join(config['ini_path'], "omnetpp.ini"))
@@ -75,11 +75,7 @@ if __name__ == '__main__':
 
     pong()
 
-    while True:
-        user_input = input()
-        if user_input.lower() == 'exit':
-            break
-        print("You started a new line. Press Enter again or type 'exit' to quit.")
+    input("Press Enter to continue...")
 
     while(True):
         # get Variables
