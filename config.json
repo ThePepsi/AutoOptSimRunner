@@ -15,6 +15,6 @@
         }
     },
     "database_path": "data.db",
-    "ini_path":"TODO", 
-    "server_ip": "TODO"
+    "ini_path":"src/plexe/examples/platooning/", 
+    "server_ip": "192.168.178.195"
 }
