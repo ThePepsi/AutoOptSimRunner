@@ -5,13 +5,13 @@ import subprocess
 from src.TextParser import TextParser
 from src.ConfigGenerator import ConfigGenerator
 
-server_ip = "http://127.0.0.1:5000"
 output_filepath = "output.txt"
 
 class Client:
         
     def get_Variables():
         try:
+            server_ip = f"http://{config['server_ip']}:5000"
             response = requests.get(f'{server_ip}/getEnVar')
             return json.loads(response.text)
         except Exception as e:
@@ -61,6 +61,12 @@ if __name__ == '__main__':
     default_config_path = 'config.json'
     config = json.load(default_config_path)
 
+    while True:
+        user_input = input()
+        if user_input.lower() == 'exit':
+            break
+        print("You started a new line. Press Enter again or type 'exit' to quit.")
+
     while(True):
         # get Variables
         enVar = Client.get_Variables()
@@ -70,3 +76,4 @@ if __name__ == '__main__':
         data = Client.run_Sim()
         # report Data
         Client.report_Data(data, enVar)
+        # TODO cleanUp

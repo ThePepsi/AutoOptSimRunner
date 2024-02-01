@@ -15,5 +15,6 @@
         }
     },
     "database_path": "data.db",
-    "ini_path":"TODO"
+    "ini_path":"TODO", 
+    "server_ip":
 }
