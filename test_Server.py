@@ -1,6 +1,7 @@
 import unittest, os, sqlite3
 from AutoOptServer import app  # Import your Flask app
-from AutoOptServer import utils, Database, ControllerType
+from AutoOptServer import utils, Database
+from src.ControllerType import ControllerType
 
 class Server_TestCase(unittest.TestCase):
     test_db_name = "test.db"
