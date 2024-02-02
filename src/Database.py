@@ -1,6 +1,6 @@
 import sqlite3
-from src.ControllerType import ControllerType
-
+from typing import List, Tuple
+from ControllerType import ControllerType
 
 class Database:
     def __init__(self, db_file):
@@ -80,3 +80,27 @@ class Database:
             print(f"Database error: {e}")
         finally:
             cur.close()
+
+    def add_enVar(self, controller: ControllerType, values: List[Tuple]):
+        """
+        Fügt Einträge in die Tabelle ein, die dem Wert von 'controller' entspricht.
+        'values' ist eine Liste von Tupeln mit den Daten für 'leaderSpeed', 'startBraking' und 'frameErrorRate'.
+        """
+        if not self.conn:
+            print("Keine Datenbankverbindung vorhanden.")
+            return
+
+        controller_name = controller.value  # controller.value gibt den Tabellennamen als String zurück
+        placeholders = ', '.join(['?'] * len(values[0]))  # Erzeugt eine Platzhalterzeichenfolge, z.B. "?, ?, ?"
+        sql_query = f"INSERT INTO RunSim (Controller, leaderSpeed, startBraking, frameErrorRate) VALUES ('{controller_name}', {placeholders})"
+
+        cursor = self.conn.cursor()
+        try:
+            print(sql_query)
+            cursor.executemany(sql_query, values)  # Verwendet executemany für effiziente Masseneinfügungen
+            self.conn.commit()
+            print(f"{cursor.rowcount} Datensätze erfolgreich zu 'RunSim' hinzugefügt.")
+        except sqlite3.Error as e:
+            print(f"Fehler beim Einfügen der Daten: {e}")
+        finally:
+            cursor.close()
