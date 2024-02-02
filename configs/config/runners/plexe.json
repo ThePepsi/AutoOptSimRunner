@@ -18,8 +18,7 @@
   "repeat": 3,
   // scenarios to simulate
   "scenarios": [
-    "BrakingNoGui",
-    "SinusoidalNoGui"
+    "BrakingNoGui"
   ],
   // path to directory containing omnetpp.ini
   "configDirectory": "/home/plexe/src/plexe/examples/platooning"

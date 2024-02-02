@@ -1,0 +1,1176 @@
+[Running] python -u "c:\Users\timos\Documents\Work\11_WiSe2324\01_BA\04_Git\AutoOptSimRunner\AutoOptServer.py"
+IP: 192.168.178.196
+ * Serving Flask app 'AutoOptServer'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.196:5000
+Press CTRL+C to quit
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptRunner.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+PING: 192.168.178.196, Timestamp: 1706752209.292272
+192.168.178.196 - - [01/Feb/2024 02:50:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752239.2804623
+192.168.178.196 - - [01/Feb/2024 02:50:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752421.6313806
+192.168.178.196 - - [01/Feb/2024 02:53:41] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 02:54:07] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752471.9549575
+192.168.178.196 - - [01/Feb/2024 02:54:31] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752499.2988074
+192.168.178.196 - - [01/Feb/2024 02:54:59] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752754.5307972
+192.168.178.196 - - [01/Feb/2024 02:59:14] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 02:59:36] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752856.646171
+192.168.178.196 - - [01/Feb/2024 03:00:56] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706752861.605535
+192.168.178.196 - - [01/Feb/2024 03:01:01] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706753347.264883
+192.168.178.196 - - [01/Feb/2024 03:09:07] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 03:09:19] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706753389.3134174
+192.168.178.196 - - [01/Feb/2024 03:09:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706753422.6014922
+192.168.178.196 - - [01/Feb/2024 03:10:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706753785.511102
+192.168.178.196 - - [01/Feb/2024 03:16:25] "GET /ping HTTP/1.1" 200 -
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\test_ConfigGen.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+
+[Done] exited with code=1 in 1822.866 seconds
+
+[Running] python -u "c:\Users\timos\Documents\Work\11_WiSe2324\01_BA\04_Git\AutoOptSimRunner\AutoOptServer.py"
+IP: 192.168.178.196
+ * Serving Flask app 'AutoOptServer'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.196:5000
+Press CTRL+C to quit
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+PING: 192.168.178.196, Timestamp: 1706755162.325904
+192.168.178.196 - - [01/Feb/2024 03:39:22] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 03:39:38] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706755203.4916089
+192.168.178.196 - - [01/Feb/2024 03:40:03] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706755243.1172779
+192.168.178.196 - - [01/Feb/2024 03:40:43] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706755729.698195
+192.168.178.196 - - [01/Feb/2024 03:48:49] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 03:49:01] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706755767.657431
+192.168.178.196 - - [01/Feb/2024 03:49:27] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756074.0411134
+192.168.178.196 - - [01/Feb/2024 03:54:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756103.9621105
+192.168.178.196 - - [01/Feb/2024 03:55:03] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 03:55:21] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756152.2896962
+192.168.178.196 - - [01/Feb/2024 03:55:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756193.0936234
+192.168.178.196 - - [01/Feb/2024 03:56:33] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756223.3129065
+192.168.178.196 - - [01/Feb/2024 03:57:03] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756253.2871113
+192.168.178.196 - - [01/Feb/2024 03:57:33] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756283.420627
+192.168.178.196 - - [01/Feb/2024 03:58:03] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756313.7894945
+192.168.178.196 - - [01/Feb/2024 03:58:33] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756343.87157
+192.168.178.196 - - [01/Feb/2024 03:59:03] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756373.8968315
+192.168.178.196 - - [01/Feb/2024 03:59:33] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756404.0335772
+192.168.178.196 - - [01/Feb/2024 04:00:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756434.1371121
+192.168.178.196 - - [01/Feb/2024 04:00:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756464.2363987
+192.168.178.196 - - [01/Feb/2024 04:01:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756494.3072433
+192.168.178.196 - - [01/Feb/2024 04:01:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756524.3818274
+192.168.178.196 - - [01/Feb/2024 04:02:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756554.4822266
+192.168.178.196 - - [01/Feb/2024 04:02:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756584.5706494
+192.168.178.196 - - [01/Feb/2024 04:03:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756614.6252186
+192.168.178.196 - - [01/Feb/2024 04:03:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756644.7377112
+192.168.178.196 - - [01/Feb/2024 04:04:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756674.9238436
+192.168.178.196 - - [01/Feb/2024 04:04:34] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756704.9908211
+192.168.178.196 - - [01/Feb/2024 04:05:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756735.4268775
+192.168.178.196 - - [01/Feb/2024 04:05:35] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756765.5488062
+192.168.178.196 - - [01/Feb/2024 04:06:05] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756795.6554072
+192.168.178.196 - - [01/Feb/2024 04:06:35] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756827.1765075
+192.168.178.196 - - [01/Feb/2024 04:07:07] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756956.5457468
+192.168.178.196 - - [01/Feb/2024 04:09:16] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:09:28] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706756993.684284
+192.168.178.196 - - [01/Feb/2024 04:09:53] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757086.7153091
+192.168.178.196 - - [01/Feb/2024 04:11:26] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:11:46] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757124.6400146
+192.168.178.196 - - [01/Feb/2024 04:12:04] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757173.9994621
+192.168.178.196 - - [01/Feb/2024 04:12:53] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:13:09] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757216.719794
+192.168.178.196 - - [01/Feb/2024 04:13:36] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:13:48] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757340.551541
+192.168.178.196 - - [01/Feb/2024 04:15:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757370.5239818
+192.168.178.196 - - [01/Feb/2024 04:16:10] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:16:20] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757411.3751252
+192.168.178.196 - - [01/Feb/2024 04:16:51] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:16:58] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757459.2885454
+192.168.178.196 - - [01/Feb/2024 04:17:39] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:18:01] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757501.1371655
+192.168.178.196 - - [01/Feb/2024 04:18:21] "GET /ping HTTP/1.1" 200 -
+192.168.178.196 - - [01/Feb/2024 04:18:24] "POST /data HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "c:\Users\timos\Documents\Work\11_WiSe2324\01_BA\04_Git\AutoOptSimRunner\AutoOptServer.py", line 38, in receive_data
+    print("Data received:", data)
+UnboundLocalError: local variable 'data' referenced before assignment
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:18:24] "GET /getEnVar HTTP/1.1" 200 -
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+PING: 192.168.178.196, Timestamp: 1706757657.4741938
+192.168.178.196 - - [01/Feb/2024 04:20:57] "GET /ping HTTP/1.1" 200 -
+
+[Done] exited with code=1 in 2666.337 seconds
+
+[Running] python -u "c:\Users\timos\Documents\Work\11_WiSe2324\01_BA\04_Git\AutoOptSimRunner\AutoOptServer.py"
+IP: 192.168.178.196
+ * Serving Flask app 'AutoOptServer'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.196:5000
+Press CTRL+C to quit
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+PING: 192.168.178.196, Timestamp: 1706757703.3170304
+192.168.178.196 - - [01/Feb/2024 04:21:43] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:21:46] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757739.8699026
+192.168.178.196 - - [01/Feb/2024 04:22:19] "GET /ping HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:22:19] "POST /data HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "c:\Users\timos\Documents\Work\11_WiSe2324\01_BA\04_Git\AutoOptSimRunner\AutoOptServer.py", line 50, in receive_data
+    db.disconnect()
+UnboundLocalError: local variable 'db' referenced before assignment
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:23:54] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757834.2970002
+192.168.178.196 - - [01/Feb/2024 04:23:54] "GET /ping HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:23:56] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:23:56] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:23] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:23] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706757864.2220917
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /ping HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:24] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:24] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:25] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:25] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:26] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:26] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:27] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:27] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:28] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:28] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:29] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:29] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:30] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:30] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:31] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:31] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:32] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:32] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:33] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:33] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:34] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:34] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:34] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:34] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:24:34] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:24:34] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758002.3572373
+192.168.178.196 - - [01/Feb/2024 04:26:42] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:26:45] "GET /getEnVar HTTP/1.1" 200 -
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:26:55] "POST /data HTTP/1.1" 500 -
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:28:37] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758118.054839
+192.168.178.196 - - [01/Feb/2024 04:28:38] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+ValueError, probably ControllerType
+192.168.178.196 - - [01/Feb/2024 04:28:41] "POST /data HTTP/1.1" 500 -
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:29:57] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758197.086284
+192.168.178.196 - - [01/Feb/2024 04:29:57] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Database.__init__() missing 1 required positional argument: 'db_file'
+192.168.178.196 - - [01/Feb/2024 04:29:59] "POST /data HTTP/1.1" 500 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:29:59] "GET /getEnVar HTTP/1.1" 200 -
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+ * Detected change in 'c:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\AutoOptServer.py', reloading
+ * Restarting with stat
+IP: 192.168.178.196
+ * Debugger is active!
+ * Debugger PIN: 298-907-561
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 04:30:47] "POST /data HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758247.3460867
+192.168.178.196 - - [01/Feb/2024 04:30:47] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:30:47] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758477.0553474
+192.168.178.196 - - [01/Feb/2024 04:34:37] "GET /ping HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:34:39] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758507.1129887
+192.168.178.196 - - [01/Feb/2024 04:35:07] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758537.1629636
+192.168.178.196 - - [01/Feb/2024 04:35:37] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758567.202891
+192.168.178.196 - - [01/Feb/2024 04:36:07] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758597.3059342
+192.168.178.196 - - [01/Feb/2024 04:36:37] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758627.3707874
+192.168.178.196 - - [01/Feb/2024 04:37:07] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758657.3839478
+192.168.178.196 - - [01/Feb/2024 04:37:37] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758687.7311678
+192.168.178.196 - - [01/Feb/2024 04:38:07] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758718.788113
+192.168.178.196 - - [01/Feb/2024 04:38:38] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758748.7979429
+192.168.178.196 - - [01/Feb/2024 04:39:08] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758779.267861
+192.168.178.196 - - [01/Feb/2024 04:39:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758809.2113326
+192.168.178.196 - - [01/Feb/2024 04:40:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758839.2625973
+192.168.178.196 - - [01/Feb/2024 04:40:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758869.2876334
+192.168.178.196 - - [01/Feb/2024 04:41:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758899.358574
+192.168.178.196 - - [01/Feb/2024 04:41:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758929.2683134
+192.168.178.196 - - [01/Feb/2024 04:42:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758959.5716672
+192.168.178.196 - - [01/Feb/2024 04:42:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706758989.4083495
+192.168.178.196 - - [01/Feb/2024 04:43:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759019.7837458
+192.168.178.196 - - [01/Feb/2024 04:43:39] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759049.9387987
+192.168.178.196 - - [01/Feb/2024 04:44:09] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759080.2156425
+192.168.178.196 - - [01/Feb/2024 04:44:40] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.666667', 'caccOmegaN': '8.89444Hz', 'caccXi': '3.66667'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 04:45:07] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:45:07] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759110.1695237
+192.168.178.196 - - [01/Feb/2024 04:45:10] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759140.7291794
+192.168.178.196 - - [01/Feb/2024 04:45:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759170.7395823
+192.168.178.196 - - [01/Feb/2024 04:46:10] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759200.76211
+192.168.178.196 - - [01/Feb/2024 04:46:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759230.7636843
+192.168.178.196 - - [01/Feb/2024 04:47:10] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759260.8096228
+192.168.178.196 - - [01/Feb/2024 04:47:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759290.8578765
+192.168.178.196 - - [01/Feb/2024 04:48:10] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759320.8472855
+192.168.178.196 - - [01/Feb/2024 04:48:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759350.9082289
+192.168.178.196 - - [01/Feb/2024 04:49:10] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759380.913406
+192.168.178.196 - - [01/Feb/2024 04:49:40] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759411.775061
+192.168.178.196 - - [01/Feb/2024 04:50:11] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759441.813522
+192.168.178.196 - - [01/Feb/2024 04:50:41] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759472.7339869
+192.168.178.196 - - [01/Feb/2024 04:51:12] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759502.7446766
+192.168.178.196 - - [01/Feb/2024 04:51:42] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759532.7640746
+192.168.178.196 - - [01/Feb/2024 04:52:12] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759563.784539
+192.168.178.196 - - [01/Feb/2024 04:52:43] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759593.765774
+192.168.178.196 - - [01/Feb/2024 04:53:13] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759623.7889519
+192.168.178.196 - - [01/Feb/2024 04:53:43] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759653.778258
+192.168.178.196 - - [01/Feb/2024 04:54:13] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759683.9568899
+192.168.178.196 - - [01/Feb/2024 04:54:43] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759713.9626572
+192.168.178.196 - - [01/Feb/2024 04:55:13] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759744.0104039
+192.168.178.196 - - [01/Feb/2024 04:55:44] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 04:56:08] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 04:56:08] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759774.0237026
+192.168.178.196 - - [01/Feb/2024 04:56:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759804.7492304
+192.168.178.196 - - [01/Feb/2024 04:56:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759834.756343
+192.168.178.196 - - [01/Feb/2024 04:57:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759864.7584484
+192.168.178.196 - - [01/Feb/2024 04:57:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759894.7825904
+192.168.178.196 - - [01/Feb/2024 04:58:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759924.7595203
+192.168.178.196 - - [01/Feb/2024 04:58:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759954.778896
+192.168.178.196 - - [01/Feb/2024 04:59:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706759984.7809129
+192.168.178.196 - - [01/Feb/2024 04:59:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760014.807415
+192.168.178.196 - - [01/Feb/2024 05:00:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760044.8218877
+192.168.178.196 - - [01/Feb/2024 05:00:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760074.8091855
+192.168.178.196 - - [01/Feb/2024 05:01:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760104.8084004
+192.168.178.196 - - [01/Feb/2024 05:01:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760134.8680916
+192.168.178.196 - - [01/Feb/2024 05:02:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760164.850423
+192.168.178.196 - - [01/Feb/2024 05:02:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760194.8711493
+192.168.178.196 - - [01/Feb/2024 05:03:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760224.8935888
+192.168.178.196 - - [01/Feb/2024 05:03:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760254.9746585
+192.168.178.196 - - [01/Feb/2024 05:04:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760284.9624822
+192.168.178.196 - - [01/Feb/2024 05:04:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760314.9650474
+192.168.178.196 - - [01/Feb/2024 05:05:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760344.9599848
+192.168.178.196 - - [01/Feb/2024 05:05:44] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760374.9843392
+192.168.178.196 - - [01/Feb/2024 05:06:14] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760405.0067532
+192.168.178.196 - - [01/Feb/2024 05:06:45] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760435.0163305
+192.168.178.196 - - [01/Feb/2024 05:07:15] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760465.6199877
+192.168.178.196 - - [01/Feb/2024 05:07:45] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 05:07:56] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 05:07:56] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760495.662019
+192.168.178.196 - - [01/Feb/2024 05:08:15] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760525.680921
+192.168.178.196 - - [01/Feb/2024 05:08:45] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760555.6780682
+192.168.178.196 - - [01/Feb/2024 05:09:15] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760585.702191
+192.168.178.196 - - [01/Feb/2024 05:09:45] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760616.4785056
+192.168.178.196 - - [01/Feb/2024 05:10:16] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760646.7319942
+192.168.178.196 - - [01/Feb/2024 05:10:46] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760677.5322976
+192.168.178.196 - - [01/Feb/2024 05:11:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760707.5663617
+192.168.178.196 - - [01/Feb/2024 05:11:47] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760737.5983276
+192.168.178.196 - - [01/Feb/2024 05:12:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760767.5969968
+192.168.178.196 - - [01/Feb/2024 05:12:47] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760797.6091776
+192.168.178.196 - - [01/Feb/2024 05:13:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760827.7087746
+192.168.178.196 - - [01/Feb/2024 05:13:47] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760857.736623
+192.168.178.196 - - [01/Feb/2024 05:14:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760887.7612135
+192.168.178.196 - - [01/Feb/2024 05:14:47] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760917.7550838
+192.168.178.196 - - [01/Feb/2024 05:15:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760947.7629852
+192.168.178.196 - - [01/Feb/2024 05:15:47] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706760977.8138762
+192.168.178.196 - - [01/Feb/2024 05:16:17] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761008.3223734
+192.168.178.196 - - [01/Feb/2024 05:16:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761038.3908284
+192.168.178.196 - - [01/Feb/2024 05:17:18] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761068.3788128
+192.168.178.196 - - [01/Feb/2024 05:17:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761098.3761194
+192.168.178.196 - - [01/Feb/2024 05:18:18] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761128.378677
+192.168.178.196 - - [01/Feb/2024 05:18:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761158.7637653
+192.168.178.196 - - [01/Feb/2024 05:19:18] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 05:19:33] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 05:19:33] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761188.767849
+192.168.178.196 - - [01/Feb/2024 05:19:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761218.7905395
+192.168.178.196 - - [01/Feb/2024 05:20:18] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761248.8120024
+192.168.178.196 - - [01/Feb/2024 05:20:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761278.8411448
+192.168.178.196 - - [01/Feb/2024 05:21:18] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761308.8648167
+192.168.178.196 - - [01/Feb/2024 05:21:48] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761339.3664086
+192.168.178.196 - - [01/Feb/2024 05:22:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761369.3791642
+192.168.178.196 - - [01/Feb/2024 05:22:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761399.365263
+192.168.178.196 - - [01/Feb/2024 05:23:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761429.3897293
+192.168.178.196 - - [01/Feb/2024 05:23:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761459.7419903
+192.168.178.196 - - [01/Feb/2024 05:24:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761489.77801
+192.168.178.196 - - [01/Feb/2024 05:24:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761519.7516208
+192.168.178.196 - - [01/Feb/2024 05:25:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761549.8017335
+192.168.178.196 - - [01/Feb/2024 05:25:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761579.7785459
+192.168.178.196 - - [01/Feb/2024 05:26:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761609.8101532
+192.168.178.196 - - [01/Feb/2024 05:26:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761639.8293178
+192.168.178.196 - - [01/Feb/2024 05:27:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761669.8641887
+192.168.178.196 - - [01/Feb/2024 05:27:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761699.8997102
+192.168.178.196 - - [01/Feb/2024 05:28:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761729.8954792
+192.168.178.196 - - [01/Feb/2024 05:28:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761759.9041197
+192.168.178.196 - - [01/Feb/2024 05:29:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761789.9108918
+192.168.178.196 - - [01/Feb/2024 05:29:49] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761819.93067
+192.168.178.196 - - [01/Feb/2024 05:30:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761849.9995403
+192.168.178.196 - - [01/Feb/2024 05:30:50] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 05:31:07] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 05:31:07] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761880.013221
+192.168.178.196 - - [01/Feb/2024 05:31:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761910.0031328
+192.168.178.196 - - [01/Feb/2024 05:31:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761939.9877145
+192.168.178.196 - - [01/Feb/2024 05:32:19] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706761970.008641
+192.168.178.196 - - [01/Feb/2024 05:32:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762000.0372791
+192.168.178.196 - - [01/Feb/2024 05:33:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762030.0290408
+192.168.178.196 - - [01/Feb/2024 05:33:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762060.030486
+192.168.178.196 - - [01/Feb/2024 05:34:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762090.1077394
+192.168.178.196 - - [01/Feb/2024 05:34:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762120.139225
+192.168.178.196 - - [01/Feb/2024 05:35:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762150.1759949
+192.168.178.196 - - [01/Feb/2024 05:35:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762180.1699042
+192.168.178.196 - - [01/Feb/2024 05:36:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762210.161245
+192.168.178.196 - - [01/Feb/2024 05:36:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762240.159274
+192.168.178.196 - - [01/Feb/2024 05:37:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762270.1728053
+192.168.178.196 - - [01/Feb/2024 05:37:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762300.2281656
+192.168.178.196 - - [01/Feb/2024 05:38:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762330.2665036
+192.168.178.196 - - [01/Feb/2024 05:38:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762360.7439983
+192.168.178.196 - - [01/Feb/2024 05:39:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762390.7640965
+192.168.178.196 - - [01/Feb/2024 05:39:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762420.7674985
+192.168.178.196 - - [01/Feb/2024 05:40:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762450.7816331
+192.168.178.196 - - [01/Feb/2024 05:40:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762480.800063
+192.168.178.196 - - [01/Feb/2024 05:41:20] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762510.8080347
+192.168.178.196 - - [01/Feb/2024 05:41:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762540.8250856
+192.168.178.196 - - [01/Feb/2024 05:42:20] "GET /ping HTTP/1.1" 200 -
+{'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10, 'data': {'caccC1': '0.703704', 'caccOmegaN': '10Hz', 'caccXi': '4.11111'}}
+Connected to database successfully.
+INSERT INTO RunSim (Controller, frameErrorRate, leaderSpeed, data) VALUES ('CACC', :frameErrorRate, :leaderSpeed, :data)
+192.168.178.196 - - [01/Feb/2024 05:42:46] "POST /data HTTP/1.1" 200 -
+Connected to database successfully.
+192.168.178.196 - - [01/Feb/2024 05:42:46] "GET /getEnVar HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762570.8511662
+192.168.178.196 - - [01/Feb/2024 05:42:50] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762601.1586008
+192.168.178.196 - - [01/Feb/2024 05:43:21] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762631.1703937
+192.168.178.196 - - [01/Feb/2024 05:43:51] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762661.7708447
+192.168.178.196 - - [01/Feb/2024 05:44:21] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762691.8042505
+192.168.178.196 - - [01/Feb/2024 05:44:51] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762722.4185295
+192.168.178.196 - - [01/Feb/2024 05:45:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762752.439821
+192.168.178.196 - - [01/Feb/2024 05:45:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762782.77241
+192.168.178.196 - - [01/Feb/2024 05:46:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762812.7961242
+192.168.178.196 - - [01/Feb/2024 05:46:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762842.7960944
+192.168.178.196 - - [01/Feb/2024 05:47:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762872.8146832
+192.168.178.196 - - [01/Feb/2024 05:47:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762902.8265672
+192.168.178.196 - - [01/Feb/2024 05:48:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762932.818579
+192.168.178.196 - - [01/Feb/2024 05:48:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762962.8369908
+192.168.178.196 - - [01/Feb/2024 05:49:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706762992.8528779
+192.168.178.196 - - [01/Feb/2024 05:49:52] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706763022.840473
+192.168.178.196 - - [01/Feb/2024 05:50:22] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706763053.0054445
+192.168.178.196 - - [01/Feb/2024 05:50:53] "GET /ping HTTP/1.1" 200 -
+PING: 192.168.178.196, Timestamp: 1706763083.0985382
+192.168.178.196 - - [01/Feb/2024 05:51:23] "GET /ping HTTP/1.1" 200 -
