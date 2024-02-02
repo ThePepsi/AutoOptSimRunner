@@ -35,19 +35,23 @@ def getEnVar():
     
 @app.route('/data', methods=['POST'])
 def receive_data():
-    print("Data received:", data)
+    #print("Data received:", data)
     try:
         msg_data = json.loads(request.json)
+        print(msg_data)
         data = msg_data.pop("data", None)
-        controller = ControllerType.from_string(msg_data.pop("Controller", None))
-        db = Database()
+        controller = ControllerType.from_string(msg_data.pop("controller", None))
+        db = Database("data.db")
         db.connect()
         db.add_sim_run(controllerType=controller, sim_data=msg_data, data=data)
+        db.disconnect()
     except ValueError:
         print('ValueError, probably ControllerType')
         return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
-    finally:
-        db.disconnect()
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
+
     return jsonify({"status": "success", "message": "Data received"}), 200
 
 @app.route('/ping')
