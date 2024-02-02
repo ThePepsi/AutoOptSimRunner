@@ -38,8 +38,8 @@ class DB_CLI:
 
     def input_values(self):
         self.leaderSpeed = self.input_list("Enter 'leaderSpeed' values (separated by comma): ")
-        self.startBraking = self.input_list("Enter 'braking' values (separated by comma): ")
-        self.frameErrorRate = self.input_list("Enter 'errorRate' values (separated by comma): ")
+        self.startBraking = self.input_list("Enter 'startBraking' values (separated by comma): ")
+        self.frameErrorRate = self.input_list("Enter 'frameErrorRate' values (separated by comma): ")
 
     def input_list(self, prompt):
         while True:
