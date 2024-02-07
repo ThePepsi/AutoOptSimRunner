@@ -1,6 +1,8 @@
 import sqlite3
 from typing import List, Tuple
 from ControllerType import ControllerType
+from src.ControllerType import ControllerType
+from datetime import datetime
 
 class Database:
     def __init__(self, db_file):
@@ -37,6 +39,10 @@ class Database:
         'sim_data' should be a dictionary with keys corresponding to RunSim columns except for 'data'.
         'data' should be a dictionary with keys corresponding to CACC columns.
         """
+
+
+        # Current date and time in the desired format
+        date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         if self.conn is None:
             raise Exception("Database is not connected")
@@ -55,11 +61,13 @@ class Database:
         sim_data['data'] = last_id  # Set the foreign key
         sim_columns = ', '.join(sim_data.keys())
         sim_placeholders = ':'+', :'.join(sim_data.keys())
-        sim_query = f"INSERT INTO RunSim (Controller, {sim_columns}) VALUES ('{controllerType.value}', {sim_placeholders})"
+        sim_query = f"INSERT INTO RunSim (Controller, endtime, {sim_columns}) VALUES ('{controllerType.value}', '{date_and_time}',{sim_placeholders})"
         print(sim_query)
         cur.execute(sim_query, sim_data)
 
         self.conn.commit()
+
+        
         return
     
     def done_Sims(self):
@@ -69,7 +77,7 @@ class Database:
 
         # SQL query to fetch distinct pairs of leaderSpeed and frameErrorRate
         query = """
-            SELECT DISTINCT Controller, leaderSpeed, frameErrorRate 
+            SELECT DISTINCT Controller, leaderSpeed, frameErrorRate, startBraking
             FROM RunSim 
             """
         try:
@@ -104,3 +112,23 @@ class Database:
             print(f"Fehler beim Einfügen der Daten: {e}")
         finally:
             cursor.close()
+
+    def start_envVar(self, controller: ControllerType, data):
+        # Current date and time in the desired format
+        date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # SQL-Query, um den entsprechenden Eintrag zu finden und `startdate` zu aktualisieren
+        # Die genaue Query hängt von Ihrer Datenbankstruktur ab
+        sql_query = f"UPDATE my_table SET startdate = '{date_and_time}' WHERE ('Controller'='{controller.value}', 'leaderSpeed'={data['leaderSpeed']}', 'startBraking'={data['startBraking']}, 'frameErrorRate'={data['frameErrorRate']})"
+
+        # Führt die Query aus
+        try:
+            self.connect()  # Stellt sicher, dass eine Verbindung zur DB besteht
+            cursor = self.conn.cursor()
+            cursor.execute(sql_query)
+            self.conn.commit()
+        except Exception as e:
+            print(f"Ein Fehler ist aufgetreten: {e}")
+        finally:
+            cursor.close()  # Schließt die Verbindung zur Datenbank
+
