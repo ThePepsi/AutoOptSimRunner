@@ -1,4 +1,3 @@
-from ControllerType import ControllerType
 from itertools import product
 from Database import Database
 
