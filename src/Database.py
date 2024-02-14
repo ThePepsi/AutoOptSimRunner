@@ -1,17 +1,7 @@
-import sqlite3
+import sqlite3, json
 from typing import List, Tuple
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
-
-class ControllerType(Enum):
-    CACC = "CACC"
-
-    @staticmethod
-    def from_string(s):
-        for member in ControllerType:
-            if member.value == s:
-                return member
-        raise ValueError(f"No ControllerType member with value '{s}' found")
 
 class Database:
     def __init__(self, db_file):
@@ -42,7 +32,7 @@ class Database:
             self.conn.close()
             self.conn = None
 
-    def add_sim_run(self, controllerType: ControllerType, sim_data, data):
+    def add_sim_run(self, controllerType, sim_data, data):
         """
         Add a new simulation run with data for both RunSim and Controller tables.
         'sim_data' should be a dictionary with keys corresponding to RunSim columns except for 'data'.
@@ -60,7 +50,7 @@ class Database:
         # Add data to right Controller table
         columns = ', '.join(data.keys())
         placeholders = ':'+', :'.join(data.keys())
-        query = f"INSERT INTO {controllerType.value} ({columns}) VALUES ({placeholders})"
+        query = f"INSERT INTO {controllerType} ({columns}) VALUES ({placeholders})"
         cur.execute(query, data)
 
         # Retrieve the id of the new row
@@ -70,7 +60,7 @@ class Database:
         sim_data['data'] = last_id  # Set the foreign key
         sim_columns = ', '.join(sim_data.keys())
         sim_placeholders = ':'+', :'.join(sim_data.keys())
-        sim_query = f"INSERT INTO RunSim (Controller, endtime, {sim_columns}) VALUES ('{controllerType.value}', '{date_and_time}',{sim_placeholders})"
+        sim_query = f"INSERT INTO RunSim (Controller, endtime, {sim_columns}) VALUES ('{controllerType}', '{date_and_time}',{sim_placeholders})"
         print(sim_query)
         cur.execute(sim_query, sim_data)
 
@@ -98,7 +88,7 @@ class Database:
         finally:
             cur.close()
 
-    def add_enVar(self, controller: ControllerType, values: List[Tuple]):
+    def add_enVar(self, controller, values: List[Tuple]):
         """
         Fügt Einträge in die Tabelle ein, die dem Wert von 'controller' entspricht.
         'values' ist eine Liste von Tupeln mit den Daten für 'leaderSpeed', 'startBraking' und 'frameErrorRate'.
@@ -107,9 +97,8 @@ class Database:
             print("Keine Datenbankverbindung vorhanden.")
             return
 
-        controller_name = controller.value  # controller.value gibt den Tabellennamen als String zurück
         placeholders = ', '.join(['?'] * len(values[0]))  # Erzeugt eine Platzhalterzeichenfolge, z.B. "?, ?, ?"
-        sql_query = f"INSERT INTO RunSim (Controller, leaderSpeed, startBraking, frameErrorRate) VALUES ('{controller_name}', {placeholders})"
+        sql_query = f"INSERT INTO RunSim (Controller, leaderSpeed, startBraking, frameErrorRate) VALUES ('{controller}', {placeholders})"
 
         cursor = self.conn.cursor()
         try:
@@ -122,22 +111,57 @@ class Database:
         finally:
             cursor.close()
 
-    def start_envVar(self, controller: ControllerType, data):
-        # Current date and time in the desired format
+    def start_enVar(self, controller, data):
+        # Aktuelles Datum und Uhrzeit im gewünschten Format
         date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # SQL-Query, um den entsprechenden Eintrag zu finden und `startdate` zu aktualisieren
+        # SQL-Abfrage, um den entsprechenden Eintrag zu finden und `startdate` zu aktualisieren
         # Die genaue Query hängt von Ihrer Datenbankstruktur ab
-        sql_query = f"UPDATE my_table SET startdate = '{date_and_time}' WHERE ('Controller'='{controller.value}', 'leaderSpeed'={data['leaderSpeed']}', 'startBraking'={data['startBraking']}, 'frameErrorRate'={data['frameErrorRate']})"
+        sql_query = """
+            UPDATE RunSim 
+            SET startdate = ?
+            WHERE Controller = ? 
+            AND leaderSpeed = ? 
+            AND startBraking = ? 
+            AND frameErrorRate = ?
+        """
 
         # Führt die Query aus
         try:
-            self.connect()  # Stellt sicher, dass eine Verbindung zur DB besteht
             cursor = self.conn.cursor()
-            cursor.execute(sql_query)
+            cursor.execute(sql_query, (date_and_time, controller, data['leaderSpeed'], data['startBraking'], data['frameErrorRate']))
             self.conn.commit()
         except Exception as e:
             print(f"Ein Fehler ist aufgetreten: {e}")
-        finally:
-            cursor.close()  # Schließt die Verbindung zur Datenbank
+            raise e
+
+            
+    def find_new_enVar(self):
+        try:
+            cursor = self.conn.cursor()
+            # Query to find a row with no enddate and data, and optionally no startdate or a startdate older than 2 days
+            query = """SELECT * FROM RunSim 
+                       WHERE enddate IS NULL AND data IS NULL 
+                       AND (startdate IS NULL OR startdate < ?)"""
+            # Current date and time - 2 days
+            two_days_ago = datetime.now() - timedelta(days=2)
+            two_days_ago_str = two_days_ago.strftime("%Y-%m-%d %H:%M:%S")
+
+            cursor.execute(query, (two_days_ago_str,))
+            row = cursor.fetchone()
+            if row:
+                # Constructing JSON object
+                result = {
+                    "controller": row[1],
+                    "leaderSpeed": row[4],
+                    "frameErrorRate": row[5],
+                    "startBraking": row[6]
+                }
+                return json.dumps(result)
+            else:
+                return None
+        except sqlite3.Error as e:
+            print(f"Error fetching new entry: {e}")
+            return None
+        
 

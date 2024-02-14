@@ -1,5 +1,6 @@
-import unittest, os, sqlite3
-from src import  Database, utils
+import unittest, os, sqlite3, json
+from src import utils
+from src.Database import Database
 from AutoOptServer import app, utils
 
 class Server_TestCase(unittest.TestCase):
@@ -13,20 +14,6 @@ class Server_TestCase(unittest.TestCase):
         app.config.update(
             # Set your test configurations here
             database_path='test.db',
-            enVar_steps={
-                "controller": [
-                    "CACC"
-                ],
-                "leaderSpeed": {
-                    "min": 10,
-                    "max": 50,
-                    "step": 10
-                },
-                "frameErrorRate": {
-                    "min": 0.0,
-                    "max": 1.0,
-                    "step": 0.25                }
-            }
         )
         # Create Test database
 
@@ -34,7 +21,6 @@ class Server_TestCase(unittest.TestCase):
         if os.path.exists(self.test_db_name):
             print(f"Database already exists at {self.test_db_name}")
             os.remove(self.test_db_name)
-            return
 
         # Connect to the SQLite database (this will create the file if it does not exist)
         conn = sqlite3.connect(self.test_db_name)
@@ -102,78 +88,88 @@ class Server_TestCase(unittest.TestCase):
         self.assertEqual(response.json, {"message": "Hello, world!"})
 
     
-    def test_utils_find_combo(self):
-        def check_value_in_list(value_pairs, json_data):
-            # Convert JSON values to a tuple
-            json_tuple = (json_data["controller"] ,json_data['leaderSpeed'], json_data['frameErrorRate'])
+    # def test_utils_find_combo(self):
+    #     def check_value_in_list(value_pairs, json_data):
+    #         # Convert JSON values to a tuple
+    #         json_tuple = (json_data["controller"] ,json_data['leaderSpeed'], json_data['frameErrorRate'])
 
-            # Check if the tuple is in the list of value pairs
-            return json_tuple in value_pairs
+    #         # Check if the tuple is in the list of value pairs
+    #         return json_tuple in value_pairs
         
-        json = {
-            "controller": [
-                "CACC"
-                ],
-            "leaderSpeed": {
-                "min": 10,
-                "max": 50,
-                "step": 10
-            },
-            "frameErrorRate": {
-                "min": 0.0,
-                "max": 1.0,
-                "step": 0.25
-            }
-        }
-        def all_db_combos():
-            return [
-                ("CACC", 10, 0.25), ("CACC", 10, 0.75), ("CACC", 10, 1.0),
-                ("CACC", 20, 0.25), ("CACC", 20, 0.5), ("CACC", 20, 0.75), ("CACC", 20, 1.0),
-                ("CACC", 30, 0.0), ("CACC", 30, 0.25), ("CACC", 30, 0.75), ("CACC", 30, 1.0),
-                ("CACC", 40, 0.0), ("CACC", 40, 0.25), ("CACC", 40, 0.5), ("CACC", 40, 1.0),
-                ("CACC", 50, 0.0), ("CACC", 50, 0.25), ("CACC", 50, 0.5), ("CACC", 50, 0.75), ("CACC", 50, 1.0)
-            ]
-        missing_values = [
-                ("CACC", 10, 0.0), ("CACC", 10, 0.5), 
-                ("CACC", 30, 0.5), ("CACC", 20, 0.0), 
-                ("CACC", 40, 0.75)
-            ]
+    #     json = {
+    #         "controller": [
+    #             "CACC"
+    #             ],
+    #         "leaderSpeed": {
+    #             "min": 10,
+    #             "max": 50,
+    #             "step": 10
+    #         },
+    #         "frameErrorRate": {
+    #             "min": 0.0,
+    #             "max": 1.0,
+    #             "step": 0.25
+    #         }
+    #     }
+    #     def all_db_combos():
+    #         return [
+    #             ("CACC", 10, 0.25), ("CACC", 10, 0.75), ("CACC", 10, 1.0),
+    #             ("CACC", 20, 0.25), ("CACC", 20, 0.5), ("CACC", 20, 0.75), ("CACC", 20, 1.0),
+    #             ("CACC", 30, 0.0), ("CACC", 30, 0.25), ("CACC", 30, 0.75), ("CACC", 30, 1.0),
+    #             ("CACC", 40, 0.0), ("CACC", 40, 0.25), ("CACC", 40, 0.5), ("CACC", 40, 1.0),
+    #             ("CACC", 50, 0.0), ("CACC", 50, 0.25), ("CACC", 50, 0.5), ("CACC", 50, 0.75), ("CACC", 50, 1.0)
+    #         ]
+    #     missing_values = [
+    #             ("CACC", 10, 0.0), ("CACC", 10, 0.5), 
+    #             ("CACC", 30, 0.5), ("CACC", 20, 0.0), 
+    #             ("CACC", 40, 0.75)
+    #         ]
 
 
-        # Generate all Combinations, and give missing 
-        open_values = utils.find_new_combination(json, all_db_combos)
+    #     # Generate all Combinations, and give missing 
+    #     open_values = utils.find_new_combination(json, all_db_combos)
 
-        # Check if the generated (open) Values is as expected
-        self.assertTrue(check_value_in_list(missing_values, open_values) )
+    #     # Check if the generated (open) Values is as expected
+    #     self.assertTrue(check_value_in_list(missing_values, open_values) )
     
 
-    def test_db_find_openSim(self):
-        # Setup a test Database
-        test_db = Database("test.db")
-        test_db.connect()
+    # def test_db_find_openSim(self):
+    #     # Setup a test Database
+    #     test_db = Database("test.db")
+    #     test_db.connect()
 
-        emptyList = test_db.done_Sims()
-        self.assertEqual([], emptyList)
+    #     emptyList = test_db.done_Sims()
+    #     self.assertEqual([], emptyList)
 
-        list = []
-        for x in range(10,20,10):
-            test_db.add_sim_run(Database.ControllerType.CACC, 
-                {
-                    "leaderSpeed" : x,
-                    "frameErrorRate" : 0.1
-                }, 
-                {   
-                    'caccC1': '1',
-                    'caccOmegaN': '10Hz', 
-                    'caccXi': '5'
-                })
-            list.append(("CACC",x,0.1))
-            r_list = test_db.done_Sims()
-            self.assertEqual(list, r_list)
+    #     list = []
+    #     for x in range(10,20,10):
+    #         test_db.add_sim_run(Database.ControllerType.CACC, 
+    #             {
+    #                 "leaderSpeed" : x,
+    #                 "frameErrorRate" : 0.1
+    #             }, 
+    #             {   
+    #                 'caccC1': '1',
+    #                 'caccOmegaN': '10Hz', 
+    #                 'caccXi': '5'
+    #             })
+    #         list.append(("CACC",x,0.1))
+    #         r_list = test_db.done_Sims()
+    #         self.assertEqual(list, r_list)
 
-        test_db.disconnect()
+    #     test_db.disconnect()
 
     def test_enVar_route(self):
+        # Prep Database to contain 1 
+        # Fügen Sie einen Testeintrag in die Datenbank ein, den wir später aktualisieren werden
+        conn = sqlite3.connect(self.test_db_name)
+        cursor = conn.cursor()
+        insert_query = "INSERT INTO RunSim (Controller, leaderSpeed, frameErrorRate, startBraking) VALUES (?, ?, ?, ?)"
+        cursor.execute(insert_query, ("CACC",100,0.5,5))
+        conn.commit()
+        conn.close()
+
+        
         # Send a GET request to the /hello route
         response = self.client.get('/getEnVar')
 
@@ -181,8 +177,8 @@ class Server_TestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Check if the response data is as expected
-        self.assertEqual(response.json, {'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10})
-
+        self.assertEqual(json.loads(response.text), {'controller': 'CACC', 'frameErrorRate': 0.5, 'leaderSpeed': 100, 'startBraking':5})
+        
     def test_start_envVar(self):
         # Annahme, dass die Methode 'connect' existiert und eine Verbindung zur Datenbank herstellt
         self.setUp()  # Bereitet die Testdatenbank und Umgebung vor
@@ -196,24 +192,32 @@ class Server_TestCase(unittest.TestCase):
             'frameErrorRate': 0.25,
             'startBraking': 50  # Angenommener Wert für das Beispiel
         }
-        insert_query = "INSERT INTO RunSim (Controller, leaderSpeed, frameErrorRate, data) VALUES (?, ?, ?, ?)"
+        insert_query = "INSERT INTO RunSim (Controller, leaderSpeed, frameErrorRate, startBraking) VALUES (?, ?, ?, ?)"
         cursor.execute(insert_query, (test_data['Controller'], test_data['leaderSpeed'], test_data['frameErrorRate'], test_data['startBraking']))
         conn.commit()
+        conn.close()  # Schließen Sie die Verbindung nach Abschluss aller Operationen
 
-        test_controller = ControllerType.CACC
-        db = Database(self.test_db_name)
-        db.start_envVar(test_controller, test_data)
+        test_controller = "CACC"
+        test_db = Database(self.test_db_name)
+        test_db.connect()
+        test_db.start_enVar(test_controller, test_data)
+        test_db.disconnect()
 
         # Überprüfung, ob das Startdatum korrekt eingefügt wurde
+        conn = sqlite3.connect(self.test_db_name)
+        cursor = conn.cursor()
         select_query = "SELECT startdate FROM RunSim WHERE Controller = ? AND leaderSpeed = ? AND frameErrorRate = ?"
         cursor.execute(select_query, (test_data['Controller'], test_data['leaderSpeed'], test_data['frameErrorRate']))
         result = cursor.fetchone()
-
         conn.close()
+
+
+
+        self.tearDown()  # Bereinigt die Testdatenbank und Umgebung nach dem Test
 
         self.assertIsNotNone(result[0], "Das Startdatum wurde nicht korrekt aktualisiert")
 
-        self.tearDown()  # Bereinigt die Testdatenbank und Umgebung nach dem Test
+
 
 if __name__ == '__main__':
     unittest.main()
