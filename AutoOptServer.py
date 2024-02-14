@@ -1,28 +1,22 @@
 from flask import Flask, request, jsonify
 import time , json
 import socket
-from src import utils, ConfigGenerator, Database, TextParser
 from src.utils import utils
-
-
-
+from src.Database import Database
 
 app = Flask(__name__)
-
-
 
 @app.route('/hello')
 def hello():
     #only here for testing reasons
     return jsonify({"message": "Hello, world!"})
 
-
 @app.route('/getEnVar')
 def getEnVar():
     try: 
-        db = Database(app.config['database_path'])
+        db: Database = Database(app.config['database_path'])
         db.connect()
-        enVar = utils.find_new_combination(app.config['enVar_steps'], db.done_Sims)
+        enVar = db.find_new_enVar()
     except Exception as e:
             print(e)
             return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
@@ -37,7 +31,7 @@ def receive_data():
         msg_data = json.loads(request.json)
         print(msg_data)
         data = msg_data.pop("data", None)
-        controller = ControllerType.from_string(msg_data.pop("controller", None))
+        controller = msg_data.pop("controller", None)
         db = Database("data.db")
         db.connect()
         db.add_sim_run(controllerType=controller, sim_data=msg_data, data=data)
