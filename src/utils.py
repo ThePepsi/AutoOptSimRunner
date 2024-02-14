@@ -1,5 +1,4 @@
 import itertools
-from src.ControllerType import ControllerType
 
 class utils:
     def find_new_combination(input_enVar_json, checkdatabase):

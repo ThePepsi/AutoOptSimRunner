@@ -1,7 +1,6 @@
 import unittest, os, sqlite3
-from AutoOptServer import app  # Import your Flask app
-from AutoOptServer import utils, Database
-from src.ControllerType import ControllerType
+from src import  Database, utils
+from AutoOptServer import app, utils
 
 class Server_TestCase(unittest.TestCase):
     test_db_name = "test.db"
@@ -49,8 +48,11 @@ class Server_TestCase(unittest.TestCase):
             CREATE TABLE RunSim (
                 id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                 Controller TEXT,
+                startdate TEXT,
+                enddate TEXT,
                 leaderSpeed NUMERIC,
                 frameErrorRate NUMERIC,
+                startBraking NUMERIC,
                 data INTEGER
             );
             """
@@ -155,7 +157,7 @@ class Server_TestCase(unittest.TestCase):
 
         list = []
         for x in range(10,20,10):
-            test_db.add_sim_run(ControllerType.CACC, 
+            test_db.add_sim_run(Database.ControllerType.CACC, 
                 {
                     "leaderSpeed" : x,
                     "frameErrorRate" : 0.1
@@ -180,6 +182,38 @@ class Server_TestCase(unittest.TestCase):
 
         # Check if the response data is as expected
         self.assertEqual(response.json, {'controller': 'CACC', 'frameErrorRate': 0.0, 'leaderSpeed': 10})
+
+    def test_start_envVar(self):
+        # Annahme, dass die Methode 'connect' existiert und eine Verbindung zur Datenbank herstellt
+        self.setUp()  # Bereitet die Testdatenbank und Umgebung vor
+
+        # Fügen Sie einen Testeintrag in die Datenbank ein, den wir später aktualisieren werden
+        conn = sqlite3.connect(self.test_db_name)
+        cursor = conn.cursor()
+        test_data = {
+            'Controller': 'CACC',
+            'leaderSpeed': 20,
+            'frameErrorRate': 0.25,
+            'startBraking': 50  # Angenommener Wert für das Beispiel
+        }
+        insert_query = "INSERT INTO RunSim (Controller, leaderSpeed, frameErrorRate, data) VALUES (?, ?, ?, ?)"
+        cursor.execute(insert_query, (test_data['Controller'], test_data['leaderSpeed'], test_data['frameErrorRate'], test_data['startBraking']))
+        conn.commit()
+
+        test_controller = ControllerType.CACC
+        db = Database(self.test_db_name)
+        db.start_envVar(test_controller, test_data)
+
+        # Überprüfung, ob das Startdatum korrekt eingefügt wurde
+        select_query = "SELECT startdate FROM RunSim WHERE Controller = ? AND leaderSpeed = ? AND frameErrorRate = ?"
+        cursor.execute(select_query, (test_data['Controller'], test_data['leaderSpeed'], test_data['frameErrorRate']))
+        result = cursor.fetchone()
+
+        conn.close()
+
+        self.assertIsNotNone(result[0], "Das Startdatum wurde nicht korrekt aktualisiert")
+
+        self.tearDown()  # Bereinigt die Testdatenbank und Umgebung nach dem Test
 
 if __name__ == '__main__':
     unittest.main()

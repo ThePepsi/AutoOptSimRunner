@@ -1,8 +1,17 @@
 import sqlite3
 from typing import List, Tuple
-from ControllerType import ControllerType
-from src.ControllerType import ControllerType
 from datetime import datetime
+from enum import Enum
+
+class ControllerType(Enum):
+    CACC = "CACC"
+
+    @staticmethod
+    def from_string(s):
+        for member in ControllerType:
+            if member.value == s:
+                return member
+        raise ValueError(f"No ControllerType member with value '{s}' found")
 
 class Database:
     def __init__(self, db_file):
