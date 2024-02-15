@@ -1,5 +1,5 @@
 {
     "database_path": "data.db",
-    "ini_path":"src/plexe/examples/platooning/", 
-    "server_ip": "192.168.178.196"
+    "ini_path":"/home/plexe/src/simopticon-plexe/examples/platooning/", 
+    "server_ip": "192.168.178.124"
 }

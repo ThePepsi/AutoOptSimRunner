@@ -26,7 +26,7 @@ class Client:
             ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
             ConfigGenerator.delete_file(os.path.join(config['ini_path'], "omnetpp.ini"))
             print("2")
-            ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
+            #ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
             print("3")
             ConfigGenerator.copy_file_to_folder("omnetpp.ini",config['ini_path'])
         except Exception as e:
@@ -36,11 +36,12 @@ class Client:
 
     def run_Sim():
         try:
-            command = f'(cd && cd src/simopticon/build/ && ./simopticon ../config/simopticon.json)'
+            command = f'(cd && cd src/simopticon-main/build/ && ./simopticon ../config/simopticon.json)'
             result = subprocess.run(command, stdout=subprocess.PIPE, text=True, shell=True)
             with open(output_filepath,'w') as file:
                 file.write(result.stdout)
-            return TextParser.parse_data(output_filepath)
+            tp = TextParser()
+            return tp.parse_data(output_filepath)
         except FileNotFoundError:
             print("FileError")
         except Exception as e:
@@ -50,7 +51,9 @@ class Client:
         try:
             enVar["data"] = data
             data_json = json.dumps(enVar)
-            response = requests.post('{server_ip}/data', json=data_json)
+            server_ip = f"http://{config['server_ip']}:5000"
+            response = requests.post(f'{server_ip}/data',json=data_json)
+            #response = requests.post(f'http://{config['server_ip']}:5000/data', json=data_json)
         except Exception as e:
             print(e)
 
@@ -84,6 +87,7 @@ if __name__ == '__main__':
         Client.create_Config(enVar)
         # run Sim
         data = Client.run_Sim()
+        print(data)
         # report Data
         Client.report_Data(data, enVar)
         # TODO cleanUp
