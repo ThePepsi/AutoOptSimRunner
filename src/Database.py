@@ -56,16 +56,18 @@ class Database:
         # Retrieve the id of the new row
         last_id = cur.lastrowid
 
-        # Add data to RunSim table
-        sim_data['data'] = last_id  # Set the foreign key
-        sim_columns = ', '.join(sim_data.keys())
-        sim_placeholders = ':'+', :'.join(sim_data.keys())
-        sim_query = f"INSERT INTO RunSim (Controller, endtime, {sim_columns}) VALUES ('{controllerType}', '{date_and_time}',{sim_placeholders})"
-        print(sim_query)
-        cur.execute(sim_query, sim_data)
+        sql_query = """
+            UPDATE RunSim 
+            SET endtime = ?, data =?
+            WHERE Controller = ? 
+            AND leaderSpeed = ? 
+            AND startBraking = ? 
+            AND frameErrorRate = ?
+        """
+        cur.execute(sql_query, (date_and_time, last_id, controllerType, sim_data['leaderSpeed'], sim_data['startBraking'], sim_data['frameErrorRate']))
 
         self.conn.commit()
-
+       
         
         return
     
@@ -119,7 +121,7 @@ class Database:
         # Die genaue Query hängt von Ihrer Datenbankstruktur ab
         sql_query = """
             UPDATE RunSim 
-            SET startdate = ?
+            SET starttime = ?
             WHERE Controller = ? 
             AND leaderSpeed = ? 
             AND startBraking = ? 
@@ -141,8 +143,8 @@ class Database:
             cursor = self.conn.cursor()
             # Query to find a row with no enddate and data, and optionally no startdate or a startdate older than 2 days
             query = """SELECT * FROM RunSim 
-                       WHERE enddate IS NULL AND data IS NULL 
-                       AND (startdate IS NULL OR startdate < ?)"""
+                       WHERE endtime IS NULL AND data IS NULL 
+                       AND (starttime IS NULL OR starttime < ?)"""
             # Current date and time - 2 days
             two_days_ago = datetime.now() - timedelta(days=2)
             two_days_ago_str = two_days_ago.strftime("%Y-%m-%d %H:%M:%S")

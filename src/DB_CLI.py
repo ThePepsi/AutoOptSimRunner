@@ -19,11 +19,12 @@ class DB_CLI:
     def display_header(self):
         print("CLI - Fill Database with enVar's")
         print("Available controllers: ")
-        for i, controller in enumerate(ControllerType):
-            print(f"    ({i+1}) {controller.name}")
+        for i, controller in enumerate(["CACC"]):
+            print(f"    ({i+1}) {controller}")
 
     def select_controller(self):
-        controllers = list(ControllerType)
+        # TODO Better controller list
+        controllers = ["CACC"]
         while True:
             try:
                 controller_number = int(input("Choose a number of controller: "))
@@ -50,7 +51,7 @@ class DB_CLI:
 
     def print_summary(self):
         print("\nSummary of Entered Information:")
-        print(f"Selected Controller: {self.controller.name} (Value: {self.controller.value})")
+        print(f"Selected Controller: {self.controller} (Value: {self.controller})")
         self.print_values("Leader Speed", self.leaderSpeed)
         self.print_values("Braking", self.startBraking)
         self.print_values("Error Rate", self.frameErrorRate)

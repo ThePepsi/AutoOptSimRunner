@@ -31,15 +31,16 @@ class Server_TestCase(unittest.TestCase):
             
             # SQL command to create the RunSim table
             create_runsim_table = """
-            CREATE TABLE RunSim (
-                id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-                Controller TEXT,
-                startdate TEXT,
-                enddate TEXT,
-                leaderSpeed NUMERIC,
-                frameErrorRate NUMERIC,
-                startBraking NUMERIC,
-                data INTEGER
+                CREATE TABLE RunSim (
+                    id             INTEGER PRIMARY KEY AUTOINCREMENT
+                                        UNIQUE,
+                    Controller     TEXT,
+                    starttime      TEXT,
+                    endtime        TEXT,
+                    leaderSpeed    NUMERIC,
+                    frameErrorRate NUMERIC,
+                    startBraking   INTEGER,
+                    data           INTEGER
             );
             """
 
@@ -206,7 +207,7 @@ class Server_TestCase(unittest.TestCase):
         # Überprüfung, ob das Startdatum korrekt eingefügt wurde
         conn = sqlite3.connect(self.test_db_name)
         cursor = conn.cursor()
-        select_query = "SELECT startdate FROM RunSim WHERE Controller = ? AND leaderSpeed = ? AND frameErrorRate = ?"
+        select_query = "SELECT starttime FROM RunSim WHERE Controller = ? AND leaderSpeed = ? AND frameErrorRate = ?"
         cursor.execute(select_query, (test_data['Controller'], test_data['leaderSpeed'], test_data['frameErrorRate']))
         result = cursor.fetchone()
         conn.close()

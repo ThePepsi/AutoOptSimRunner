@@ -16,10 +16,13 @@ def getEnVar():
     try: 
         db: Database = Database(app.config['database_path'])
         db.connect()
-        enVar = db.find_new_enVar()
+        enVar = json.loads(db.find_new_enVar())
+        db.start_enVar(enVar['controller'],enVar)
+    except TypeError as e:
+        print("Could be done")
     except Exception as e:
-            print(e)
-            return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
+        print(e)
+        return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
     finally:
         db.disconnect()
         return enVar
@@ -49,7 +52,7 @@ def receive_data():
 def ping():
     timestamp = time.time()
     client_ip = request.remote_addr
-    print(f'PING: {client_ip}, Timestamp: {timestamp}')
+    #print(f'PING: {client_ip}, Timestamp: {timestamp}')
     return jsonify({"status": "success", "message": "Data received"}), 200
 
 def get_ip_address():
