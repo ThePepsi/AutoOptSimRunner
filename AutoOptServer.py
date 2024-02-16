@@ -58,7 +58,7 @@ def ping():
 @app.route('/progress', methods=['POST'])
 def progress():
     # Get Data from Client
-    msg_data = json.loads(request.json)
+    msg_data = request.json
 
     # Get the IP address of the client
     ip_address = request.remote_addr
