@@ -1,4 +1,3 @@
-from sys import last_value
 import threading, os, csv
 from tokenize import String
 import requests
@@ -75,7 +74,7 @@ def progress():
                 return None
 
     # Get Progress from File, spit csv to values and generate json
-    last_line: String = read_last_line(config['progresscsv_path'])
+    last_line = read_last_line(config['progresscsv_path'])[0]
     values = str(last_line).split(";")
     _progress = {
         'Iteration':    values[0],
@@ -106,7 +105,7 @@ if __name__ == '__main__':
     with open(default_config_path, 'r') as config_file:
         config = json.load(config_file)  
 
-    pong()
+    progress()
 
     input("Press Enter to continue...")
 
