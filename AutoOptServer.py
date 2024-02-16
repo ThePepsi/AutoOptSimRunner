@@ -55,6 +55,18 @@ def ping():
     #print(f'PING: {client_ip}, Timestamp: {timestamp}')
     return jsonify({"status": "success", "message": "Data received"}), 200
 
+@app.route('/progress', methods=['POST'])
+def progress():
+    # Get Data from Client
+    msg_data = request.json
+
+    # Get the IP address of the client
+    ip_address = request.remote_addr
+
+    # Print Progress state
+    print(f"Progress: {ip_address} => {msg_data}")
+    return jsonify({"status": "success", "message": "Data received"}), 200
+
 def get_ip_address():
     try:
         # Create a socket object

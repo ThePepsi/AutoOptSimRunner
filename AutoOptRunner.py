@@ -1,4 +1,5 @@
-import threading, os
+import threading, os, csv
+from tokenize import String
 import requests
 import json
 import subprocess
@@ -58,6 +59,34 @@ class Client:
             print(e)
 
 
+def progress():
+    # Do this Task every 60s to inform the Server about progress
+    threading.Timer(60, progress).start()
+
+    # Method to read last line from a file
+    def read_last_line(file_path):
+        with open(file_path, 'r', newline='') as file:
+            reader = csv.reader(file)
+            lines = list(reader)
+            if lines:
+                return lines[-1]
+            else:
+                return None
+
+    # Get Progress from File, spit csv to values and generate json
+    last_line = read_last_line(config['progresscsv_path'])[0]
+    values = str(last_line).split(";")
+    _progress = {
+        'Iteration':    values[0],
+        'Evaluation':   values[1],
+        'Minimum':      values[2]
+    }
+
+    # Send Progress Data to Server
+    server_ip = f"http://{config['server_ip']}:5000"
+    response = requests.post(f'{server_ip}/progress',json=_progress)
+    print(f"Pogress: {_progress}, Response: {json.loads(response.text)}")
+    
 def pong():
     print("pong")
     threading.Timer(30, pong).start()
@@ -76,7 +105,7 @@ if __name__ == '__main__':
     with open(default_config_path, 'r') as config_file:
         config = json.load(config_file)  
 
-    pong()
+    progress()
 
     input("Press Enter to continue...")
 
