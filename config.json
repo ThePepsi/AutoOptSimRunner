@@ -2,5 +2,5 @@
     "database_path": "data.db",
     "ini_path":"/home/plexe/src/simopticon-plexe/examples/platooning/", 
     "progresscsv_path":"/home/plexe/src/simopticon-main/build/results/progress.csv",
-    "server_ip": "192.168.178.158"
+    "server_ip": "192.168.178.148"
 }

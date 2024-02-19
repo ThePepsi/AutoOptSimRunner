@@ -69,9 +69,9 @@ class Client:
             print(e)
 
 
-def progress(client):
+def progress():
     # Do this Task every 60s to inform the Server about progress
-    threading.Timer(60, progress, client).start()
+    threading.Timer(60, progress).start()
 
     
     # Method to read last line from a file
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 
     client = Client()
 
-    progress(client)
+    progress()
 
     input("Press Enter to continue...")
 
