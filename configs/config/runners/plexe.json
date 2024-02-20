@@ -1,5 +1,4 @@
 // PlexeRunner Config
-
 {
   // controller-related options for simulations
   "controller": {
@@ -19,7 +18,8 @@
   // scenarios to simulate
   "scenarios": [
     "BrakingNoGui"
+    //,"SinusoidalNoGui"
   ],
   // path to directory containing omnetpp.ini
-  "configDirectory": "/home/plexe/src/plexe/examples/platooning"
+  "configDirectory": "/home/plexe/src/simopticon-plexe/examples/platooning"
 }
