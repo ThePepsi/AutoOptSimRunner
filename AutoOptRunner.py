@@ -122,7 +122,7 @@ def progress(client):
         response = requests.post(f'{server_ip}/progress',json=data)
         print(f"Pogress: {data}, Response: {json.loads(response.text)}")
 
-    if client.status == "RunSim":
+    if client.status == "RunSim" and os.path.exists(config['progresscsv_path']):
         # Get Progress from File, spit csv to values and generate json
         last_line = read_last_line(config['progresscsv_path'])[0]
         values = str(last_line).split(";")
