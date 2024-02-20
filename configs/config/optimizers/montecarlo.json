@@ -1,5 +1,4 @@
 // MonteCarlo Config
-
 {
   // enable live-tracking of optimization progress in results/progress.csv
   "outputProgress": true,
@@ -9,12 +8,12 @@
   "stopCon": {
     // stop after n evaluations
     "evaluations": {
-      "useCondition": false,
+      "useCondition": true,
       "n": 10
     },
     // stop after n minutes
     "minutes": {
-      "useCondition": true,
+      "useCondition": false,
       "n": 5
     },
     // stop when the best value hasn't changed more than delta in n iterations

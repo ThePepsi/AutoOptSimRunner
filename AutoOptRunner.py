@@ -41,7 +41,7 @@ class Client:
             # Set new modified omnetpp.ini in place
             ConfigGenerator.copy_file_to_folder(omnetpp_filename,config['ini_path'])
             # Delete File form WorkinDiretory
-            ConfigGenerator.delete_file(os.path.join(os.path.dirname(), omnetpp_filename))
+            ConfigGenerator.delete_file(os.path.join(os.path.dirname(__file__), omnetpp_filename))
 
 
             # Delete old simopticon Config
@@ -51,17 +51,20 @@ class Client:
             # Set Optimiser values
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
-                replacement = {"stopcon": {"evaluations": {"n": enVar["evaluations"]} }})
+                updates= {"stopcon": {"evaluations": {"n": enVar["evaluations"]} }})
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
-                replacement = {"stopcon": {"evaluations": {"useCondition": True} }})
+                updates = {"stopcon": {"evaluations": {"useCondition": True} }})
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
-                replacement = {"output": {"progress": True }})
+                updates = {"outputProgress": True})
             # Set what Conroller to test
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "simopticon.json"),
-                replacement = {"controller": {"params": os.path.join("parameters/plexe/", config["simopticon_controller_params_file"][enVar[str("controller").upper()]])}})
+                updates = {"controller": {"params": os.path.join("parameters/plexe/", config["simopticon_controller_params_file"][str(enVar["controller"]).upper()])}})
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "runners", "plexe.json"),
+                updates = {"controller": {"controller": str(enVar["controller"]).upper()}})
         except Exception as e:
             print(e)
             raise Exception     
@@ -93,9 +96,9 @@ class Client:
             print(e)
 
 
-def progress(client):
+def progress():
     # Do this Task every 60s to inform the Server about progress
-    threading.Timer(60, progress, client).start()
+    threading.Timer(60, progress).start()
 
     
     # Method to read last line from a file
@@ -147,7 +150,7 @@ if __name__ == '__main__':
 
     client = Client()
 
-    progress(client)
+    progress()
 
     input("Press Enter to continue...")
 
