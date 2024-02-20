@@ -29,15 +29,39 @@ class Client:
         
 
     def create_Config(enVar):
+        omnetpp_filename = "omnetpp.ini"
+
         try:
-            ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"), os.path.dirname(os.path.abspath(__file__)))
-            print("1")
-            ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
-            ConfigGenerator.delete_file(os.path.join(config['ini_path'], "omnetpp.ini"))
-            print("2")
-            #ConfigGenerator.delete_file(f"{config['ini_path']}\\omnetpp.ini")
-            print("3")
-            ConfigGenerator.copy_file_to_folder("omnetpp.ini",config['ini_path'])
+            # Copy new config (With $Token) in WorkingDirectory
+            ConfigGenerator.copy_file_to_folder(os.path.join("configs", omnetpp_filename), os.path.dirname(os.path.abspath(__file__)))
+            # Replace Token with enVar
+            ConfigGenerator.replace_tokens_in_ini(omnetpp_filename, ConfigGenerator.keys_in_tokens(enVar))
+            # Delete Orginal omnetpp.ini
+            ConfigGenerator.delete_file(os.path.join(config['ini_path'], omnetpp_filename))
+            # Set new modified omnetpp.ini in place
+            ConfigGenerator.copy_file_to_folder(omnetpp_filename,config['ini_path'])
+            # Delete File form WorkinDiretory
+            ConfigGenerator.delete_file(os.path.join(os.path.dirname(), omnetpp_filename))
+
+
+            # Delete old simopticon Config
+            ConfigGenerator.delete_folder(config['simopticon_config_path'])
+            # Copy new Config to dest folder
+            ConfigGenerator.copy_folder_to_folder(source=os.path.join("configs", "config"),destination=config["simopticon_config_path"])
+            # Set Optimiser values
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
+                replacement = {"stopcon": {"evaluations": {"n": enVar["evaluations"]} }})
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
+                replacement = {"stopcon": {"evaluations": {"useCondition": True} }})
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
+                replacement = {"output": {"progress": True }})
+            # Set what Conroller to test
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "simopticon.json"),
+                replacement = {"controller": {"params": os.path.join("parameters/plexe/", config["simopticon_controller_params_file"][enVar[str("controller").upper()]])}})
         except Exception as e:
             print(e)
             raise Exception     
@@ -134,6 +158,7 @@ if __name__ == '__main__':
         Client.create_Config(enVar)
         # run Sim
         data = client.run_Sim()
+
         print(data)
         # report Data
         Client.report_Data(data, enVar)

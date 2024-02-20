@@ -58,6 +58,12 @@ class ConfigGenerator:
         shutil.copy2(source, destination)
 
     @staticmethod
+    def copy_folder_to_folder(source, destination):
+        # The destination directory must not exist. If the destination directory
+        # already exists, shutil.copytree() will raise an error.
+        shutil.copytree(source, destination)
+
+    @staticmethod
     def rename_file(current_path, new_name):
         """
         Renames a file from current_path to new_name in the same directory.
@@ -85,3 +91,12 @@ class ConfigGenerator:
         else:
             pass
             #raise FileNotFoundError(f"No file found at {file_path}")
+    
+    @staticmethod
+    def delete_folder(folder_path):
+        """Deletes the folder at the specified path and all its contents."""
+        if os.path.exists(folder_path):
+            shutil.rmtree(folder_path)
+        else:
+            pass
+            #raise FileNotFoundError(f"No folder found at {folder_path}")

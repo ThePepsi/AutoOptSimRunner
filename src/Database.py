@@ -90,7 +90,7 @@ class Database:
         finally:
             cur.close()
 
-    def add_enVar(self, controller, values: List[Tuple]):
+    def add_enVar(self, controller, evaluations, values: List[Tuple]):
         """
         Fügt Einträge in die Tabelle ein, die dem Wert von 'controller' entspricht.
         'values' ist eine Liste von Tupeln mit den Daten für 'leaderSpeed', 'startBraking' und 'frameErrorRate'.
@@ -100,7 +100,7 @@ class Database:
             return
 
         placeholders = ', '.join(['?'] * len(values[0]))  # Erzeugt eine Platzhalterzeichenfolge, z.B. "?, ?, ?"
-        sql_query = f"INSERT INTO RunSim (Controller, leaderSpeed, startBraking, frameErrorRate) VALUES ('{controller}', {placeholders})"
+        sql_query = f"INSERT INTO RunSim (Controller, leaderSpeed, startBraking, frameErrorRate, evaluations) VALUES ('{controller}', {placeholders}, {evaluations})"
 
         cursor = self.conn.cursor()
         try:
@@ -157,7 +157,8 @@ class Database:
                     "controller": row[1],
                     "leaderSpeed": row[4],
                     "frameErrorRate": row[5],
-                    "startBraking": row[6]
+                    "startBraking": row[6],
+                    "evaluations": row[8]
                 }
                 return json.dumps(result)
             else:
