@@ -14,9 +14,9 @@ Best evaluations:
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		0
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
@@ -35,14 +35,14 @@ Best evaluations:
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		0
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
 ----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 0                                                  Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
+Status: Running simulations... waiting: 0, running/done: 0                                                  Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
 
 ######################################################################
 Current optimum:
@@ -56,9 +56,9 @@ Best evaluations:
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		4
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
@@ -70,19 +70,19 @@ Current optimum:
 *.node[*].scenario.caccC1:	0.958502
 *.node[*].scenario.caccOmegaN:	0.307834Hz
 *.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
+Value: 0.0897025
 ----------------------------------------------------------------------
 Monte-Carlo
 Iterations:			1
 Iterations without improvement:	1
 Last evaluations: 
-Best evaluations: 0.004891; 0.035475; 21.658818; 21.759820; 
+Best evaluations: 0.089703; 0.134399; 0.938419; 2.723475; 
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		4
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
@@ -94,643 +94,67 @@ Current optimum:
 *.node[*].scenario.caccC1:	0.958502
 *.node[*].scenario.caccOmegaN:	0.307834Hz
 *.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
+Value: 0.0897025
 ----------------------------------------------------------------------
 Monte-Carlo
 Iterations:			2
 Iterations without improvement:	0
-Last evaluations: 21.759820; 21.658818; 0.035475; 0.004891; 
-Best evaluations: 0.004891; 0.035475; 21.658818; 21.759820; 
+Last evaluations: 2.723475; 0.938419; 0.134399; 0.089703; 
+Best evaluations: 0.089703; 0.134399; 0.938419; 2.723475; 
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		4
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
 ----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
+Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48                                                   Running simulations... waiting: 0, running/done: 48
 
 ######################################################################
 Current optimum:
 *.node[*].scenario.caccC1:	0.958502
 *.node[*].scenario.caccOmegaN:	0.307834Hz
 *.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
+Value: 0.0897025
 ----------------------------------------------------------------------
 Monte-Carlo
 Iterations:			2
 Iterations without improvement:	0
-Last evaluations: 21.759820; 21.658818; 0.035475; 0.004891; 
-Best evaluations: 0.004891; 0.035475; 21.658818; 21.759820; 
+Last evaluations: 2.723475; 0.938419; 0.134399; 0.089703; 
+Best evaluations: 0.089703; 0.134399; 0.938419; 2.723475; 
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		8
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
 ----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
+Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 0/4 threads
 
 ######################################################################
 Current optimum:
 *.node[*].scenario.caccC1:	0.958502
 *.node[*].scenario.caccOmegaN:	0.307834Hz
 *.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
+Value: 0.0897025
 ----------------------------------------------------------------------
 Monte-Carlo
 Iterations:			2
 Iterations without improvement:	0
-Last evaluations: 21.759820; 21.658818; 0.035475; 0.004891; 
-Best evaluations: 0.004891; 0.007497; 0.035475; 6.574147; 
+Last evaluations: 2.723475; 0.938419; 0.134399; 0.089703; 
+Best evaluations: 0.089703; 0.102311; 0.134399; 0.632829; 
 ----------------------------------------------------------------------
 Plexe-Runner
 Evaluations:		8
-Scenarios:		BrakingNoGui, SinusoidalNoGui
+Scenarios:		BrakingNoGui
 Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			3
-Iterations without improvement:	1
-Last evaluations: 101.810578; 6.574147; 0.007497; 20.840125; 
-Best evaluations: 0.004891; 0.007497; 0.035475; 6.574147; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		8
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			3
-Iterations without improvement:	1
-Last evaluations: 101.810578; 6.574147; 0.007497; 20.840125; 
-Best evaluations: 0.004891; 0.007497; 0.035475; 6.574147; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		12
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			3
-Iterations without improvement:	1
-Last evaluations: 101.810578; 6.574147; 0.007497; 20.840125; 
-Best evaluations: 0.004891; 0.007497; 0.009976; 0.035475; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		12
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			4
-Iterations without improvement:	2
-Last evaluations: 15.190776; 0.009976; 0.078892; 0.085493; 
-Best evaluations: 0.004891; 0.007497; 0.009976; 0.035475; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		12
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 16, running/done: 16                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			4
-Iterations without improvement:	2
-Last evaluations: 15.190776; 0.009976; 0.078892; 0.085493; 
-Best evaluations: 0.004891; 0.007497; 0.009976; 0.035475; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		16
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			4
-Iterations without improvement:	2
-Last evaluations: 15.190776; 0.009976; 0.078892; 0.085493; 
-Best evaluations: 0.004891; 0.004921; 0.005933; 0.007497; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		16
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			5
-Iterations without improvement:	3
-Last evaluations: 0.005933; 0.211196; 0.004921; 1.838079; 
-Best evaluations: 0.004891; 0.004921; 0.005933; 0.007497; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		16
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.958502
-*.node[*].scenario.caccOmegaN:	0.307834Hz
-*.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			5
-Iterations without improvement:	3
-Last evaluations: 0.005933; 0.211196; 0.004921; 1.838079; 
-Best evaluations: 0.004891; 0.004921; 0.005933; 0.007497; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		20
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			5
-Iterations without improvement:	3
-Last evaluations: 0.005933; 0.211196; 0.004921; 1.838079; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		20
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			6
-Iterations without improvement:	0
-Last evaluations: 42.974745; 0.041327; 0.004593; 0.005519; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		20
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			6
-Iterations without improvement:	0
-Last evaluations: 42.974745; 0.041327; 0.004593; 0.005519; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		24
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			6
-Iterations without improvement:	0
-Last evaluations: 42.974745; 0.041327; 0.004593; 0.005519; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		24
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			7
-Iterations without improvement:	1
-Last evaluations: 0.074510; 0.184378; 9.130798; 0.344220; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		24
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			7
-Iterations without improvement:	1
-Last evaluations: 0.074510; 0.184378; 9.130798; 0.344220; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		28
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			7
-Iterations without improvement:	1
-Last evaluations: 0.074510; 0.184378; 9.130798; 0.344220; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		28
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			8
-Iterations without improvement:	2
-Last evaluations: 0.017929; 5.424600; 264.817611; 0.007009; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		28
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			8
-Iterations without improvement:	2
-Last evaluations: 0.017929; 5.424600; 264.817611; 0.007009; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005519; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		32
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			8
-Iterations without improvement:	2
-Last evaluations: 0.017929; 5.424600; 264.817611; 0.007009; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		32
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			9
-Iterations without improvement:	3
-Last evaluations: 2.533389; 0.005073; 0.005187; 9.842617; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		32
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 24, running/done: 24                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			9
-Iterations without improvement:	3
-Last evaluations: 2.533389; 0.005073; 0.005187; 9.842617; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		36
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			9
-Iterations without improvement:	3
-Last evaluations: 2.533389; 0.005073; 0.005187; 9.842617; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		36
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Optimizer running...                    Optimizer running...
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			10
-Iterations without improvement:	4
-Last evaluations: 0.153574; 63.849248; 101.131221; 0.007848; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		36
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 20, running/done: 20                                                    Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24                                                   Running simulations... waiting: 0, running/done: 24
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			10
-Iterations without improvement:	4
-Last evaluations: 0.153574; 63.849248; 101.131221; 0.007848; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		40
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
-----------------------------------------------------------------------
-Constant-Headway-Evaluation
-Max. number of threads: 4
-----------------------------------------------------------------------
-Status: Evaluating results... using 0/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 4/4 threads                                       Evaluating results... using 0/4 threads
-
-######################################################################
-Current optimum:
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-----------------------------------------------------------------------
-Monte-Carlo
-Iterations:			10
-Iterations without improvement:	4
-Last evaluations: 0.153574; 63.849248; 101.131221; 0.007848; 
-Best evaluations: 0.004593; 0.004891; 0.004921; 0.005073; 
-----------------------------------------------------------------------
-Plexe-Runner
-Evaluations:		40
-Scenarios:		BrakingNoGui, SinusoidalNoGui
-Repeat:			3
-Max. number of threads:	12
+Max. number of threads:	15
 ----------------------------------------------------------------------
 Constant-Headway-Evaluation
 Max. number of threads: 4
@@ -738,83 +162,67 @@ Max. number of threads: 4
 Status: Optimizer running...
 
 ######################################################################
-10. Result
+8. Result
+*.node[*].scenario.caccC1:	0.189741
+*.node[*].scenario.caccOmegaN:	0.721551Hz
+*.node[*].scenario.caccXi:	622.957
+Value: 8.80324
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/5"
+----------------------------------------------------------------------
+7. Result
+*.node[*].scenario.caccC1:	0.496824
+*.node[*].scenario.caccOmegaN:	1.58483Hz
+*.node[*].scenario.caccXi:	944.984
+Value: 5.09459
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/6"
+----------------------------------------------------------------------
+6. Result
+*.node[*].scenario.caccC1:	0.223118
+*.node[*].scenario.caccOmegaN:	0.433592Hz
+*.node[*].scenario.caccXi:	448.112
+Value: 2.72347
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/0"
+----------------------------------------------------------------------
+5. Result
+*.node[*].scenario.caccC1:	0.492617
+*.node[*].scenario.caccOmegaN:	1.13873Hz
+*.node[*].scenario.caccXi:	474.314
+Value: 0.938419
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/2"
+----------------------------------------------------------------------
+4. Result
+*.node[*].scenario.caccC1:	0.166868
+*.node[*].scenario.caccOmegaN:	0.168043Hz
+*.node[*].scenario.caccXi:	590.254
+Value: 0.632829
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/4"
+----------------------------------------------------------------------
+3. Result
+*.node[*].scenario.caccC1:	0.474919
+*.node[*].scenario.caccOmegaN:	0.0673185Hz
+*.node[*].scenario.caccXi:	954.087
+Value: 0.134399
+Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/1"
+----------------------------------------------------------------------
+2. Result
 *.node[*].scenario.caccC1:	0.961303
 *.node[*].scenario.caccOmegaN:	0.418637Hz
 *.node[*].scenario.caccXi:	778.349
-Value: 0.00749662
+Value: 0.102311
 Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/7"
 ----------------------------------------------------------------------
-9. Result
-*.node[*].scenario.caccC1:	0.874123
-*.node[*].scenario.caccOmegaN:	0.771166Hz
-*.node[*].scenario.caccXi:	355.249
-Value: 0.00700879
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/27"
-----------------------------------------------------------------------
-8. Result
-*.node[*].scenario.caccC1:	0.762847
-*.node[*].scenario.caccOmegaN:	1.85488Hz
-*.node[*].scenario.caccXi:	65.1482
-Value: 0.00593318
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/14"
-----------------------------------------------------------------------
-7. Result
-*.node[*].scenario.caccC1:	0.84232
-*.node[*].scenario.caccOmegaN:	0.0142513Hz
-*.node[*].scenario.caccXi:	115.345
-Value: 0.00588645
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/39"
-----------------------------------------------------------------------
-6. Result
-*.node[*].scenario.caccC1:	0.741571
-*.node[*].scenario.caccOmegaN:	0.0756981Hz
-*.node[*].scenario.caccXi:	906.126
-Value: 0.00551889
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/17"
-----------------------------------------------------------------------
-5. Result
-*.node[*].scenario.caccC1:	0.614063
-*.node[*].scenario.caccOmegaN:	0.0531374Hz
-*.node[*].scenario.caccXi:	412.783
-Value: 0.00518709
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/30"
-----------------------------------------------------------------------
-4. Result
-*.node[*].scenario.caccC1:	0.708031
-*.node[*].scenario.caccOmegaN:	0.0812108Hz
-*.node[*].scenario.caccXi:	533.314
-Value: 0.00507336
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/31"
-----------------------------------------------------------------------
-3. Result
-*.node[*].scenario.caccC1:	0.977971
-*.node[*].scenario.caccOmegaN:	0.151365Hz
-*.node[*].scenario.caccXi:	579.326
-Value: 0.00492069
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/15"
-----------------------------------------------------------------------
-2. Result
+1. Result
 *.node[*].scenario.caccC1:	0.958502
 *.node[*].scenario.caccOmegaN:	0.307834Hz
 *.node[*].scenario.caccXi:	261.822
-Value: 0.00489107
+Value: 0.0897025
 Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/3"
 ----------------------------------------------------------------------
-1. Result
-*.node[*].scenario.caccC1:	0.913451
-*.node[*].scenario.caccOmegaN:	0.280787Hz
-*.node[*].scenario.caccXi:	170.077
-Value: 0.00459331
-Path to result files: "/home/plexe/src/simopticon-plexe/examples/platooning/optResults/18"
-----------------------------------------------------------------------
-1.	0.00459331
-2.	0.00489107
-3.	0.00492069
-4.	0.00507336
-5.	0.00518709
-6.	0.00551889
-7.	0.00588645
-8.	0.00593318
-9.	0.00700879
-10.	0.00749662
+1.	0.0897025
+2.	0.102311
+3.	0.134399
+4.	0.632829
+5.	0.938419
+6.	2.72347
+7.	5.09459
+8.	8.80324

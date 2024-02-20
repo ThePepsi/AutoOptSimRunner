@@ -38,16 +38,33 @@ class ConfigGenerator:
 
     @staticmethod
     def update_json_value(file_path, updates):
-        # Load the existing data from the JSON file
+
+        filtered_lines = []  # List to store filtered lines
         with open(file_path, 'r') as file:
-            data = json.load(file)
+            for line in file:
+                # Strip leading spaces and check if the line starts with "//"
+                if not line.lstrip().startswith("//"):
+                    filtered_lines.append(line)
+        
+        # Convert the filtered lines back into a string
+        filtered_content = ''.join(filtered_lines)
+        
+        try:
+            # Attempt to load the filtered string as JSON
+            data = json.loads(filtered_content)
+        except json.JSONDecodeError as e:
+            print("JSON Decode Error:", e)
+            return None
 
         # Update the data with the provided updates
         for section, changes in updates.items():
             if section in data and changes:
-                for key, value in changes.items():
-                    if key in data[section]:
-                        data[section][key] = value
+                if not isinstance(changes, dict):
+                    data[section]=changes
+                else:
+                    for key, value in changes.items():
+                        if key in data[section]:
+                            data[section][key] = value
 
         # Write the updated data back to the JSON file
         with open(file_path, 'w') as file:
