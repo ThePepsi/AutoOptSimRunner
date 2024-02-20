@@ -1,24 +1,21 @@
-// DirectOptimizer Config
+// MonteCarlo Config
 
 {
   // enable live-tracking of optimization progress in results/progress.csv
-  "outputProgress": false,
+  "outputProgress": true,
+  // (parallel) evaluations per iteration
+  "evaluations": 4,
   // StoppingCondition-related Options
   "stopCon": {
     // stop after n evaluations
     "evaluations": {
       "useCondition": false,
-      "n": 500
-    },
-    // stop when the search space is partitioned into n rectangles
-    "hyrects": {
-      "useCondition": false,
-      "n": 2000
+      "n": 10
     },
     // stop after n minutes
     "minutes": {
       "useCondition": true,
-      "n": 10
+      "n": 5
     },
     // stop when the best value hasn't changed more than delta in n iterations
     "accuracy": {
