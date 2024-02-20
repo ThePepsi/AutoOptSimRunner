@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 import time , json
 import socket
 from src.utils import utils
@@ -16,8 +16,18 @@ def getEnVar():
     try: 
         db: Database = Database(app.config['database_path'])
         db.connect()
-        enVar = json.loads(db.find_new_enVar())
-        db.start_enVar(enVar['controller'],enVar)
+
+        # Find new EnVar set => is None when there is no new enVar in DB
+        enVar = db.find_new_enVar()
+
+        if enVar:
+            # There still is a new enVar set to be simulated
+            enVar = json.loads(db.find_new_enVar())
+            db.start_enVar(enVar['controller'],enVar)
+            return enVar
+        else:
+            # No new enVar set
+            return Response(status=204)
     except TypeError as e:
         print("Could be done")
     except Exception as e:
@@ -25,7 +35,7 @@ def getEnVar():
         return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
     finally:
         db.disconnect()
-        return enVar
+        
     
 @app.route('/data', methods=['POST'])
 def receive_data():

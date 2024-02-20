@@ -179,7 +179,6 @@ class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
         # Test deletion of a file that doesn't exist
         with self.assertRaises(FileNotFoundError):
             self.handler.delete_file("nonexistent_file.txt")
-
     def tearDown(self):
         # Clean up: Remove the directories and files created for the test
         shutil.rmtree(self.test_dir)
@@ -187,3 +186,41 @@ class ConfigGen_FileMinpulation_TestCase(unittest.TestCase):
         # Clean up - remove the file if it still exists
         if os.path.exists(self.temp_file):
             os.remove(self.temp_file)
+
+
+class TestFileOperations(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        # Set up test directories and files
+        os.mkdir('test_source')
+        with open('test_source/test_file.txt', 'w') as f:
+            f.write('This is a test file.')
+
+        # Ensure the destination directory does not exist
+        cls.destination_path = 'test_destination'
+        if os.path.exists(cls.destination_path):
+            shutil.rmtree(cls.destination_path)
+
+    @classmethod
+    def tearDownClass(cls):
+        # Clean up test directories
+        if os.path.exists('test_source'):
+            shutil.rmtree('test_source')
+        if os.path.exists(cls.destination_path):
+            shutil.rmtree(cls.destination_path)
+
+    def test_copy_folder_to_folder(self):
+        # Copy the test_source directory to test_destination
+        ConfigGenerator.copy_folder_to_folder('test_source', self.destination_path)
+
+        # Check if the destination directory exists
+        self.assertTrue(os.path.exists(self.destination_path))
+
+        # Check if the file inside the directory was copied
+        self.assertTrue(os.path.exists(os.path.join(self.destination_path, 'test_file.txt')))
+
+        # Optionally, check the contents of the copied file
+        with open(os.path.join(self.destination_path, 'test_file.txt'), 'r') as f:
+            content = f.read()
+        self.assertEqual(content, 'This is a test file.')

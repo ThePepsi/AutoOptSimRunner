@@ -2,5 +2,9 @@
     "database_path": "data.db",
     "ini_path":"/home/plexe/src/simopticon-plexe/examples/platooning/", 
     "progresscsv_path":"/home/plexe/src/simopticon-main/build/results/progress.csv",
-    "server_ip": "192.168.178.148"
+    "simopticon_config_path":"/home/plexe/src/simopticon-main/config/",
+    "simopticon_controller_params_file":{
+        "CACC": "cacc_all.json"
+    },
+    "server_ip": "192.168.178.158"
 }

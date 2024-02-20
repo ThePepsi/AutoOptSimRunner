@@ -2,9 +2,9 @@
 
 {
   // maximum number of threads to be used for evaluation,
-  "nrThreads": 16,
+  "nrThreads": 4,
   // absolute path to the python script
-  "pythonScript": "/home/plexe/src/simopticon/src/evaluation/constant_headway/constant_headway.py",
+  "pythonScript": "/home/plexe/src/simopticon-main/src/evaluation/constant_headway/constant_headway.py",
   // absolute path to the OMNeT++ installation directory
-  "omnetppDirectory": "/home/src/omnetpp/omnetpp-6.0.1"
+  "omnetppDirectory": "/home/plexe/src/omnetpp-6.0.2"
 }

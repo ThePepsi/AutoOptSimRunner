@@ -8,11 +8,13 @@ class DB_CLI:
         self.leaderSpeed = []
         self.startBraking = []
         self.frameErrorRate = []
+        self.evaluations = None
 
     def run(self):
         self.display_header()
         self.select_controller()
         self.input_values()
+        self.set_evaluations()
         self.print_summary()
         self.ask_to_add_to_db()
 
@@ -36,6 +38,10 @@ class DB_CLI:
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
+    def set_evaluations(self):
+        self.evaluations = int(input("Set evaluations: "))
+
+
     def input_values(self):
         self.leaderSpeed = self.input_list("Enter 'leaderSpeed' values (separated by comma): ")
         self.startBraking = self.input_list("Enter 'startBraking' values (separated by comma): ")
@@ -55,6 +61,7 @@ class DB_CLI:
         self.print_values("Leader Speed", self.leaderSpeed)
         self.print_values("Braking", self.startBraking)
         self.print_values("Error Rate", self.frameErrorRate)
+        print(f"Selected Evaluations for Optimisation: {self.evaluations}")
 
     def print_values(self, label, values):
         formatted_values = ", ".join(values)
@@ -94,9 +101,9 @@ class DB_CLI:
     def add_to_db(self):
         db = Database(self.db_path)
         db.connect()
-        db.add_enVar(controller=self.controller,  values=self.generate_combinations())
+        db.add_enVar(controller=self.controller, evaluations=self.evaluations, values=self.generate_combinations())
         db.disconnect()
     
 if __name__ == '__main__':
-    cli_app = DB_CLI("C:\\Users\\timos\\Documents\\Work\\11_WiSe2324\\01_BA\\04_Git\\AutoOptSimRunner\\data.db")
+    cli_app = DB_CLI("data.db")
     cli_app.run()

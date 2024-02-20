@@ -38,16 +38,33 @@ class ConfigGenerator:
 
     @staticmethod
     def update_json_value(file_path, updates):
-        # Load the existing data from the JSON file
+
+        filtered_lines = []  # List to store filtered lines
         with open(file_path, 'r') as file:
-            data = json.load(file)
+            for line in file:
+                # Strip leading spaces and check if the line starts with "//"
+                if not line.lstrip().startswith("//"):
+                    filtered_lines.append(line)
+        
+        # Convert the filtered lines back into a string
+        filtered_content = ''.join(filtered_lines)
+        
+        try:
+            # Attempt to load the filtered string as JSON
+            data = json.loads(filtered_content)
+        except json.JSONDecodeError as e:
+            print("JSON Decode Error:", e)
+            return None
 
         # Update the data with the provided updates
         for section, changes in updates.items():
             if section in data and changes:
-                for key, value in changes.items():
-                    if key in data[section]:
-                        data[section][key] = value
+                if not isinstance(changes, dict):
+                    data[section]=changes
+                else:
+                    for key, value in changes.items():
+                        if key in data[section]:
+                            data[section][key] = value
 
         # Write the updated data back to the JSON file
         with open(file_path, 'w') as file:
@@ -56,6 +73,12 @@ class ConfigGenerator:
     @staticmethod
     def copy_file_to_folder(source, destination):
         shutil.copy2(source, destination)
+
+    @staticmethod
+    def copy_folder_to_folder(source, destination):
+        # The destination directory must not exist. If the destination directory
+        # already exists, shutil.copytree() will raise an error.
+        shutil.copytree(source, destination)
 
     @staticmethod
     def rename_file(current_path, new_name):
@@ -85,3 +108,12 @@ class ConfigGenerator:
         else:
             pass
             #raise FileNotFoundError(f"No file found at {file_path}")
+    
+    @staticmethod
+    def delete_folder(folder_path):
+        """Deletes the folder at the specified path and all its contents."""
+        if os.path.exists(folder_path):
+            shutil.rmtree(folder_path)
+        else:
+            pass
+            #raise FileNotFoundError(f"No folder found at {folder_path}")
