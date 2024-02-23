@@ -30,18 +30,27 @@ results = [dict(row) for row in rows]
 # Verbindung schließen
 conn.close()
 
-head = "starttime; duration; leaderSpeed; frameErrorRate; startBraking"
+contend = ""
+
+head = "starttime; duration; leaderSpeed; frameErrorRate; startBraking;"
 if results[0]["Controller"] == "CACC":
     head = head + "caccC1;caccOmegaN;caccXi"
 
+contend = "\n"+ head
 print(head)
     
 for row in results:
     # Calculate the duration between the two datetime objects
     duration = datetime.strptime(row["endtime"], '%Y-%m-%d %H:%M:%S') - datetime.strptime(row["starttime"], '%Y-%m-%d %H:%M:%S')
 
-    r = "; ".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"])])
+    r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"])]) + ";"
     if results[0]["Controller"] == "CACC":
-        r = r + "; ".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
+        r = r + ";".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
     print(r)
-        
+    contend = contend + "\n"+ r
+
+with open(db_path.replace("db","csv"), 'w') as file:
+    # Printing Part
+    file.write(contend)
+
+
