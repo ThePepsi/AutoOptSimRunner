@@ -13,16 +13,17 @@ for b in r_blocks:
     blocks.remove(b)
 
 class Data:
-    def __init__(self, Iterations, Iterationswithoutimprovement, Evaluations):
+    def __init__(self, Iterations, Iterationswithoutimprovement, Evaluations, Value):
         self.Iterations = Iterations
         self.Iterationswithoutimprovement = Iterationswithoutimprovement
         self.Evaluations = Evaluations
+        self.Value = Value
 
     def combinedStringData(self):
-        return "; ".join([str(self.Iterations), str(self.Iterationswithoutimprovement), str(self.Evaluations)])
+        return "; ".join([str(self.Iterations), str(self.Iterationswithoutimprovement), str(self.Evaluations), str(self.Value)])
     
     def combinedStringHead(self):
-        return "; ".join(["Iterations", "Iterationswithoutimprovement", "Evaluations"])
+        return "; ".join(["Iterations", "Iterationswithoutimprovement", "Evaluations", "Value"])
 
 class Controller:
     pass
@@ -51,6 +52,8 @@ for block in blocks:
             _Iterationswithoutimprovement = int(line.split(":\t")[1])
         if "Evaluations:" in line:
             _Evaluations = int(line.split(":\t")[1])
+        if "Value:" in line:
+            _Value = float(line.split(":\t")[1])
 
         # CACC Stuff
         if "caccC1" in line:
@@ -68,7 +71,7 @@ for block in blocks:
     # TODO Do more Controller here
     
 
-    _data = Data(_Iterations,_Iterationswithoutimprovement, _Evaluations)
+    _data = Data(_Iterations,_Iterationswithoutimprovement, _Evaluations, _Value)
             
     _donelist.append((_data, _controller))
       
