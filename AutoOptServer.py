@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify, Response
-import time , json
+import time , json, os
 import socket
 from src.utils import utils
 from src.Database import Database
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -45,10 +46,21 @@ def receive_data():
         print(msg_data)
         data = msg_data.pop("data", None)
         controller = msg_data.pop("controller", None)
+
+        file = request.files.get('file')  # 'file' ist der Schlüssel für die hochgeladene Datei
+        if file:
+            filename = secure_filename(file.filename)  # Dateinamen sichern
+            filepath = os.path.join('/pfad/wo/die/dateien/gespeichert/werden', filename)
+            file.save(filepath)
+            print(f"File {filename} saved at {filepath}")
+
+
+
         db = Database("data.db")
         db.connect()
         db.add_sim_run(controllerType=controller, sim_data=msg_data, data=data)
         db.disconnect()
+
     except ValueError:
         print('ValueError, probably ControllerType')
         return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
@@ -57,6 +69,7 @@ def receive_data():
         return jsonify({'error': 'An error occurred'}), 500  # Internal Server Error
 
     return jsonify({"status": "success", "message": "Data received"}), 200
+
 
 @app.route('/ping')
 def ping():
@@ -100,5 +113,3 @@ if __name__ == '__main__':
     with open(default_config_path, 'r') as config_file:
         app.config.update(json.load(config_file))
     app.run(host='0.0.0.0', port=5000, debug=True)
-
-
