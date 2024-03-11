@@ -53,7 +53,7 @@ for block in blocks:
         if "Evaluations:" in line:
             _Evaluations = int(line.split(":\t")[1])
         if "Value:" in line:
-            _Value = float(line.split(":\t")[1])
+            _Value = float(line.split(" ")[1])
 
         # CACC Stuff
         if "caccC1" in line:
@@ -80,7 +80,7 @@ for block in blocks:
 with open(file_path.replace("txt","csv"), 'w') as file:
     # Printing Part
     head = _donelist[0][0].combinedStringHead() +";"+ _donelist[0][1].combinedStringHead()
-    file.write(head+"\n")
+    file.write(str(head).replace(" ","")+"\n")
     for (__data, __controller) in _donelist:
         date = __data.combinedStringData() + ";" + __controller.combinedStringData()
         file.write(date+"\n")
