@@ -85,7 +85,7 @@ class Client:
         except Exception as e:
             print(f"Fail: {str(e)}")
 
-    def report_Data(data, enVar, file_path):
+    def report_Data(data, enVar, file_path="output.txt"):
 
         try:
             # Add data to enVar
@@ -118,14 +118,6 @@ class Client:
             #response = requests.post(f'http://{config['server_ip']}:5000/data', json=data_json)
         except Exception as e:
             print(e)
-
-    def send_output():
-        server_ip = f"http://{config['server_ip']}:5000"
-        files = {'file': open('output.txt', 'rb')}
-
-        response = requests.post(f'{server_ip}', files=files)
-
-        print(response.text)
 
 
 def progress():
