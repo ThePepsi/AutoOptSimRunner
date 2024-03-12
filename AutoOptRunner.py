@@ -98,18 +98,17 @@ class Client:
             server_ip = f"http://{config['server_ip']}:5000/data"
 
             # Die Datei, die du senden möchtest
-            with open(file_path, 'rb') as file_to_send:
+            with open(file_path, 'r', encoding="utf-8") as file_to_send:
                 # `files` für die Datei und `data` für das JSON, beachte dass `data_json` als String gesendet wird
                 files = {'file': (file_path, file_to_send)}
-                #data = {'json_data': (None, data_json, 'application/json')}
-               
+                data = {'json_data': (None, data_json, 'application/json')}
+                
                 # Senden der Anfrage
-                response = requests.post(server_ip, files=files, data=data_json)
+                response = requests.post(server_ip, files=files, data=data)
                 print(response.text)
         except Exception as e:
             print(e)
-
-
+    
         try:
             enVar["data"] = data
             data_json = json.dumps(enVar)
