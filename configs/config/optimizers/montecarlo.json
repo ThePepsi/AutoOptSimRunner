@@ -9,7 +9,7 @@
     // stop after n evaluations
     "evaluations": {
       "useCondition": true,
-      "n": 5
+      "n": 1000
     },
     // stop after n minutes
     "minutes": {
