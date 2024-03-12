@@ -46,9 +46,11 @@ def receive_data():
         if extension:
             unique_filename += '.' + extension
         return unique_filename
+    
     try:
         # JSON-Daten extrahieren
-        json_data = request.form.get('json_data')  # JSON-Daten waren im 'data' Feld des Formulars
+        json_data = request.form.get('data')  # JSON-Daten waren im 'data' Feld des Formulars
+        json_data = request.form['json_data']
         if json_data:
             msg_data = json.loads(json_data)
             print(msg_data)
