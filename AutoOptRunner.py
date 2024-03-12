@@ -86,7 +86,6 @@ class Client:
             print(f"Fail: {str(e)}")
 
     def report_Data(data, enVar, file_path="output.txt"):
-
         try:
             # Add data to enVar
             enVar["data"] = data
@@ -98,7 +97,7 @@ class Client:
             server_ip = f"http://{config['server_ip']}:5000/data"
 
             # Die Datei, die du senden möchtest
-            with open(file_path, 'r', encoding="utf-8") as file_to_send:
+            with open(file_path, 'r', encoding="utf-8", errors='ignore') as file_to_send:
                 # `files` für die Datei und `data` für das JSON, beachte dass `data_json` als String gesendet wird
                 files = {'file': (file_path, file_to_send)}
                 data = {'json_data': (None, data_json, 'application/json')}
@@ -123,7 +122,6 @@ def progress():
     # Do this Task every 60s to inform the Server about progress
     threading.Timer(60, progress).start()
 
-    
     # Method to read last line from a file
     def read_last_line(file_path):
         with open(file_path, 'r', newline='') as file:
@@ -148,24 +146,23 @@ def progress():
         response = requests.post(f'{server_ip}/progress',json=data)
         print(f"Pogress: {data}, Response: {json.loads(response.text)}")
 
-    if client.status == "RunSim" and os.path.exists(config['progresscsv_path']):
-        # Get Progress from File, spit csv to values and generate json
-        last_line = read_last_line(config['progresscsv_path'])[0]
-        values = str(last_line).split(";")
-        _progress = {
-            'Iteration':    values[0],
-            'Evaluation':   values[1],
-            'Minimum':      values[2]
-        }
-        pingprogress(_progress)       
-    else:
-        pong()
-    
-
-
+    try:
+        if client.status == "RunSim" and os.path.exists(config['progresscsv_path']):
+            # Get Progress from File, spit csv to values and generate json
+            last_line = read_last_line(config['progresscsv_path'])[0]
+            values = str(last_line).split(";")
+            _progress = {
+                'Iteration':    values[0],
+                'Evaluation':   values[1],
+                'Minimum':      values[2]
+            }
+            pingprogress(_progress)       
+        else:
+            pong()
+    except Exception as e:
+        print(e) 
 
 if __name__ == '__main__':
-
     # Default configuration file
     default_config_path = 'config.json'
     with open(default_config_path, 'r') as config_file:
