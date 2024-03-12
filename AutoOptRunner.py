@@ -108,14 +108,6 @@ class Client:
         except Exception as e:
             print(e)
     
-        try:
-            enVar["data"] = data
-            data_json = json.dumps(enVar)
-            server_ip = f"http://{config['server_ip']}:5000"
-            response = requests.post(f'{server_ip}/data',json=data_json)
-            #response = requests.post(f'http://{config['server_ip']}:5000/data', json=data_json)
-        except Exception as e:
-            print(e)
 
 
 def progress():
