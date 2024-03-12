@@ -12,7 +12,7 @@
     // print all sampled values into results/values.csv when optimization finishes
     "outputValues": true,
     // parameters to be optimized
-    "params": "parameters/plexe/cacc_all.json"
+    "params": "parameters/plexe/ploeg_all.json"
   },
   // Optimizer-related Options
   "optimizer": {

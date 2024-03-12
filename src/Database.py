@@ -32,7 +32,7 @@ class Database:
             self.conn.close()
             self.conn = None
 
-    def add_sim_run(self, controllerType, sim_data, data):
+    def add_sim_run(self, controllerType, sim_data, data, file_path):
         """
         Add a new simulation run with data for both RunSim and Controller tables.
         'sim_data' should be a dictionary with keys corresponding to RunSim columns except for 'data'.
@@ -46,6 +46,10 @@ class Database:
         if self.conn is None:
             raise Exception("Database is not connected")
         cur = self.conn.cursor()
+
+        # Read file content
+        with open(file_path, 'rb') as file:
+            file_content = file.read()
         
         # Add data to right Controller table
         columns = ', '.join(data.keys())
@@ -58,13 +62,13 @@ class Database:
 
         sql_query = """
             UPDATE RunSim 
-            SET endtime = ?, data =?
+            SET endtime = ?, data =?, outputfile =?
             WHERE Controller = ? 
             AND leaderSpeed = ? 
             AND startBraking = ? 
             AND frameErrorRate = ?
         """
-        cur.execute(sql_query, (date_and_time, last_id, controllerType, sim_data['leaderSpeed'], sim_data['startBraking'], sim_data['frameErrorRate']))
+        cur.execute(sql_query, (date_and_time, last_id, file_content, controllerType, sim_data['leaderSpeed'], sim_data['startBraking'], sim_data['frameErrorRate']))
 
         self.conn.commit()
        

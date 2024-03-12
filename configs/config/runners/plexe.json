@@ -3,7 +3,7 @@
   // controller-related options for simulations
   "controller": {
     // name of controller to be used in simulations
-    "controller": "CACC",
+    "controller": "PLOEG",
     // headway (only relevant for ACCs)
     "headway": 0.1,
     // insert distance of platoon vehicles in metre

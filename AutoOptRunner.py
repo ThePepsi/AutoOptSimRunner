@@ -85,7 +85,31 @@ class Client:
         except Exception as e:
             print(f"Fail: {str(e)}")
 
-    def report_Data(data, enVar):
+    def report_Data(data, enVar, file_path="output.txt"):
+
+        try:
+            # Add data to enVar
+            enVar["data"] = data
+
+            # Dein JSON-Daten
+            data_json = json.dumps(enVar)
+
+            # Die Server-Adresse
+            server_ip = f"http://{config['server_ip']}:5000/data"
+
+            # Die Datei, die du senden möchtest
+            with open(file_path, 'rb') as file_to_send:
+                # `files` für die Datei und `data` für das JSON, beachte dass `data_json` als String gesendet wird
+                files = {'file': (file_path, file_to_send)}
+                data = {'json_data': (None, data_json, 'application/json')}
+                
+                # Senden der Anfrage
+                response = requests.post(server_ip, files=files, data=data)
+                print(response.text)
+        except Exception as e:
+            print(e)
+
+
         try:
             enVar["data"] = data
             data_json = json.dumps(enVar)
