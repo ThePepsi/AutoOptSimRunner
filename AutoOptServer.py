@@ -49,7 +49,6 @@ def receive_data():
     
     try:
         # JSON-Daten extrahieren
-        json_data = request.form.get('data')  # JSON-Daten waren im 'data' Feld des Formulars
         json_data = request.form['json_data']
         if json_data:
             msg_data = json.loads(json_data)
@@ -104,15 +103,19 @@ def ping():
 
 @app.route('/progress', methods=['POST'])
 def progress():
-    # Get Data from Client
-    msg_data = request.json
+    try:
+        # Get Data from Client
+        msg_data = request.json
 
-    # Get the IP address of the client
-    ip_address = request.remote_addr
+        # Get the IP address of the client
+        ip_address = request.remote_addr
 
-    # Print Progress state
-    print(f"Progress: {ip_address} => {msg_data}")
-    return jsonify({"status": "success", "message": "Data received"}), 200
+        # Print Progress state
+        print(f"Progress: {ip_address} => {msg_data}")
+        return jsonify({"status": "success", "message": "Data received"}), 200
+    except Exception as e:
+        print(e)
+        return jsonify({'error': f'An error occurred:{e}'}), 500  # Internal Server Error
 
 def get_ip_address():
     try:

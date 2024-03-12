@@ -52,10 +52,19 @@ class Database:
             file_content = file.read()
         
         # Add data to right Controller table
-        columns = ', '.join(data.keys())
-        placeholders = ':'+', :'.join(data.keys())
-        query = f"INSERT INTO {controllerType} ({columns}) VALUES ({placeholders})"
-        cur.execute(query, data)
+        try: 
+            columns = ', '.join(data.keys())
+            placeholders = ':'+', :'.join(data.keys())
+            query = f"INSERT INTO {controllerType} ({columns}) VALUES ({placeholders})"
+            cur.execute(query, data)
+        except Exception as e:
+            print("Why did something went wrong here?")
+            print(e)
+            print(data)
+            print(data.keys())
+            print(query)
+            
+
 
         # Retrieve the id of the new row
         last_id = cur.lastrowid
