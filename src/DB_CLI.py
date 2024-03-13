@@ -105,5 +105,5 @@ class DB_CLI:
         db.disconnect()
     
 if __name__ == '__main__':
-    cli_app = DB_CLI("data.db")
+    cli_app = DB_CLI("data_test.db")
     cli_app.run()
