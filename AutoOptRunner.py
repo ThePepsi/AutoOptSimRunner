@@ -25,7 +25,7 @@ class Client:
             print(f"EnVar: {json.loads(response.text)}")
             return json.loads(response.text)
         except Exception as e:
-            print("getVar")
+            print("Error on get_Var")
             print(e)
         
 
@@ -59,6 +59,9 @@ class Client:
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
                 updates = {"outputProgress": True})
+            ConfigGenerator.update_json_value(
+                file_path= os.path.join(config["simopticon_config_path"], "optimizers", "montecarlo.json"),
+                updates = {"stopcon": {"evaluations": {"n": str(enVar["evaluations"])} }})
             # Set what Conroller to test
             ConfigGenerator.update_json_value(
                 file_path= os.path.join(config["simopticon_config_path"], "simopticon.json"),
@@ -67,7 +70,7 @@ class Client:
                 file_path= os.path.join(config["simopticon_config_path"], "runners", "plexe.json"),
                 updates = {"controller": {"controller": str(enVar["controller"]).upper()}})
         except Exception as e:
-            print("CreateConfig")
+            print("Error on CreateConfig")
             print(e)
             raise Exception     
         

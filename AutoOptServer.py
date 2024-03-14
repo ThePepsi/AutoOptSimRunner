@@ -77,8 +77,6 @@ def receive_data():
             else:
                 print("The file does not exist")
             
-            
-
         else:
             raise ValueError("No JSON data found")
 

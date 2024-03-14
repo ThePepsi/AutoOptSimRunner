@@ -39,6 +39,17 @@ class Database:
         'data' should be a dictionary with keys corresponding to CACC columns.
         """
 
+        # Iterations Evaluations Value is safed in data but should be added to sim_data
+        if not isinstance(data, dict):
+            raise ValueError("Miscaluclation on the data")
+        if not isinstance(sim_data, dict):
+            raise ValueError("Miscaluclation on the sim_data")
+        thedata = {}
+        thedata['iterations'] = data.pop('Iterations')
+        thedata['evaluations'] = data.pop('Evaluations')
+        thedata['value'] = data.pop('Value')
+        sim_data.update(thedata)
+
 
         # Current date and time in the desired format
         date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -71,17 +82,15 @@ class Database:
 
         sql_query = """
             UPDATE RunSim 
-            SET endtime = ?, data =?, outputfile =?
+            SET endtime = ?, data =?, outputfile =?, iterations =?, evaluations =?, value =?
             WHERE Controller = ? 
             AND leaderSpeed = ? 
             AND startBraking = ? 
             AND frameErrorRate = ?
         """
-        cur.execute(sql_query, (date_and_time, last_id, file_content, controllerType, sim_data['leaderSpeed'], sim_data['startBraking'], sim_data['frameErrorRate']))
+        cur.execute(sql_query, (date_and_time, last_id, file_content, sim_data['iterations'], sim_data['evaluations'], sim_data['value'],controllerType, sim_data['leaderSpeed'], sim_data['startBraking'], sim_data['frameErrorRate']))
 
         self.conn.commit()
-       
-        
         return
     
     def done_Sims(self):
