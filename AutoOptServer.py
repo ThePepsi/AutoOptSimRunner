@@ -65,7 +65,7 @@ def receive_data():
                 print(f"File {filename} saved at {filepath}")
             
             # Datenbankoperationen (Beispiel, an deine Implementierung anpassen)
-            db = Database("data.db")
+            db = Database(app.config['database_path'])
             db.connect()
             db.add_sim_run(controllerType=controller, sim_data=msg_data, data=data, file_path=filepath)
             db.disconnect()

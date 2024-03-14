@@ -39,11 +39,30 @@ class Database:
         'data' should be a dictionary with keys corresponding to CACC columns.
         """
 
+        def ensure_dict(input_data):
+            # Check if input_data is already a dictionary
+            if isinstance(input_data, dict):
+                return input_data
+            # If input_data is a string, attempt to convert it to a dictionary
+            elif isinstance(input_data, str):
+                try:
+                    return json.loads(input_data)
+                except json.JSONDecodeError:
+                    # Handle the case where the string cannot be converted
+                    raise ValueError("Input is a string but not a valid dictionary representation.")
+            else:
+                # Handle other data types
+                raise TypeError("Input is neither a dictionary nor a string representation of a dictionary.")
+
         # Iterations Evaluations Value is safed in data but should be added to sim_data
         if not isinstance(data, dict):
-            raise ValueError("Miscaluclation on the data")
+            data = ensure_dict(data)
+            if not isinstance(data, dict):
+                raise ValueError("Miscaluclation on the data")
         if not isinstance(sim_data, dict):
-            raise ValueError("Miscaluclation on the sim_data")
+            sim_data = ensure_dict(sim_data)
+            if not isinstance(sim_data, dict):
+                raise ValueError("Miscaluclation on the sim_data")
         thedata = {}
         thedata['iterations'] = data.pop('Iterations')
         thedata['evaluations'] = data.pop('Evaluations')
