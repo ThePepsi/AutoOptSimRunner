@@ -7,7 +7,7 @@ class TextParser:
         right_block = self._find_right_result(last_block, "1. Result")
         scenario_data = self._extract_scenario_data(right_block)
 
-        penultimate_block = self._read_penultimate_block()
+        penultimate_block = self._read_penultimate_block(file_path)
         sim_data = self._extract_sim_data(penultimate_block)
         scenario_data.update(sim_data)
 
