@@ -25,6 +25,7 @@ class Client:
             print(f"EnVar: {json.loads(response.text)}")
             return json.loads(response.text)
         except Exception as e:
+            print("getVar")
             print(e)
         
 
@@ -66,6 +67,7 @@ class Client:
                 file_path= os.path.join(config["simopticon_config_path"], "runners", "plexe.json"),
                 updates = {"controller": {"controller": str(enVar["controller"]).upper()}})
         except Exception as e:
+            print("CreateConfig")
             print(e)
             raise Exception     
         
@@ -106,16 +108,9 @@ class Client:
                 response = requests.post(server_ip, files=files, data=data)
                 print(response.text)
         except Exception as e:
+            print("inReportData")
             print(e)
     
-        try:
-            enVar["data"] = data
-            data_json = json.dumps(enVar)
-            server_ip = f"http://{config['server_ip']}:5000"
-            response = requests.post(f'{server_ip}/data',json=data_json)
-            #response = requests.post(f'http://{config['server_ip']}:5000/data', json=data_json)
-        except Exception as e:
-            print(e)
 
 
 def progress():
@@ -138,6 +133,7 @@ def progress():
             response = requests.get(f'{server_ip}/ping')
             print(json.loads(response.text))
         except Exception as e:
+            print("pong")
             print(e)
     
     def pingprogress(data):
@@ -160,6 +156,7 @@ def progress():
         else:
             pong()
     except Exception as e:
+        print("Not Important")
         print(e) 
 
 if __name__ == '__main__':
