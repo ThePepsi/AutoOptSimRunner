@@ -4,7 +4,8 @@
     "progresscsv_path":"/home/plexe/src/simopticon-main/build/results/progress.csv",
     "simopticon_config_path":"/home/plexe/src/simopticon-main/config/",
     "simopticon_controller_params_file":{
-        "CACC": "cacc_all.json"
+        "CACC": "cacc_all.json",
+        "PLOEG": "ploeg_all.json"
     },
     "server_ip": "192.168.178.20"
 }
