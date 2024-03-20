@@ -53,32 +53,39 @@ class Database:
             else:
                 # Handle other data types
                 raise TypeError("Input is neither a dictionary nor a string representation of a dictionary.")
+            
 
+        # Do some testing if Data seems legit
+        for dic in [data, sim_data]:
+            if not isinstance(dic, dict):
+                dic = ensure_dict(dic)
+                if not isinstance(dic, dict):
+                    raise ValueError("Miscaluclation on the {dic}")
+        
+        if not bool(data) or not bool(sim_data):
+            raise ValueError(f"One of the Dicts was empty sim_data {sim_data} or data {data}")
+        
         # Iterations Evaluations Value is safed in data but should be added to sim_data
-        if not isinstance(data, dict):
-            data = ensure_dict(data)
-            if not isinstance(data, dict):
-                raise ValueError("Miscaluclation on the data")
-        if not isinstance(sim_data, dict):
-            sim_data = ensure_dict(sim_data)
-            if not isinstance(sim_data, dict):
-                raise ValueError("Miscaluclation on the sim_data")
         thedata = {}
         thedata['iterations'] = data.pop('Iterations')
         thedata['evaluations'] = data.pop('Evaluations')
         thedata['value'] = data.pop('Value')
         sim_data.update(thedata)
 
+        # Detect Problem with no Data
+        if not bool(data):
+            raise ValueError(f"Data has no data => {data}")
+
 
         # Current date and time in the desired format
         date_and_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         if self.conn is None:
-            raise Exception("Database is not connected")
+            raise  sqlite3.OperationalError("Database is not connected")
         cur = self.conn.cursor()
 
         # Read file content
-        with open(file_path, 'rb') as file:
+        with open(file_path, 'rb', errors='ignore') as file:
             file_content = file.read()
         
         # Add data to right Controller table
@@ -88,13 +95,13 @@ class Database:
             query = f"INSERT INTO {controllerType} ({columns}) VALUES ({placeholders})"
             cur.execute(query, data)
         except Exception as e:
+            # Must be connected no CACC data so querry failes .... maybe the columns is empthy
             print("Why did something went wrong here?")
             print(e)
             print(data)
             print(data.keys())
             print(query)
             
-
 
         # Retrieve the id of the new row
         last_id = cur.lastrowid
