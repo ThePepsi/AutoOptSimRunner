@@ -6,5 +6,5 @@
     "simopticon_controller_params_file":{
         "CACC": "cacc_all.json"
     },
-    "server_ip": "192.168.178.20"
+    "server_ip": "192.168.178.40"
 }
