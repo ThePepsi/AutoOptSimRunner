@@ -3,5 +3,5 @@ src/__pycache__/
 omnetpp.ini
 output.txt
 data.db
-
 output.txt
+config.json
