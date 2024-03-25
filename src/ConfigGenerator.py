@@ -9,7 +9,7 @@ class ConfigGenerator:
     
     @staticmethod
     def keys_in_tokens(original_data):
-        allowed_keys = ["leaderSpeed", "frameErrorRate"]
+        allowed_keys = ["leaderSpeed", "frameErrorRate", "startBraking"]
         replacements = {}
         for key in allowed_keys:
             if key in original_data:
