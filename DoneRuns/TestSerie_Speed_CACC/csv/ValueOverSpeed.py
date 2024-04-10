@@ -119,7 +119,7 @@ def plot_graphs_in_two_rows_with_individual_limits(dataframes_dict, y_value_colu
 # Beispielaufruf der Funktion mit individuellen Y-Achsen-Bereichen für drei Graphen
 y_value_columns = ["caccC1", "caccOmegaN", "caccXi"]
 y_limits_list = [(0.3, 1), (0, 2), (0, 160)]  # Beispielwerte für Y-Achsen-Bereiche
-plot_graphs_in_two_rows_with_individual_limits(dataframes_dict=dates, y_value_columns=y_value_columns, y_limits_list=y_limits_list)
+# plot_graphs_in_two_rows_with_individual_limits(dataframes_dict=dates, y_value_columns=y_value_columns, y_limits_list=y_limits_list)
     
 def plot_graph_from_dict(dataframes_dict, y_value_column):
     """
@@ -137,15 +137,40 @@ def plot_graph_from_dict(dataframes_dict, y_value_column):
             print(f"Die Spalte '{y_value_column}' existiert nicht im DataFrame für Schlüssel '{key}'.")
             continue  # Zum nächsten DataFrame im Dictionary übergehen
         
-        plt.plot(df['leaderSpeed'], df[y_value_column], marker='o', label=f'Schlüssel {key}')
+        plt.plot(df['leaderSpeed'], df[y_value_column], marker='o', label=f'{key}')
     
-    plt.title(f"Geschwindigkeit vs. {y_value_column}")  # Titel des Graphen
-    plt.xlabel('Geschwindigkeit (leaderSpeed)')  # Beschriftung der x-Achse
-    plt.ylabel(y_value_column)  # Beschriftung der y-Achse
-    plt.grid(True)  # Gitternetzlinien anzeigen
-    plt.legend()  # Legende anzeigen
+    plt.xlabel('Speed in km/h (leaderSpeed)', fontsize=40)  # Beschriftung der x-Achse
+    plt.ylabel(y_value_column, fontsize=40)  # Beschriftung der y-Achse
+    plt.subplots_adjust(left=0.1, right=0.99, top=0.99, bottom=0.12)
+    plt.tick_params(axis='x', labelsize=40)
+    plt.tick_params(axis='y', labelsize=40)
+    plt.grid(True, linewidth=2.0)  # Gitternetzlinien anzeigen
+    plt.legend(fontsize=40)  # Legende anzeigen
+
+    # Dicke der Spines (x- und y-Achsenlinien) anpassen
+    ax = plt.gca()  # Gibt das aktuelle Axes-Objekt zurück
+    ax.spines['top'].set_linewidth(2)    # Dicke der oberen Linie anpassen
+    ax.spines['bottom'].set_linewidth(2) # Dicke der unteren Linie anpassen
+    ax.spines['left'].set_linewidth(2)   # Dicke der linken Linie anpassen
+    ax.spines['right'].set_linewidth(2)  # Dicke der rechten Linie anpassen
+    
     plt.show()  # Zeigen des Graphen
 
 plot_graph_from_dict(dates, "caccC1")
 plot_graph_from_dict(dates, "caccOmegaN")
 plot_graph_from_dict(dates, "caccXi")
+
+
+
+    # # Dicke der Spines (x- und y-Achsenlinien) anpassen
+    # ax = plt.gca()  # Gibt das aktuelle Axes-Objekt zurück
+    # ax.spines['top'].set_linewidth(2)    # Dicke der oberen Linie anpassen
+    # ax.spines['bottom'].set_linewidth(2) # Dicke der unteren Linie anpassen
+    # ax.spines['left'].set_linewidth(2)   # Dicke der linken Linie anpassen
+    # ax.spines['right'].set_linewidth(2)  # Dicke der rechten Linie anpassen
+
+    # plt.tick_params(axis='x', labelsize=40)
+    # plt.tick_params(axis='y', labelsize=40)
+    # plt.grid(True, linewidth=2.0)  # Gitternetzlinien anzeigen
+    # plt.subplots_adjust(left=0.1, right=0.99, top=0.99, bottom=0.12)
+    # plt.legend(fontsize=40)  # Legende anzeigen

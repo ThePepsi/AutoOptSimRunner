@@ -98,7 +98,47 @@ def plot(value = "controllerAcceleration", value_label = "Zeit (s)", tmin = 0, t
     plt.tight_layout(rect=[0, 0.05, 1, 1])
     plt.show()
 
-plot("controllerAcceleration","braking deceleration (mpsps)",4,10)
-plot("acceleration","braking deceleration (mpsps)",4,10)
-plot("distance", "distance (m)",4,10,  ymin=4.9,ymax=5.1)
-plot("speed", "speed (mps)",4,10)
+# plot("controllerAcceleration","braking deceleration (mpsps)",4,10)
+# plot("acceleration","braking deceleration (mpsps)",4,10)
+# plot("distance", "distance (m)",4,10,  ymin=4.9,ymax=5.1)
+# plot("speed", "speed (mps)",4,10)
+
+def plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0, path="DoneRuns\\TestSerie_Speed_CACC\\DataFromRealSimualtion\\"):
+    # Iterieren durch jeden Datensatz und Erstellen eines Graphen für jeden
+    for data in ["500", "1000", "5000", "10000"]:
+        # Erstellen einer neuen Figure für jeden Datensatz
+        fig, ax = plt.subplots(figsize=(5, 5))
+        
+        for file in os.listdir(f"{path}{data}/split"):
+            df = pd.read_csv(f"{path}{data}/split/{file}", sep='\t')
+            node_id = int(re.findall(r'\d+', file)[0])
+            ax.plot(df['time'], df[value], label=f'Node {node_id}') # Die Variable `c` wurde entfernt, da sie nicht definiert ist. Optional kann Farbgebung hinzugefügt werden.
+        
+        ax.set_xlim([tmin, tmax])
+        if ymax != 0 and ymin != 0:
+            ax.set_ylim([ymin, ymax])
+        ax.grid(True)
+        if data != "10000":
+            ax.set_title(f'{data} evaluations')
+        else:
+            ax.set_title(f'15000 evaluations')
+        ax.set_xlabel('time (s)')
+        ax.set_ylabel(value_label)
+        
+        # Anzeigen des Titels für jeden Graphen
+        #fig.suptitle(value)
+
+        # Anzeigen der Legende
+        ax.legend(loc='upper right')
+        #ax.legend(loc='lower center', ncol=8, bbox_to_anchor=(0.5, -0.05))
+        
+        # Anpassen des Layouts, um Platz für die Legende zu schaffen
+        plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+        
+        # Anzeigen des Graphen
+        plt.show()
+
+# plot_individual_graphs("controllerAcceleration","braking deceleration (mpsps)",4,10)
+# plot_individual_graphs("acceleration","braking deceleration (mpsps)",4,10)
+plot_individual_graphs("distance", "distance (m)",4,12,  ymin=4.9,ymax=5.15)
+# plot_individual_graphs("speed", "speed (mps)",4,10)

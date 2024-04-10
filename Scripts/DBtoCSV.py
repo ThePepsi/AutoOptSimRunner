@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 
-select_controller = "CACC"
+select_controller = "FLATBED"
 
 db_path = input("DB File:")
 
@@ -9,6 +9,9 @@ db_path = input("DB File:")
 # TODO Add more Controller here
 if select_controller == "CACC":
     query  = "SELECT RunSim.*, CACC.* FROM RunSim JOIN CACC ON RunSim.data = CACC.id WHERE RunSim.Controller = 'CACC';"
+
+if select_controller == "FLATBED":
+    query  = "SELECT RunSim.*, FLATBED.* FROM RunSim JOIN FLATBED ON RunSim.data = FLATBED.id WHERE RunSim.Controller = 'FLATBED';"
 
 
 # Verbindung zur Datenbank herstellen
@@ -32,9 +35,13 @@ conn.close()
 
 contend = ""
 
-head = "starttime; duration; leaderSpeed; frameErrorRate; startBraking;"
+head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;"
+
+# TODO Add more Controller here
 if results[0]["Controller"] == "CACC":
     head = head + "caccC1;caccOmegaN;caccXi"
+if results[0]["Controller"] == "FLATBED":
+    head = head + "flatbedKa;flatbedKv;flatbedKp;flatbedH"
 
 contend = "\n"+ head
 print(head)
@@ -43,9 +50,14 @@ for row in results:
     # Calculate the duration between the two datetime objects
     duration = datetime.strptime(row["endtime"], '%Y-%m-%d %H:%M:%S') - datetime.strptime(row["starttime"], '%Y-%m-%d %H:%M:%S')
 
-    r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"])]) + ";"
+    r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"]), str(row["value"])]) + ";"
+    # TODO Add more Controller here
     if results[0]["Controller"] == "CACC":
         r = r + ";".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
+    if results[0]["Controller"] == "FLATBED":
+        r = r + ";".join([str(row["flatbedKa"]), str(row["flatbedKv"]), str(row["flatbedKp"]), str(row["flatbedH"])])
+
+    
     print(r)
     contend = contend + "\n"+ r
 
