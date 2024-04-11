@@ -1,14 +1,22 @@
 import sqlite3
 from datetime import datetime
 
-select_controller = "FLATBED"
+l_controller = ["CACC", "PLOEG","FLATBED"]
+
 
 db_path = input("DB File:")
+for i, controller in enumerate(l_controller):
+    print(f"    ({i+1}) {controller}")
+controller_input = input("Choose Controller Number: ")
+select_controller = l_controller[int(controller_input)-1]
 
 
 # TODO Add more Controller here
 if select_controller == "CACC":
     query  = "SELECT RunSim.*, CACC.* FROM RunSim JOIN CACC ON RunSim.data = CACC.id WHERE RunSim.Controller = 'CACC';"
+
+if select_controller == "PLOEG":
+    query  = "SELECT RunSim.*, PLOEG.* FROM RunSim JOIN PLOEG ON RunSim.data = PLOEG.id WHERE RunSim.Controller = 'PLOEG';"
 
 if select_controller == "FLATBED":
     query  = "SELECT RunSim.*, FLATBED.* FROM RunSim JOIN FLATBED ON RunSim.data = FLATBED.id WHERE RunSim.Controller = 'FLATBED';"
@@ -40,6 +48,8 @@ head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;"
 # TODO Add more Controller here
 if results[0]["Controller"] == "CACC":
     head = head + "caccC1;caccOmegaN;caccXi"
+if results[0]["Controller"] == "PLOEG":
+    head = head + "ploegKp;ploegKd"
 if results[0]["Controller"] == "FLATBED":
     head = head + "flatbedKa;flatbedKv;flatbedKp;flatbedH"
 
@@ -54,6 +64,8 @@ for row in results:
     # TODO Add more Controller here
     if results[0]["Controller"] == "CACC":
         r = r + ";".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
+    if results[0]["Controller"] == "PLOEG":
+        r = r + ";".join([str(row["ploegKp"]), str(row["ploegKd"])])
     if results[0]["Controller"] == "FLATBED":
         r = r + ";".join([str(row["flatbedKa"]), str(row["flatbedKv"]), str(row["flatbedKp"]), str(row["flatbedH"])])
 

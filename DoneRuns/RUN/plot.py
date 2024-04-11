@@ -43,7 +43,7 @@ def clean_csv_and_create_dataframe(csv_path, removal_list):
 
     return df
 
-def plot_simple_graph(df, x_axis_name, y_axis_name, y_lim = None):
+def plot_simple_graph(df, x_axis_name, y_axis_name, y_lim = None, save_path = None , show=False):
     """
     Plottet einen Graphen basierend auf dem übergebenen DataFrame und den Namen der X- und Y-Achsen.
 
@@ -60,32 +60,14 @@ def plot_simple_graph(df, x_axis_name, y_axis_name, y_lim = None):
     plt.ylabel(y_axis_name)
     if y_lim:
         plt.ylim(y_lim)
-    plt.show()
+    if save_path:
+        plt.savefig(save_path)  # Speichert den Graphen als Datei
+        print(f"Graph wurde als '{save_path}' gespeichert.")
+    if show:
+        plt.show()
+    plt.close()
 
-
-def plot_speed_braking_graph(df, y_axis_name, error, y_lim = None):
-    """
-    Plottet einen Graphen basierend auf dem übergebenen DataFrame und den Namen der X- und Y-Achsen.
-
-    Args:
-    - df: pandas DataFrame, der die Daten enthält.
-    - y_axis_name: Der Name der Spalte im DataFrame, die als Y-Achse dient.
-    """
-    for startBraking in sorted(df['startBraking'].unique()):
-        f_df = df[(df['startBraking'] == startBraking )]
-        plt.plot(f_df["leaderSpeed"], f_df[y_axis_name], label= startBraking)
-
-    plt.title(f'{y_axis_name} vs. LeaderSpeed and frameErrorRate == {error}')
-    plt.grid(True)  # Gitternetzlinien anzeigen
-    plt.legend(loc='upper right')  # Legende anzeigen
-    plt.xlabel("LeaderSpeed")
-    plt.ylabel(y_axis_name)
-    if y_lim:
-        plt.ylim(y_lim)
-    plt.show()
-
-
-def plot_speed_error_graph(df, y_axis_name, y_lim = None):
+def plot_speed_error_graph(df, y_axis_name, y_lim = None, save_path=None, show = False):
     """
     Plottet einen Graphen basierend auf dem übergebenen DataFrame und den Namen der X- und Y-Achsen.
 
@@ -104,85 +86,15 @@ def plot_speed_error_graph(df, y_axis_name, y_lim = None):
     plt.ylabel(y_axis_name)
     if y_lim:
         plt.ylim(y_lim)
-    plt.show()
 
+    if save_path:
+        plt.savefig(save_path)  # Speichert den Graphen als Datei
+        print(f"Graph wurde als '{save_path}' gespeichert.")
+    if show:
+        plt.show()
+    plt.close()
 
-
-def plot_3d_graph(df, y_value):
-    """
-    Erstellt einen 3D-Graphen aus einem gegebenen DataFrame.
-    
-    Args:
-    - df: Der DataFrame, der die Daten enthält.
-    - y_value: Der Name der Spalte, die als Y-Achse verwendet wird.
-    """
-    # Initialisiere einen 3D-Plot
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    
-    # Eindeutige frameErrorRates extrahieren
-    unique_error_rates = np.unique(df['frameErrorRate'])
-
-    # Für jede einzigartige frameErrorRate
-    for error_rate in unique_error_rates:
-        # Filtere den DataFrame für die aktuelle frameErrorRate
-        filtered_df = df[df['frameErrorRate'] == error_rate].sort_values(by=y_value)
-
-        # Werte für Achsen extrahieren
-        x = filtered_df['leaderSpeed']
-        y = filtered_df[y_value]
-        z = filtered_df['frameErrorRate']
-        
-        # Eine Linie für die aktuelle frameErrorRate zeichnen
-        ax.scatter(x, y, z, label=f'Error Rate: {error_rate}')
-    
-    # Titel und Achsenbeschriftungen hinzufügen
-    ax.set_title('3D-Scatter-Plot')
-    ax.set_xlabel('Leader Speed')
-    ax.set_ylabel(y_value)
-    ax.set_zlabel('Frame Error Rate')
-    
-    # Zeige den Plot an
-    plt.show()
-
-def plot_3d_scatter_with_braking_color(df, z_value_key):
-    """
-    Erstellt einen 3D-Scatter-Plot mit leaderSpeed auf der X-Achse, 
-    frameErrorRate auf der Y-Achse und einem dynamischen Z-Wert basierend auf z_value_key.
-    Die Farbe der Punkte basiert auf dem Wert von 'startBraking'.
-    
-    Args:
-    - df: pandas DataFrame, das die Daten enthält.
-    - z_value_key: Der Schlüssel aus dem DataFrame, der für die Z-Werte verwendet wird.
-    """
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    
-    # Daten für X, Y und Z extrahieren
-    xs = df['leaderSpeed']
-    ys = df['frameErrorRate']
-    zs = df[z_value_key]
-    
-    # Farbgebung basierend auf startBraking
-    colors = df['startBraking']
-
-    scatter = ax.scatter(xs, ys, zs, c=colors, cmap='coolwarm', marker='o')
-
-    # Farblegende hinzufügen
-    cbar = fig.colorbar(scatter, ax=ax)
-    cbar.set_label('Start Braking')
-    
-    # Achsenbeschriftungen hinzufügen
-    ax.set_xlabel('Leader Speed')
-    ax.set_ylabel('Frame Error Rate')
-    ax.set_zlabel(z_value_key)
-    
-    # Titel hinzufügen
-    ax.set_title('3D Scatter Plot with Braking Color')
-
-    plt.show()
-
-def plot_speed_braking_graph(df, y_axis_name, y_lim = None):
+def plot_speed_braking_graph(df, y_axis_name, y_lim = None, save_path=None, show=False):
     """
     Plottet einen Graphen basierend auf dem übergebenen DataFrame und den Namen der X- und Y-Achsen.
 
@@ -218,53 +130,77 @@ def plot_speed_braking_graph(df, y_axis_name, y_lim = None):
     # plt.ylabel(y_axis_name)
     if y_lim:
         plt.ylim(y_lim)
-    plt.show()
-
-# csv_path = input("CSV File:")
-# controller = input("Controller:")
-
-
-
-
-
-if "CACC" == "CACC":
-    df = clean_csv_and_create_dataframe(f"C:\\Users\\timos\\OneDrive\\Desktop\\AutoOptSimRunner\\DoneRuns\\RUN\\CACC\\data.csv", ['Hz'])
-    print(df)
-
-    filtered_df = df[(df['startBraking'] == 5) & (df['frameErrorRate'] == 0.0)]
-    print(filtered_df)
-    # plot_simple_graph(filtered_df,"leaderSpeed","caccC1")
-    # plot_simple_graph(filtered_df,"leaderSpeed","caccOmegaN")
-    # plot_simple_graph(filtered_df,"leaderSpeed","caccXi")
-    # plot_simple_graph(filtered_df,"leaderSpeed","value")
-
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"caccC1")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"caccOmegaN")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"caccXi")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"value")
-
-    # for x in [0.0,0.2,0.4,0.6,0.8,0.9,0.95,0.99]:
-    #     plot_speed_braking_graph(df[(df['frameErrorRate'] == x )],"value", x)
-
-    #plot_speed_braking_graph(df[(df['frameErrorRate'] == 0 )],"value")
-
-    # plot_3d_scatter_with_braking_color(df, "caccC1")
-    # plot_3d_lines_by_error_rate(df[(df['startBraking'] == 5)], "caccC1")
+    plt.ylim(bottom=0)
     
-    pass
+    if save_path:
+        plt.savefig(save_path)  # Speichert den Graphen als Datei
+        print(f"Graph wurde als '{save_path}' gespeichert.")
+    if show:
+        plt.show()
+    plt.close()
 
-if "FLATBED" == "FLATBED":
-    df = clean_csv_and_create_dataframe(f"C:\\Users\\timos\\OneDrive\\Desktop\\AutoOptSimRunner\\DoneRuns\\RUN\\FLATBED\\data.csv", ['Hz'])
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"flatbedKa")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"flatbedKv")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"flatbedKp")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"flatbedH")
-    # plot_speed_error_graph(df[(df['startBraking'] == 5 )],"value")
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import pandas as pd
+
+def plot_3d_speed_braking_value(df, save_path= None):
+    color = {
+        5: "#0000FF",  # Blau
+        5.01: "#FF9999",  # Rosa
+        5.05: "#990000",  # Noch dunkleres Rot
+    }
+
+    fig = plt.figure(figsize=(12, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    
+    # Für jede einzigartige startBraking , plotte die leaderSpeed vs. value
+    for errorRate in sorted(df['frameErrorRate'].unique()):
+        for startBraking  in sorted(df['startBraking'].unique()):
+            subset = df[df['frameErrorRate'] == errorRate]
+            subsubset = subset[subset['startBraking'] == startBraking]
+            ax.plot(subsubset['leaderSpeed'], [errorRate]*len(subsubset), zs=subsubset['value'], label=f'{startBraking}', color = color[startBraking])
+    
+    ax.set_xlabel('LeaderSpeed')
+    ax.set_ylabel('FrameErrorRate')
+    ax.set_zlabel('Value')  
+    ax.legend()
+    plt.xlim(left=30)
+    if save_path:
+        plt.savefig(save_path)  # Speichert den Graphen als Datei
+        print(f"Graph wurde als '{save_path}' gespeichert.")
+    if show:
+        plt.show()
+    plt.close()
+
+
+for controller in ["CACC", "PLOEG", "FLATBED"]:
+    show = False
+
+    df = clean_csv_and_create_dataframe(f"C:\\Users\\timos\\OneDrive\\Desktop\\AutoOptSimRunner\\DoneRuns\\RUN\\{controller}\\data.csv", ['Hz', 'ps'])
+    path = "DoneRuns\\RUN"
+    if controller == "CACC":
+        for parameter in ["caccC1","caccOmegaN", "caccXi", "value"]:
+            plot_speed_error_graph(df[(df['startBraking'] == 5 )],parameter, save_path=f"{path}\\CACC\\CACC_Speed&ErrorRate_{parameter}.png", show=show)
+            
+            for x in [0.0,0.2]:
+                u = str(x).replace(".","")
+                plot_simple_graph(df[(df['startBraking'] == 5) & (df['frameErrorRate'] == x)], "leaderSpeed", parameter, save_path=f"{path}\\{controller}\\{controller}_Speed&ErrorRate(set{u})_{parameter}.png", show=show)
+
+    if controller == "PLOEG":
+        for parameter in ["ploegKp","ploegKd"]:
+            plot_speed_error_graph(df[(df['startBraking'] == 5 )],parameter, save_path=f"{path}\\PLOEG\\PLOEG_Speed&ErrorRate_{parameter}.png", show=show)
+
+    if controller == "FLATBED":
+        for parameter in ["flatbedKa","flatbedKv", "flatbedKp","flatbedH"]:
+            plot_speed_error_graph(df[(df['startBraking'] == 5 )],parameter, save_path=f"{path}\\FLATBED\\FLATBED_Speed&ErrorRate_{parameter}.png", show=show)
+
+    plot_speed_error_graph(df[(df['startBraking'] == 5 )],"value", save_path=f"{path}\\{controller}\\{controller}_Speed&ErrorRate_value.png", show=show)
+
+    plot_3d_speed_braking_value(df, save_path=f"{path}\\{controller}\\{controller}_Speed_Braking_value_3D.png")
 
     for x in [0.0,0.2,0.4,0.6,0.8,0.9,0.95,0.99]:
-        plot_speed_braking_graph(df[(df['frameErrorRate'] == x )],"value", x)
-
-
+        u = str(x).replace(".","")
+        plot_speed_braking_graph(df[(df['frameErrorRate'] == x )],"value", x, save_path=f"{path}\\{controller}\\{controller}_Speed_Braking_value_(error{u}).png", show=show)
 
 
 
