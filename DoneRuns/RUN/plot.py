@@ -200,7 +200,7 @@ for controller in ["CACC", "PLOEG", "FLATBED"]:
 
     for x in [0.0,0.2,0.4,0.6,0.8,0.9,0.95,0.99]:
         u = str(x).replace(".","")
-        plot_speed_braking_graph(df[(df['frameErrorRate'] == x )],"value", x, save_path=f"{path}\\{controller}\\{controller}_Speed_Braking_value_(error{u}).png", show=show)
+        plot_speed_braking_graph(df[(df['frameErrorRate'] == x )],"value", x, save_path=f"{path}\\{controller}\\{controller}_Speed_Braking_value_(error{u}).png", show=show, y_lim=[0,6])
 
 
 

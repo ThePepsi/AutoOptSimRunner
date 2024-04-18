@@ -9,6 +9,7 @@ for i, controller in enumerate(l_controller):
     print(f"    ({i+1}) {controller}")
 controller_input = input("Choose Controller Number: ")
 select_controller = l_controller[int(controller_input)-1]
+print(select_controller)
 
 
 # TODO Add more Controller here
@@ -46,11 +47,12 @@ contend = ""
 head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;"
 
 # TODO Add more Controller here
-if results[0]["Controller"] == "CACC":
+
+if select_controller == "CACC":
     head = head + "caccC1;caccOmegaN;caccXi"
-if results[0]["Controller"] == "PLOEG":
+if select_controller == "PLOEG":
     head = head + "ploegKp;ploegKd"
-if results[0]["Controller"] == "FLATBED":
+if select_controller == "FLATBED":
     head = head + "flatbedKa;flatbedKv;flatbedKp;flatbedH"
 
 contend = "\n"+ head
