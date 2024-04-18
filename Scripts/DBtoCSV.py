@@ -44,7 +44,7 @@ conn.close()
 
 contend = ""
 
-head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;"
+head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;crashed;"
 
 # TODO Add more Controller here
 
@@ -62,7 +62,7 @@ for row in results:
     # Calculate the duration between the two datetime objects
     duration = datetime.strptime(row["endtime"], '%Y-%m-%d %H:%M:%S') - datetime.strptime(row["starttime"], '%Y-%m-%d %H:%M:%S')
 
-    r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"]), str(row["value"])]) + ";"
+    r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"]), str(row["value"]), str(row["crashed"])]) + ";"
     # TODO Add more Controller here
     if results[0]["Controller"] == "CACC":
         r = r + ";".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
