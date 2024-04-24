@@ -14,7 +14,7 @@ print(select_controller)
 
 # TODO Add more Controller here
 if select_controller == "ACC":
-    query  = "SELECT RunSim.*, ACC.* FROM RunSim JOIN ACC ON RunSim.data = CCC.id WHERE RunSim.Controller = 'ACC';"
+    query  = "SELECT RunSim.*, ACC.* FROM RunSim JOIN ACC ON RunSim.data = ACC.id WHERE RunSim.Controller = 'ACC';"
 
 if select_controller == "CACC":
     query  = "SELECT RunSim.*, CACC.* FROM RunSim JOIN CACC ON RunSim.data = CACC.id WHERE RunSim.Controller = 'CACC';"
