@@ -197,6 +197,7 @@ def runCrashTest(EnVar, showgui=True):
         command = f"""
 bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c BrakingNoGui -r {c}"
 """
+        print(command)
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
         with open("output_crashTest.txt",'w') as file:
             file.write(result.stdout)
@@ -220,7 +221,7 @@ if __name__ == '__main__':
         
 
         print(f"Step 1: getEnVar")
-        enVar = getEnVarSet(controller="CACC")
+        enVar = getEnVarSet(controller="PLOEG")
         print(enVar)
         print(f"Step 1: done")
 

@@ -3,5 +3,6 @@ src/__pycache__/
 omnetpp.ini
 output.txt
 data.db
+data (copy).db
 output.txt
 config.json
