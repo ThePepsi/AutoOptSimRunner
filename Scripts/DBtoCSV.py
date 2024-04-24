@@ -62,7 +62,7 @@ if select_controller == "PLOEG":
     head = head + "ploegKp;ploegKd"
 if select_controller == "FLATBED":
     head = head + "flatbedKa;flatbedKv;flatbedKp;flatbedH"
-if select_controller == "FLATBED":
+if select_controller == "YAN":
     head = head + "yanBeta;yanGamma;yanKappa;yanEta;yanXi"
 
 contend = "\n"+ head
@@ -74,12 +74,16 @@ for row in results:
 
     r = ";".join([str(row["starttime"]), str(duration) ,str(row["leaderSpeed"]), str(row["frameErrorRate"]), str(row["startBraking"]), str(row["value"]), str(row["crashed"])]) + ";"
     # TODO Add more Controller here
+    if results[0]["Controller"] == "ACC":
+        r = r + ";".join([str(row["accLambda"])])
     if results[0]["Controller"] == "CACC":
         r = r + ";".join([str(row["caccC1"]), str(row["caccOmegaN"]), str(row["caccXi"])])
     if results[0]["Controller"] == "PLOEG":
         r = r + ";".join([str(row["ploegKp"]), str(row["ploegKd"])])
     if results[0]["Controller"] == "FLATBED":
         r = r + ";".join([str(row["flatbedKa"]), str(row["flatbedKv"]), str(row["flatbedKp"]), str(row["flatbedH"])])
+    if results[0]["Controller"] == "YAN":
+        r = r + ";".join([str(row["yanBeta"]), str(row["yanGamma"]), str(row["yanKappa"]), str(row["yanEta"]), str(row["yanXi"])])
 
     
     print(r)
