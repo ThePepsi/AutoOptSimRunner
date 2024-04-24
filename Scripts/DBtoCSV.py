@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 
-l_controller = ["CACC", "PLOEG","FLATBED"]
+l_controller = ["ACC","CACC", "PLOEG","FLATBED","YAN"]
 
 
 db_path = input("DB File:")
