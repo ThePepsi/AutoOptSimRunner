@@ -9,6 +9,16 @@
 # config Stuff
 db_file = "data.db"
 
+controllerNumber = {
+    "ACC": 0, # (0.3 s)
+    # "ACC (1.2 s)": 1, # (1.2 s)
+    "CACC": 2,
+    "PLOEG": 3,
+    "CONSENSUS": 4,
+    "FLATBED": 5,
+    "YAN": 6
+}
+
 def getEnVarSet(controller = None):
     query = f"""
             SELECT controller, leaderSpeed, frameErrorRate, startBraking, data
@@ -155,7 +165,9 @@ def doconfig(enVar):
     try:
         ini_path="/home/plexe/src/simopticon-plexe/examples/platooning/"
         # Copy new config (With $Token) in WorkingDirectory
-        ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetpp.ini"), os.path.dirname(os.path.abspath(__file__)))
+        ConfigGenerator.copy_file_to_folder(os.path.join("configs", "omnetppNEWvm.ini"), os.path.dirname(os.path.abspath(__file__)))
+        # Rename File
+        ConfigGenerator.rename_file("omnetppNEWvm.ini", "omnetpp.ini")        
         # Replace Token with enVar
         ConfigGenerator.replace_tokens_in_ini("omnetpp.ini", ConfigGenerator.keys_in_tokens(enVar))
         # Delete Orginal omnetpp.ini
@@ -177,25 +189,9 @@ def doconfig(enVar):
 def runCrashTest(EnVar, showgui=True):
     import subprocess
 
-    def getControllerNumber(controller):
-        #TODO Add more Controller here
-        match controller:
-            case 'ACC':
-                return 1
-            case 'CACC':
-                return 2
-            case 'PLOEG':
-                return 5
-            case 'FLATBED':
-                return 4
-            case 'YAN':
-                return None
-            case _:
-                raise Exception("Controller not added. FU be clevererererer -__-")
     try:
-        c = getControllerNumber(EnVar["controller"])
         command = f"""
-bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c BrakingNoGui -r {c}"
+bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c BrakingNoGui -r {controllerNumber[EnVar["controller"]]}"
 """
         print(command)
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
