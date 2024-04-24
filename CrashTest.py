@@ -189,6 +189,18 @@ def doconfig(enVar):
 def runCrashTest(EnVar, showgui=True):
     import subprocess
 
+    def extract_time_from_warning(warning_message):
+        import re
+        # Suche nach dem 'time'-Wert im String
+        match = re.search(r"time=(\d+\.\d+)", warning_message)
+        if match:
+            # Konvertiere den gefundenen String in eine Fließkommazahl und gebe ihn zurück
+            return float(match.group(1))
+        else:
+            # Gebe None zurück, wenn kein 'time'-Wert gefunden wurde
+            return None
+
+
     try:
         command = f"""
 bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c BrakingNoGui -r {controllerNumber[EnVar["controller"]]}"
@@ -199,9 +211,10 @@ bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platoon
             file.write(result.stdout)
         if 'collision with vehicle' in result.stderr:
             print(result.stderr)
-            return True
+
+            return extract_time_from_warning(result.stderr)
         elif result.stderr == "":
-            return False
+            return "0"
 
         found = "Warning: Vehicle 'vtypeauto.1'; collision with vehicle 'vtypeauto.0', lane='edge_0_0_0', gap=-0.05, time=6.11 stage=move."
     except FileNotFoundError:
@@ -215,11 +228,15 @@ if __name__ == '__main__':
     input("Press Enter to continue...")
     while(True):
         
-
+        print(f"################################################")
         print(f"Step 1: getEnVar")
-        enVar = getEnVarSet(controller="PLOEG")
+        enVar = getEnVarSet(controller="ACC")
         print(enVar)
         print(f"Step 1: done")
+
+        if enVar == None:
+            print(f"ALL DONE")
+            break
 
         print("Step 2: Config")
         doconfig(enVar)
@@ -230,12 +247,8 @@ if __name__ == '__main__':
         print("Step 3: done")
 
         print("Step 4: save Data") 
-        if isinstance(crashed, bool):
-            addEnVarResult(enVar=enVar, crashed=crashed)
-        else:
-            raise Exception("Something fucked Up happend")
+        addEnVarResult(enVar=enVar, crashed=crashed)
         print("Step 4: done")
-
-
+        print(f"################################################")
 
 pass
