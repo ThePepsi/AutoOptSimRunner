@@ -13,6 +13,9 @@ print(select_controller)
 
 
 # TODO Add more Controller here
+if select_controller == "ACC":
+    query  = "SELECT RunSim.*, ACC.* FROM RunSim JOIN ACC ON RunSim.data = CCC.id WHERE RunSim.Controller = 'ACC';"
+
 if select_controller == "CACC":
     query  = "SELECT RunSim.*, CACC.* FROM RunSim JOIN CACC ON RunSim.data = CACC.id WHERE RunSim.Controller = 'CACC';"
 
@@ -21,6 +24,10 @@ if select_controller == "PLOEG":
 
 if select_controller == "FLATBED":
     query  = "SELECT RunSim.*, FLATBED.* FROM RunSim JOIN FLATBED ON RunSim.data = FLATBED.id WHERE RunSim.Controller = 'FLATBED';"
+
+if select_controller == "YAN":
+    query  = "SELECT RunSim.*, YAN.* FROM RunSim JOIN YAN ON RunSim.data = YAN.id WHERE RunSim.Controller = 'YAN';"
+
 
 
 # Verbindung zur Datenbank herstellen
@@ -47,13 +54,16 @@ contend = ""
 head = "starttime;duration;leaderSpeed;frameErrorRate;startBraking;value;crashed;"
 
 # TODO Add more Controller here
-
+if select_controller == "ACC":
+    head = head + "accLambda"
 if select_controller == "CACC":
     head = head + "caccC1;caccOmegaN;caccXi"
 if select_controller == "PLOEG":
     head = head + "ploegKp;ploegKd"
 if select_controller == "FLATBED":
     head = head + "flatbedKa;flatbedKv;flatbedKp;flatbedH"
+if select_controller == "FLATBED":
+    head = head + "yanBeta;yanGamma;yanKappa;yanEta;yanXi"
 
 contend = "\n"+ head
 print(head)
