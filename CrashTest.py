@@ -94,6 +94,14 @@ def getEnVarSet(controller = None, enVar = None):
                     "frameErrorRate": row[2],
                     "startBraking": row[3]
                 }
+        else:
+            query = f"""
+            SELECT controller, leaderSpeed, frameErrorRate, startBraking, data
+            FROM RunSim 
+            WHERE controller = '{enVar["controller"]}' AND leaderSpeed = '{enVar["leaderSpeed"]}' AND frameErrorRate = '{enVar["frameErrorRate"]}' AND startBraking = '{enVar["startBraking"]}' 
+            """
+            cursor.execute(query)
+            row = cursor.fetchone()
         
         # get Controller Vars
         cursor = conn.cursor()        
@@ -190,8 +198,16 @@ def doconfig(enVar):
         print(e)
         raise Exception   
 
-def runCrashTest(EnVar, showgui=True):
-    import subprocess
+def runCrashTest(EnVar, showgui=True, clean_results = False):
+    import subprocess, os, shutil
+
+    def clean_folder(path):
+        for element in os.listdir(path):
+            element_path = os.path.join(path, element)
+            if os.path.isfile(element_path) or os.path.islink(element_path):
+                os.unlink(element_path)
+            elif os.path.isdir(element_path):
+                shutil.rmtree(element_path)
 
     def extract_time_from_warning(warning_message):
         import re
@@ -203,7 +219,9 @@ def runCrashTest(EnVar, showgui=True):
         else:
             # Gebe None zurück, wenn kein 'time'-Wert gefunden wurde
             return None
-
+    
+    if clean_results:
+        clean_folder("/home/plexe/src/simopticon-plexe/examples/platooning/results")
 
     try:
         command = f"""
@@ -228,20 +246,34 @@ bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platoon
 
 def run_vec2csv():
     from src.ConfigGenerator import ConfigGenerator
-    import subprocess
+    import subprocess, os, fnmatch
+
+    def list_filenames(folder_path, extension):
+        """
+        Returns a list of filenames in the given folder that end with the specified extension.
+        """
+        filenames = []
+        pattern = f"*.{extension}"
+        for entry in os.scandir(folder_path):
+            if entry.is_file() and fnmatch.fnmatch(entry.name, pattern):
+                filenames.append(entry.name)
+        return filenames
     
-
-
-
-    command = f""" ./opp_vec2csv.pl --merge-by em -A configname -P "*.prio" -F posx -F posy -F speed -F distance -F relativeSpeed -F nodeId -F acceleration -F controllerAcceleration Braking_1_0.1_0.vec > output.csv"""
+    files = list_filenames("/home/plexe/src/simopticon-plexe/examples/platooning/results", "vec")
+    if len(files) != 1:
+        raise Exception("Fuck, more then one File")
+    ConfigGenerator.copy_file_to_folder(source=f"/home/plexe/src/simopticon-plexe/examples/platooning/results/{files[0]}", destination="/home/plexe/src/AutoOptSimRunner/result.vec")
+    
+    command = f""" bash -c "cd && cd src/AutoOptSimRunner/ && ./opp_vec2csv.pl --merge-by em -A configname -P "*.prio" -F posx -F posy -F speed -F distance -F relativeSpeed -F nodeId -F acceleration -F controllerAcceleration result.vec > output.csv" """
     try:        
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
-        if result.stdout is not "":
+        if result.stdout != "":
             print(f"------- Output ---------------------------------")
             print(result.stdout)
-        if result.stderr is not "":
+        if result.stderr != "":
             print(f"------- Error ----------------------------------")
             print(result.stderr)
+            print("Maybe do this 'chmod +x opp_vec2csv.pl'")
     except FileNotFoundError:
         print("FileError")
     except Exception as e:
@@ -260,22 +292,30 @@ if __name__ == '__main__':
         gui = (True if input("Gui(y/n)") == "y" else False)
         print(f"################################################")
 
-        enVar = getEnVarSet({
-                    "controller":contoller,
-                    "leaderSpeed": leaderSpeed,
-                    "frameErrorRate":frameErrorRate,
-                    "startBraking": startBraking
+        # enVar = getEnVarSet({
+        #             "controller":contoller,
+        #             "leaderSpeed": leaderSpeed,
+        #             "frameErrorRate":frameErrorRate,
+        #             "startBraking": startBraking
+        #         })
+        enVar = getEnVarSet(enVar = {
+                    "controller":"ACC",
+                    "leaderSpeed": 170,
+                    "frameErrorRate":0.99,
+                    "startBraking": 5.01
                 })
+        
         
         print("Step 2: Config")
         doconfig(enVar)
         print("Step 2: done")
         
         print("Step 3: run CrashTest")
-        crashed = runCrashTest(enVar, showgui= True)
+        crashed = runCrashTest(enVar, showgui= gui)
         print("Step 3: done")
 
         input("Press Enter to continue...")
+        run_vec2csv()
 
     else:
         while(True):
