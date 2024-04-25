@@ -19,7 +19,9 @@ controllerNumber = {
     "YAN": 6
 }
 
-def getEnVarSet(controller = None):
+def getEnVarSet(controller = None, enVar = None):
+    # If EnVar => Only get ConVar from Database
+    # EnVar = { "controller": ?, "leaderSpeed": ?, "frameErrorRate": ?, "startBraking": ?}
     query = f"""
             SELECT controller, leaderSpeed, frameErrorRate, startBraking, data
             FROM RunSim 
@@ -78,18 +80,20 @@ def getEnVarSet(controller = None):
     try:
         conn = connect()
         cursor = conn.cursor()
-        cursor.execute(query)
-        row = cursor.fetchone()
-        
-        if not row:
-            return None
-        
-        enVar = {
-                "controller": row[0],
-                "leaderSpeed": row[1],
-                "frameErrorRate": row[2],
-                "startBraking": row[3]
-            }
+
+        if not enVar:
+            cursor.execute(query)
+            row = cursor.fetchone()
+            
+            if not row:
+                return None
+            
+            enVar = {
+                    "controller": row[0],
+                    "leaderSpeed": row[1],
+                    "frameErrorRate": row[2],
+                    "startBraking": row[3]
+                }
         
         # get Controller Vars
         cursor = conn.cursor()        
@@ -203,7 +207,7 @@ def runCrashTest(EnVar, showgui=True):
 
     try:
         command = f"""
-bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c BrakingNoGui -r {controllerNumber[EnVar["controller"]]}"
+bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platooning && plexe_run -u Cmdenv -c Braking{"" if showgui else "NoGui"} -r {controllerNumber[EnVar["controller"]]}"
 """
         print(command)
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
@@ -222,33 +226,79 @@ bash -c "cd && cd src/simopticon-plexe && source ./setenv && cd examples/platoon
     except Exception as e:
         print(f"Fail: {str(e)}")
 
+def run_vec2csv():
+    from src.ConfigGenerator import ConfigGenerator
+    import subprocess
+    
+
+
+
+    command = f""" ./opp_vec2csv.pl --merge-by em -A configname -P "*.prio" -F posx -F posy -F speed -F distance -F relativeSpeed -F nodeId -F acceleration -F controllerAcceleration Braking_1_0.1_0.vec > output.csv"""
+    try:        
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
+        if result.stdout is not "":
+            print(f"------- Output ---------------------------------")
+            print(result.stdout)
+        if result.stderr is not "":
+            print(f"------- Error ----------------------------------")
+            print(result.stderr)
+    except FileNotFoundError:
+        print("FileError")
+    except Exception as e:
+        print(f"Fail: {str(e)}")
 if __name__ == '__main__':
-    # Only use CACC for now
 
-    input("Press Enter to continue...")
-    while(True):
-        
+    altmode = False
+    inp = input("Press Enter to continue... write a for Alt-mode")
+    if inp == "a":
         print(f"################################################")
-        print(f"Step 1: getEnVar")
-        enVar = getEnVarSet(controller="ACC")
-        print(enVar)
-        print(f"Step 1: done")
+        # Settings
+        contoller = input("Contoller:")
+        leaderSpeed = input("leaderSpeed:")
+        frameErrorRate = input("frameErrorRate:")
+        startBraking = input("startBraking:")
+        gui = (True if input("Gui(y/n)") == "y" else False)
+        print(f"################################################")
 
-        if enVar == None:
-            print(f"ALL DONE")
-            break
-
+        enVar = getEnVarSet({
+                    "controller":contoller,
+                    "leaderSpeed": leaderSpeed,
+                    "frameErrorRate":frameErrorRate,
+                    "startBraking": startBraking
+                })
+        
         print("Step 2: Config")
         doconfig(enVar)
         print("Step 2: done")
-
+        
         print("Step 3: run CrashTest")
-        crashed = runCrashTest(enVar)
+        crashed = runCrashTest(enVar, showgui= True)
         print("Step 3: done")
 
-        print("Step 4: save Data") 
-        addEnVarResult(enVar=enVar, crashed=crashed)
-        print("Step 4: done")
-        print(f"################################################")
+        input("Press Enter to continue...")
 
-pass
+    else:
+        while(True):
+            
+            print(f"################################################")
+            print(f"Step 1: getEnVar")
+            enVar = getEnVarSet(controller="ACC")
+            print(enVar)
+            print(f"Step 1: done")
+
+            if enVar == None:
+                print(f"ALL DONE")
+                break
+
+            print("Step 2: Config")
+            doconfig(enVar)
+            print("Step 2: done")
+
+            print("Step 3: run CrashTest")
+            crashed = runCrashTest(enVar)
+            print("Step 3: done")
+
+            print("Step 4: save Data") 
+            addEnVarResult(enVar=enVar, crashed=crashed)
+            print("Step 4: done")
+            print(f"################################################")
