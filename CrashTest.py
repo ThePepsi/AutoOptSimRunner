@@ -262,6 +262,7 @@ def run_vec2csv():
     files = list_filenames("/home/plexe/src/simopticon-plexe/examples/platooning/results", "vec")
     if len(files) != 1:
         raise Exception("Fuck, more then one File")
+    ConfigGenerator.delete_file("/home/plexe/src/AutoOptSimRunner/result.vec")
     ConfigGenerator.copy_file_to_folder(source=f"/home/plexe/src/simopticon-plexe/examples/platooning/results/{files[0]}", destination="/home/plexe/src/AutoOptSimRunner/result.vec")
     
     command = f""" bash -c "cd && cd src/AutoOptSimRunner/ && ./opp_vec2csv.pl --merge-by em -A configname -P "*.prio" -F posx -F posy -F speed -F distance -F relativeSpeed -F nodeId -F acceleration -F controllerAcceleration result.vec > output.csv" """
@@ -278,6 +279,97 @@ def run_vec2csv():
         print("FileError")
     except Exception as e:
         print(f"Fail: {str(e)}")
+    ConfigGenerator.delete_file("/home/plexe/src/AutoOptSimRunner/result.vec")
+
+def plot():
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import os, re
+
+    def create_files_per_node(df, output_dir):
+        """
+        Erstellt für jeden einzigartigen Wert in der 'node'-Spalte der DataFrame eine eigene Datei.
+        
+        Args:
+        - df: DataFrame, die die Daten enthält.
+        - output_dir: Der Pfad zum Verzeichnis, in dem die Dateien gespeichert werden sollen.
+        
+        Returns:
+        - Eine Liste der erstellten Dateinamen.
+        """
+        # Sicherstellen, dass das Ausgabeverzeichnis existiert
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Eindeutige Werte in der 'node'-Spalte
+        unique_nodes = df['node'].unique()
+        
+        created_files = []  # Liste, um die Namen der erstellten Dateien zu speichern
+        
+        for node in unique_nodes:
+            # Filtern der DataFrame für den aktuellen 'node'-Wert
+            node_df = df[df['node'] == node]
+            
+            # Generieren des Dateinamens basierend auf dem 'node'-Wert
+            # Ersetzen von unerwünschten Zeichen im 'node'-Namen, die Probleme in Dateinamen verursachen könnten
+            safe_node_name = node.replace('.', '_').replace('[', '_').replace(']', '')
+            if "prot" in safe_node_name:
+                break
+            filename = f"{safe_node_name}.csv"
+            
+            # Vollständiger Pfad zur Ausgabedatei
+            file_path = os.path.join(output_dir, filename)
+            
+            # Speichern der gefilterten DataFrame in eine CSV-Datei
+            node_df = node_df.sort_values(by='time')
+            node_df.to_csv(file_path, index=False, sep='\t')
+            
+            # Hinzufügen des Dateinamens zur Liste der erstellten Dateien
+            created_files.append(filename)
+        return created_files
+
+    def plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0):
+        # Iterieren durch jeden Datensatz und Erstellen eines Graphen für jeden
+
+        # Erstellen einer neuen Figure für jeden Datensatz
+        fig, ax = plt.subplots(figsize=(5, 5))
+        
+            
+        for file in os.listdir(f"temp/"):
+            df = pd.read_csv(f"temp/{file}", sep='\t')
+            node_id = int(re.findall(r'\d+', file)[0])
+            ax.plot(df['time'], df[value], label=f'Node {node_id}') 
+
+        ax.set_xlim([tmin, tmax])
+        if ymax != 0 and ymin != 0:
+            ax.set_ylim([ymin, ymax])
+        ax.grid(True)
+        ax.set_xlabel(value)
+        ax.set_ylabel(value_label)
+           
+        # Anzeigen des Titels für jeden Graphen
+        #fig.suptitle(value)
+
+        # Anzeigen der Legende
+        ax.legend(loc='upper right')
+        #ax.legend(loc='lower center', ncol=8, bbox_to_anchor=(0.5, -0.05))
+           
+        # Anpassen des Layouts, um Platz für die Legende zu schaffen
+        plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+
+        plt.title(value)
+            
+        # Anzeigen des Graphen
+        plt.show()
+
+    df = pd.read_csv('output.csv', sep='\t')
+    create_files_per_node(df, "/home/plexe/src/AutoOptSimRunner/temp/")
+    plot_individual_graphs(value="speed", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
+    plot_individual_graphs(value="distance", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
+    plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
+    plot_individual_graphs(value="acceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
+    return 
+
+
 if __name__ == '__main__':
 
     altmode = False
@@ -292,18 +384,18 @@ if __name__ == '__main__':
         gui = (True if input("Gui(y/n)") == "y" else False)
         print(f"################################################")
 
-        # enVar = getEnVarSet({
-        #             "controller":contoller,
-        #             "leaderSpeed": leaderSpeed,
-        #             "frameErrorRate":frameErrorRate,
-        #             "startBraking": startBraking
-        #         })
-        enVar = getEnVarSet(enVar = {
-                    "controller":"ACC",
-                    "leaderSpeed": 170,
-                    "frameErrorRate":0.99,
-                    "startBraking": 5.01
+        enVar = getEnVarSet(enVar={
+                    "controller":contoller,
+                    "leaderSpeed": leaderSpeed,
+                    "frameErrorRate":frameErrorRate,
+                    "startBraking": startBraking
                 })
+        # enVar = getEnVarSet(enVar = {
+        #             "controller":"ACC",
+        #             "leaderSpeed": 170,
+        #             "frameErrorRate":0.99,
+        #             "startBraking": 5.01
+        #         })
         
         
         print("Step 2: Config")
@@ -316,6 +408,7 @@ if __name__ == '__main__':
 
         input("Press Enter to continue...")
         run_vec2csv()
+        plot()
 
     else:
         while(True):

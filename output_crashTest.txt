@@ -9,30 +9,45 @@ Loading NED files from ../../src/plexe:  36
 Loading NED files from .:  1
 
 Preparing for running configuration BrakingNoGui, run #0...
-Scenario: $nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.108, $controller=0, $headway=0.3, $leaderHeadway=1.2, $leaderSpeed=170, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController="ACC", $0=2, $1=0.3, $repetition=0
-Assigned runID=BrakingNoGui-0-20240423-20:54:20-29097
+Scenario: $nCars=8, $platoonSize=8, $nLanes=1, $ploegH=0.108, $controller=0, $headway=0.3, $leaderHeadway=1.2, $leaderSpeed=150, $beaconInterval=0.1, $priority=4, $packetSize=200, $sController="ACC", $0=2, $1=0.3, $repetition=0
+Assigned runID=BrakingNoGui-0-20240425-01:31:07-46650
 Setting up network "Highway"...
 Initializing...
 
 Running simulation...
-** Event #0   t=0   Elapsed: 4.3e-05s (0m 00s)  0% completed  (0% total)
+** Event #0   t=0   Elapsed: 2.2e-05s (0m 00s)  0% completed  (0% total)
      Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
      Messages:  created: 3   present: 3   in FES: 4
-Step #0.00 (0ms ?*RT. ?UPS, TraCI: 50ms, vehicles TOT 0 ACT 0 BUF 0)                      
-Step #1.00 (0ms ?*RT. ?UPS, TraCI: 1ms, vehicles TOT 8 ACT 8 BUF 0)                       
-Step #2.00 (0ms ?*RT. ?UPS, TraCI: 4ms, vehicles TOT 8 ACT 8 BUF 0)                       
-Step #3.00 (0ms ?*RT. ?UPS, TraCI: 3ms, vehicles TOT 8 ACT 8 BUF 0)                       
-Step #4.00 (1ms ~= 10.00*RT, ~8000.00UPS, TraCI: 3ms, vehicles TOT 8 ACT 8 BUF 0)         
-Step #5.00 (0ms ?*RT. ?UPS, TraCI: 3ms, vehicles TOT 8 ACT 8 BUF 0)                       
-Step #6.00 (0ms ?*RT. ?UPS, TraCI: 3ms, vehicles TOT 8 ACT 8 BUF 0)                       
-Step #7.00 (0ms ?*RT. ?UPS, TraCI: 4ms, vehicles TOT 8 ACT 8 BUF 0)                       
-** Event #25587   t=7.811   Elapsed: 1.67471s (0m 01s)  13% completed  (13% total)
-     Speed:     ev/sec=15278.7   simsec/sec=4.66357   ev/simsec=3276.18
-     Messages:  created: 20584   present: 150   in FES: 27
+** Event #94720   t=18.413566810816   Elapsed: 10.0262s (0m 10s)  92% completed  (92% total)
+     Speed:     ev/sec=9447.37   simsec/sec=1.83655   ev/simsec=5144.09
+     Messages:  created: 81787   present: 151   in FES: 27
+** Event #103328   t=20   Elapsed: 11.2012s (0m 11s)  100% completed  (100% total)
+     Speed:     ev/sec=7324.84   simsec/sec=1.35011   ev/simsec=5425.38
+     Messages:  created: 89214   present: 148   in FES: 25
 
-<!> Simulation stopped with endSimulation() -- in module (plexe::SimplePlatooningApp) Highway.node[3].appl (id=41), at t=7.811s, event #25587
+<!> Simulation time limit reached -- at t=20s, event #103328
 
 Calling finish() at end of Run #0...
-Step #7.81 (0ms ?*RT. ?UPS, TraCI: 18ms, vehicles TOT 8 ACT 8 BUF 0)                      
 
 End.
+Step #0.00 (0ms ?*RT. ?UPS, TraCI: 30ms, vehicles TOT 0 ACT 0 BUF 0)                      
+Step #1.00 (0ms ?*RT. ?UPS, TraCI: 2ms, vehicles TOT 8 ACT 8 BUF 0)                       
+Step #2.00 (1ms ~= 10.00*RT, ~8000.00UPS, TraCI: 14ms, vehicles TOT 8 ACT 8 BUF 0)        
+Step #3.00 (0ms ?*RT. ?UPS, TraCI: 28ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #4.00 (0ms ?*RT. ?UPS, TraCI: 7ms, vehicles TOT 8 ACT 8 BUF 0)                       
+Step #5.00 (0ms ?*RT. ?UPS, TraCI: 7ms, vehicles TOT 8 ACT 8 BUF 0)                       
+Step #6.00 (0ms ?*RT. ?UPS, TraCI: 16ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #7.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #8.00 (0ms ?*RT. ?UPS, TraCI: 36ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #9.00 (0ms ?*RT. ?UPS, TraCI: 7ms, vehicles TOT 8 ACT 8 BUF 0)                       
+Step #10.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #11.00 (0ms ?*RT. ?UPS, TraCI: 10ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #12.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #13.00 (0ms ?*RT. ?UPS, TraCI: 4ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #14.00 (0ms ?*RT. ?UPS, TraCI: 36ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #15.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #16.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #17.00 (0ms ?*RT. ?UPS, TraCI: 0ms, vehicles TOT 8 ACT 8 BUF 0)                      
+Step #18.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #19.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 8 ACT 8 BUF 0)                     
+Step #20.00 (0ms ?*RT. ?UPS, TraCI: 40ms, vehicles TOT 8 ACT 8 BUF 0)                     
