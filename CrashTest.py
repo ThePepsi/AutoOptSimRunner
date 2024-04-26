@@ -263,6 +263,7 @@ def run_vec2csv():
     if len(files) != 1:
         raise Exception("Fuck, more then one File")
     ConfigGenerator.delete_file("/home/plexe/src/AutoOptSimRunner/result.vec")
+    ConfigGenerator.delete_file("/home/plexe/src/AutoOptSimRunner/output.csv")
     ConfigGenerator.copy_file_to_folder(source=f"/home/plexe/src/simopticon-plexe/examples/platooning/results/{files[0]}", destination="/home/plexe/src/AutoOptSimRunner/result.vec")
     
     command = f""" bash -c "cd && cd src/AutoOptSimRunner/ && ./opp_vec2csv.pl --merge-by em -A configname -P "*.prio" -F posx -F posy -F speed -F distance -F relativeSpeed -F nodeId -F acceleration -F controllerAcceleration result.vec > output.csv" """
@@ -281,7 +282,8 @@ def run_vec2csv():
         print(f"Fail: {str(e)}")
     ConfigGenerator.delete_file("/home/plexe/src/AutoOptSimRunner/result.vec")
 
-def plot():
+def plot(enVar, showplot):
+    from src.ConfigGenerator import ConfigGenerator
     import matplotlib.pyplot as plt
     import pandas as pd
     import os, re
@@ -312,26 +314,25 @@ def plot():
             # Generieren des Dateinamens basierend auf dem 'node'-Wert
             # Ersetzen von unerwünschten Zeichen im 'node'-Namen, die Probleme in Dateinamen verursachen könnten
             safe_node_name = node.replace('.', '_').replace('[', '_').replace(']', '')
-            if "prot" in safe_node_name:
-                break
-            filename = f"{safe_node_name}.csv"
-            
-            # Vollständiger Pfad zur Ausgabedatei
-            file_path = os.path.join(output_dir, filename)
-            
-            # Speichern der gefilterten DataFrame in eine CSV-Datei
-            node_df = node_df.sort_values(by='time')
-            node_df.to_csv(file_path, index=False, sep='\t')
-            
-            # Hinzufügen des Dateinamens zur Liste der erstellten Dateien
-            created_files.append(filename)
+            if "prot" not in safe_node_name:
+                filename = f"{safe_node_name}.csv"
+                
+                # Vollständiger Pfad zur Ausgabedatei
+                file_path = os.path.join(output_dir, filename)
+                
+                # Speichern der gefilterten DataFrame in eine CSV-Datei
+                node_df = node_df.sort_values(by='time')
+                node_df.to_csv(file_path, index=False, sep='\t')
+                
+                # Hinzufügen des Dateinamens zur Liste der erstellten Dateien
+                created_files.append(filename)
         return created_files
 
-    def plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0):
+    def plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0, show = False, save_path = None):
         # Iterieren durch jeden Datensatz und Erstellen eines Graphen für jeden
 
         # Erstellen einer neuen Figure für jeden Datensatz
-        fig, ax = plt.subplots(figsize=(5, 5))
+        fig, ax = plt.subplots(figsize=(10, 5))
         
             
         for file in os.listdir(f"temp/"):
@@ -359,14 +360,20 @@ def plot():
         plt.title(value)
             
         # Anzeigen des Graphen
-        plt.show()
+        if save_path:
+            plt.savefig(save_path)  # Speichert den Graphen als Datei
+            print(f"Graph wurde als '{save_path}' gespeichert.")
+        if show:
+            plt.show()
 
+    path = "/home/plexe/src/AutoOptSimRunner"
     df = pd.read_csv('output.csv', sep='\t')
-    create_files_per_node(df, "/home/plexe/src/AutoOptSimRunner/temp/")
-    plot_individual_graphs(value="speed", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
-    plot_individual_graphs(value="distance", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
-    plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
-    plot_individual_graphs(value="acceleration", value_label="Zeit (s)", tmin=0, tmax=60, ymin=0, ymax=0)
+    create_files_per_node(df, f"{path}/temp/")
+    plot_individual_graphs(value="speed", value_label="Zeit (s)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-speed.png")
+    plot_individual_graphs(value="distance", value_label="Zeit (s)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-distance.png")
+    plot_individual_graphs(value="controllerAcceleration", value_label="Zeit (s)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-controllerAcceleration.png")
+    plot_individual_graphs(value="acceleration", value_label="Zeit (s)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-acceleration.png")   
+    ConfigGenerator.delete_folder(f"{path}/temp/")
     return 
 
 
@@ -382,6 +389,7 @@ if __name__ == '__main__':
         frameErrorRate = input("frameErrorRate:")
         startBraking = input("startBraking:")
         gui = (True if input("Gui(y/n)") == "y" else False)
+        showPlot = (True if input("showPlot(y/n)") == "y" else False)
         print(f"################################################")
 
         enVar = getEnVarSet(enVar={
@@ -403,19 +411,19 @@ if __name__ == '__main__':
         print("Step 2: done")
         
         print("Step 3: run CrashTest")
-        crashed = runCrashTest(enVar, showgui= gui)
+        crashed = runCrashTest(enVar, showgui= gui, clean_results=True)
         print("Step 3: done")
 
         input("Press Enter to continue...")
         run_vec2csv()
-        plot()
+        plot(enVar,showPlot)
 
     else:
         while(True):
             
             print(f"################################################")
             print(f"Step 1: getEnVar")
-            enVar = getEnVarSet(controller="ACC")
+            enVar = getEnVarSet()
             print(enVar)
             print(f"Step 1: done")
 
@@ -428,7 +436,7 @@ if __name__ == '__main__':
             print("Step 2: done")
 
             print("Step 3: run CrashTest")
-            crashed = runCrashTest(enVar)
+            crashed = runCrashTest(enVar, showgui=False)
             print("Step 3: done")
 
             print("Step 4: save Data") 
