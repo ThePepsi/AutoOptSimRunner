@@ -372,8 +372,8 @@ def plot(enVar, showplot):
     create_files_per_node(df, f"{path}/temp/")
     plot_individual_graphs(value="speed", value_label="vehicle speed (m/s)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-speed.png")
     plot_individual_graphs(value="distance", value_label="inter-vehicle gap (m)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-distance.png")
-    plot_individual_graphs(value="controllerAcceleration", value_label="acceleration (m/n^2)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-controllerAcceleration.png")
-    plot_individual_graphs(value="acceleration", value_label="acceleration (m/n^2)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-acceleration.png")   
+    plot_individual_graphs(value="controllerAcceleration", value_label="acceleration (m/s^2)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-controllerAcceleration.png")
+    plot_individual_graphs(value="acceleration", value_label="acceleration (m/s^2)", tmin=0, tmax=20, ymin=0, ymax=0, show=showplot, save_path=f"{path}/crashPlot/{enVar['controller']}-{enVar['leaderSpeed']}-{enVar['frameErrorRate'].replace('.','')}-{enVar['startBraking']}-acceleration.png")   
     ConfigGenerator.delete_folder(f"{path}/temp/")
     return 
 
