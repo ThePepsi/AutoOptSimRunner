@@ -335,17 +335,17 @@ def plot(enVar, showplot):
         fig, ax = plt.subplots(figsize=(10, 5))
         
             
-        for file in os.listdir(f"temp/"):
+        for file in sorted(os.listdir(f"temp/")):
             df = pd.read_csv(f"temp/{file}", sep='\t')
             node_id = int(re.findall(r'\d+', file)[0])
-            if node_id is not 0:
+            if node_id != 0:
                 ax.plot(df['time'], df[value], label=f'Node {node_id}') 
 
         ax.set_xlim([tmin, tmax])
         if ymax != 0 and ymin != 0:
             ax.set_ylim([ymin, ymax])
         ax.grid(True)
-        ax.set_xlabel(value)
+        ax.set_xlabel("time (s)")
         ax.set_ylabel(value_label)
            
         # Anzeigen des Titels für jeden Graphen
