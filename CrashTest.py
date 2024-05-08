@@ -345,8 +345,18 @@ def plot(enVar, showplot):
         if ymax != 0 and ymin != 0:
             ax.set_ylim([ymin, ymax])
         ax.grid(True)
-        ax.set_xlabel("time (s)")
-        ax.set_ylabel(value_label)
+        ax.set_xlabel("time (s)", fontsize = 20)
+        ax.set_ylabel(value_label, fontsize=20)
+
+        plt.tick_params(axis='x', labelsize=20)
+        plt.tick_params(axis='y', labelsize=20)
+
+        # Dicke der Spines (x- und y-Achsenlinien) anpassen
+        ax = plt.gca()  # Gibt das aktuelle Axes-Objekt zurück
+        ax.spines['top'].set_linewidth(1)    # Dicke der oberen Linie anpassen
+        ax.spines['bottom'].set_linewidth(2) # Dicke der unteren Linie anpassen
+        ax.spines['left'].set_linewidth(2)   # Dicke der linken Linie anpassen
+        ax.spines['right'].set_linewidth(2)  # Dicke der rechten Linie anpassen
            
         # Anzeigen des Titels für jeden Graphen
         #fig.suptitle(value)
@@ -358,7 +368,7 @@ def plot(enVar, showplot):
         # Anpassen des Layouts, um Platz für die Legende zu schaffen
         plt.tight_layout(rect=[0, 0.05, 1, 0.95])
 
-        plt.title(value)
+        plt.title(value, fontsize = 20)
             
         # Anzeigen des Graphen
         if save_path:
